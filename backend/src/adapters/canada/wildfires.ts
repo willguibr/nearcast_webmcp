@@ -16,6 +16,8 @@ export function cwfifUrl(now: Date): string {
     "service=WFS", "version=2.0.0", "request=GetFeature",
     "typeNames=public:cwfif_national_activefires",
     "outputFormat=application/json", "count=3000",
+    // Only the attributes we normalize (the feed's WGS84 lat/lon columns replace the EPSG:3978 geometry) — roughly halves the payload.
+    `propertyName=${encodeURIComponent("national_fire_id,agency_fire_id,agency_code,stage_of_control_status,fire_size,percent_contained,national_fire_cause,response_type,status_date,situation_report_date,latitude,longitude")}`,
     `cql_filter=${encodeURIComponent(cql)}`,
   ];
   return `https://geoserver.cwfif.nrcan.gc.ca/geoserver/wfs?${params.join("&")}`;
