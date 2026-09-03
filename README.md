@@ -4,6 +4,8 @@ Nearcast turns fragmented official hazard information from Canada and the United
 
 Built for the [OpenAI WebMCP Challenge](https://webmcp.devpost.com/). Not affiliated with any government agency.
 
+**Live:** https://hazards.securitygeek.io (CloudFront origin: https://dof7zqxufissn.cloudfront.net)
+
 ## What it does
 
 - One interactive MapLibre map of current **wildfires**, **weather alerts** and **earthquakes** across Canada, the contiguous US and Alaska.
@@ -130,8 +132,8 @@ Optional and never on the critical path. Register the domain or create the hoste
 
 ```hcl
 enable_custom_domain = true
-domain_name          = "hazards.example.com"
-hosted_zone_id       = "Z..."
+domain_name          = "hazards.securitygeek.io"   # the production deployment uses this
+hosted_zone_id       = "Z..."                        # Route 53 zone that is authoritative for the parent domain
 ```
 
 Terraform creates the ACM certificate in `us-east-1` with DNS validation and A/AAAA alias records to CloudFront. The `*.cloudfront.net` URL keeps working either way.

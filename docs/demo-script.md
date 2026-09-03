@@ -1,6 +1,6 @@
 # Demo video script (target 2:00–2:30, audio narration)
 
-Record at 1440×900 or larger in ChatGPT's in-app browser (or Chrome with WebMCP enabled). Keep the Agent Activity panel visible throughout. Use live data; keep `?demo=true` ready as a fallback.
+Record at 1440×900 or larger in the ChatGPT desktop app's built-in browser (⌘+Shift+B, open https://hazards.securitygeek.io). Verified working with GPT-5.6 Sol on 2026-09-03. Keep the Agent Activity panel visible throughout. Use live data; keep `?demo=true` ready as a fallback.
 
 | Time | On screen | Narration |
 |---|---|---|

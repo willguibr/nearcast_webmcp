@@ -48,4 +48,4 @@ Evacuation orders (BC first), air quality, region-aware summaries with time wind
 
 ## Testing instructions
 
-Open the live URL in ChatGPT's in-app browser or Chrome 149+ with `chrome://flags/#enable-webmcp-testing`. No login. Suggested prompts: "What am I currently looking at?", "Focus on British Columbia and Washington and show only wildfires and important weather alerts.", click any marker then "Tell me about the hazard I just selected.", "Compare British Columbia and Washington.", "Give me a situation brief for the region I am viewing." Append `?demo=true` for synthetic, clearly labelled demo data.
+Open https://hazards.securitygeek.io in the ChatGPT desktop app's built-in browser (⌘+Shift+B) or Chrome 149+ with `chrome://flags/#enable-webmcp-testing`. No login. Suggested prompts: "What am I currently looking at?", "Focus on British Columbia and Washington and show only wildfires and important weather alerts.", click any marker then "Tell me about the hazard I just selected.", "Compare British Columbia and Washington.", "Give me a situation brief for the region I am viewing." Append `?demo=true` for synthetic, clearly labelled demo data.
