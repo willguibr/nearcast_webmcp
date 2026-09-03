@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14253c"/>
+      <stop offset="1" stop-color="#22405f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="800" cy="420" rx="420" ry="300" fill="url(#glow)"/>
+
+  <!-- abstract landmass (stylized, not a real map) -->
+  <g transform="translate(560,120)">
+    <path d="M60 210 C40 150 110 90 190 70 C260 50 330 40 400 60 C470 80 520 130 540 190 C560 250 530 300 500 340 C470 380 430 420 380 450 C330 480 270 470 230 430 C190 390 150 370 110 340 C70 310 80 270 60 210 Z"
+          fill="#e9eff6" fill-opacity="0.10" stroke="#e9eff6" stroke-opacity="0.35" stroke-width="2"/>
+    <!-- dashed border line -->
+    <path d="M70 245 L525 245" stroke="#f0a04b" stroke-width="3" stroke-dasharray="14 10" stroke-opacity="0.9"/>
+    <text x="536" y="250" fill="#f0a04b" font-size="18" font-weight="600" opacity="0.9">49°N</text>
+    <text x="150" y="150" fill="#e9eff6" font-size="22" font-weight="600" opacity="0.7" letter-spacing="3">CANADA</text>
+    <text x="180" y="360" fill="#e9eff6" font-size="22" font-weight="600" opacity="0.7" letter-spacing="3">UNITED STATES</text>
+
+    <!-- cluster circles -->
+    <g font-weight="700" font-size="20" fill="#fff" text-anchor="middle">
+      <circle cx="180" cy="200" r="34" fill="#d9531e" stroke="#fff" stroke-width="3"/><text x="180" y="207">240</text>
+      <circle cx="300" cy="120" r="26" fill="#d9531e" stroke="#fff" stroke-width="3"/><text x="300" y="127">136</text>
+      <circle cx="420" cy="180" r="22" fill="#2f6fcf" stroke="#fff" stroke-width="3"/><text x="420" y="187">42</text>
+      <circle cx="120" cy="300" r="24" fill="#7a4fbf" stroke="#fff" stroke-width="3"/><text x="120" y="307">17</text>
+      <circle cx="330" cy="310" r="20" fill="#2f6fcf" stroke="#fff" stroke-width="3"/><text x="330" y="317">27</text>
+      <circle cx="440" cy="330" r="18" fill="#d9531e" stroke="#fff" stroke-width="3"/><text x="440" y="337">21</text>
+      <circle cx="250" cy="250" r="12" fill="#7a4fbf" stroke="#fff" stroke-width="3"/>
+      <!-- selected marker ring -->
+      <circle cx="250" cy="250" r="24" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="6 5"/>
+    </g>
+  </g>
+
+  <!-- brand mark -->
+  <g transform="translate(80,84)">
+    <rect width="72" height="72" rx="18" fill="#ffffff" fill-opacity="0.10"/>
+    <circle cx="36" cy="36" r="20" fill="none" stroke="#e7eef8" stroke-width="6"/>
+    <circle cx="36" cy="36" r="7" fill="#f0a04b"/>
+  </g>
+  <text x="172" y="120" fill="#ffffff" font-size="54" font-weight="800" letter-spacing="1">Nearcast</text>
+  <text x="174" y="158" fill="#c9d6e6" font-size="24" font-weight="500">Cross-Border Hazard Awareness</text>
+
+  <!-- hazard legend with icons -->
+  <g transform="translate(80,300)" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(0,0)">
+      <rect width="380" height="86" rx="16" fill="#ffffff" fill-opacity="0.07"/>
+      <g transform="translate(22,18) scale(2.1)" stroke="#f26b3a"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-1.5.5-2.5 1.5-3.5.2 1.2.8 2 1.5 2.5C11.5 8 11 5.5 12 3z" fill="#f26b3a" fill-opacity="0.35"/><path d="M8 13.5c-1.5 1.5-2 3-2 4.5a6 6 0 0 0 12 0c0-1.5-.5-3-2-4.5"/></g>
+      <text x="92" y="38" fill="#ffffff" font-size="26" font-weight="700" stroke="none">Wildfires</text>
+      <text x="92" y="66" fill="#c9d6e6" font-size="17" stroke="none">NRCan CWFIS · NIFC</text>
+    </g>
+    <g transform="translate(0,104)">
+      <rect width="380" height="86" rx="16" fill="#ffffff" fill-opacity="0.07"/>
+      <g transform="translate(22,18) scale(2.1)" stroke="#5b95ec"><path d="M7 15a4 4 0 0 1-.5-8 5.5 5.5 0 0 1 10.6 1.5A3.5 3.5 0 0 1 17 15H7z" fill="#5b95ec" fill-opacity="0.3"/><path d="M12 15l-2 4h4l-2 4"/></g>
+      <text x="92" y="38" fill="#ffffff" font-size="26" font-weight="700" stroke="none">Weather alerts</text>
+      <text x="92" y="66" fill="#c9d6e6" font-size="17" stroke="none">ECCC · NWS</text>
+    </g>
+    <g transform="translate(0,208)">
+      <rect width="380" height="86" rx="16" fill="#ffffff" fill-opacity="0.07"/>
+      <g transform="translate(22,18) scale(2.1)" stroke="#a682e6"><path d="M2 12h3l2-6 3 12 3-9 2 5 2-2h5"/></g>
+      <text x="92" y="38" fill="#ffffff" font-size="26" font-weight="700" stroke="none">Earthquakes</text>
+      <text x="92" y="66" fill="#c9d6e6" font-size="17" stroke="none">Earthquakes Canada · USGS</text>
+    </g>
+  </g>
+
+  <!-- WebMCP badge -->
+  <g transform="translate(80,660)">
+    <rect width="500" height="64" rx="32" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.25"/>
+    <circle cx="34" cy="32" r="9" fill="#4ade80"/>
+    <circle cx="34" cy="32" r="15" fill="none" stroke="#4ade80" stroke-opacity="0.35" stroke-width="4"/>
+    <text x="60" y="41" fill="#ffffff" font-size="24" font-weight="700">Powered by WebMCP</text>
+    <text x="318" y="41" fill="#c9d6e6" font-size="20">· 8 agent tools</text>
+  </g>
+  <text x="1120" y="742" text-anchor="end" fill="#c9d6e6" font-size="19" opacity="0.85">Humans and AI agents, one shared map of official hazard data.</text>
+</svg>
