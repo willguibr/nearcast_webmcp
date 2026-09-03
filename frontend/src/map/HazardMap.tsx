@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import maplibregl, { type GeoJSONSource, type MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { Feature, FeatureCollection, Point } from "geojson";
@@ -83,17 +83,28 @@ function addLayers(map: maplibregl.Map) {
   map.addLayer({ id: "selected-ring", type: "circle", source: "selected", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-radius": 16, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": "#111827", "circle-stroke-width": 3 } });
 }
 
+function webglSupported(): boolean {
+  try {
+    const c = document.createElement("canvas");
+    return Boolean(c.getContext("webgl2") || c.getContext("webgl"));
+  } catch { return false; }
+}
+
 export function HazardMap() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const readyRef = useRef(false);
+  const [mapError, setMapError] = useState<string | null>(null);
   const filtered = useAppState(selectFilteredHazards);
   const selected = useAppState(selectSelectedHazard);
   const camera = useAppState((s) => s.camera);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
-    const map = new maplibregl.Map({
+    if (!webglSupported()) { setMapError("WebGL is not available in this browser, so the map cannot render. Filters, the hazard list, details and WebMCP tools still work."); return; }
+    let map: maplibregl.Map;
+    try {
+      map = new maplibregl.Map({
       container: containerRef.current,
       style: BASEMAP_STYLE_URL,
       bounds: [[NORTH_AMERICA_BBOX[0], NORTH_AMERICA_BBOX[1]], [NORTH_AMERICA_BBOX[2], NORTH_AMERICA_BBOX[3]]],
@@ -102,6 +113,11 @@ export function HazardMap() {
       maxZoom: 15,
       minZoom: 1.5,
     });
+    } catch (e) {
+      console.error("MapLibre failed to initialise", e);
+      setMapError(`The map could not be initialised (${e instanceof Error ? e.message : "unknown error"}). Filters, the hazard list, details and WebMCP tools still work.`);
+      return;
+    }
     mapRef.current = map;
     if (import.meta.env.DEV) (window as unknown as { __nearcastMap?: maplibregl.Map }).__nearcastMap = map;
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: false }), "top-right");
@@ -176,5 +192,10 @@ export function HazardMap() {
     if (readyRef.current) apply(); else map.once("load", apply);
   }, [camera]);
 
-  return <div ref={containerRef} className="map" role="region" aria-label="Hazard map" />;
+  return (
+    <>
+      <div ref={containerRef} className="map" role="region" aria-label="Hazard map" />
+      {mapError && <div className="map-fallback" role="alert">{mapError}</div>}
+    </>
+  );
 }

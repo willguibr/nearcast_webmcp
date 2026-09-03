@@ -12,6 +12,7 @@ import { HazardDetails } from "./components/HazardDetails.tsx";
 import { AgentActivity } from "./components/AgentActivity.tsx";
 import { Legend } from "./components/Legend.tsx";
 import { Disclaimer } from "./components/Disclaimer.tsx";
+import { ErrorBoundary } from "./components/ErrorBoundary.tsx";
 
 const REFRESH_MS = 3 * 60 * 1000;
 
@@ -60,7 +61,9 @@ export default function App() {
       {mock && <div className="banner banner-demo">DEMO DATA — synthetic hazards for demonstration only. This is not live government information.</div>}
       <main className="main">
         <div className="map-wrap">
-          <HazardMap />
+          <ErrorBoundary fallback={(e) => <div className="map-fallback" role="alert">The map failed to render ({e.message}). The rest of Nearcast, including the WebMCP tools, keeps working.</div>}>
+            <HazardMap />
+          </ErrorBoundary>
           <Legend />
         </div>
         <div className="panels">

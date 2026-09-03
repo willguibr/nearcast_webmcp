@@ -146,3 +146,5 @@ code { font-size: 11.5px; background: var(--bg); padding: 1px 4px; border-radius
 .col > .panel, .col-details > .panel { min-width: 0; overflow-x: hidden; }
 .hazard-list li, .hazard-row { min-width: 0; }
 .details-head h2 { min-width: 0; overflow-wrap: anywhere; }
+
+.map-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; background: #e9edf2; color: var(--text); font-size: 14px; }
