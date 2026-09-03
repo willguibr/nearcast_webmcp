@@ -7,7 +7,7 @@ import type { ModelContext, ModelContextToolDefinition } from "../types/webmcp.d
  * for a real agent host; the UI labels it "emulated".
  */
 export function installEmulatedHost(): boolean {
-  if (typeof window === "undefined") return false;
+  if (typeof window === "undefined" || !import.meta.env.DEV) return false; // never in production builds
   const q = new URLSearchParams(window.location.search);
   if (q.get("webmcp") !== "emulate") return false;
   if (document.modelContext?.registerTool || navigator.modelContext?.registerTool) return false;
