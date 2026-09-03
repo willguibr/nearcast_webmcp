@@ -3,6 +3,7 @@ import type { Hazard } from "@nearcast/shared";
 import { applyFilters, parseFilters } from "../services/filters.ts";
 import { computeSummary } from "../services/summary.ts";
 import { loadHazards, clearSnapshotCache } from "../services/hazard-service.ts";
+import { runAdapter, clearLastGood } from "../services/source-service.ts";
 import { createHandler } from "../handlers/api.ts";
 import type { SourceAdapter } from "../domain/hazard.ts";
 import type { APIGatewayProxyEventV2 } from "aws-lambda";
@@ -102,6 +103,26 @@ describe("computeSummary", () => {
 const okAdapter: SourceAdapter = { id: "usgs", agency: "A", country: "US", fetch: async () => ({ hazards: [H[4]] }) };
 const failAdapter: SourceAdapter = { id: "cwfis", agency: "B", country: "CA", fetch: async () => { throw new Error("HTTP 503"); } };
 const slowAdapter: SourceAdapter = { id: "nws", agency: "C", country: "US", fetch: async ({ timeoutMs }) => { throw Object.assign(new Error("timeout"), { name: "AbortError" }); } };
+
+describe("runAdapter stale fallback", () => {
+  it("serves the last good snapshot when a source later fails", async () => {
+    clearLastGood();
+    let fail = false;
+    const flaky: SourceAdapter = { id: "cwfis", agency: "B", country: "CA", fetch: async () => { if (fail) throw new Error("HTTP 504"); return { hazards: [H[0]] }; } };
+    const first = await runAdapter(flaky, new Date("2026-09-03T10:00:00Z"));
+    expect(first.meta.status).toBe("available");
+    fail = true;
+    const second = await runAdapter(flaky, new Date("2026-09-03T10:05:00Z"));
+    expect(second.meta.status).toBe("stale");
+    expect(second.hazards.map((h) => h.id)).toEqual(["cwfis:1"]);
+    expect(second.meta.retrievedAt).toBe("2026-09-03T10:00:00.000Z");
+    expect(second.meta.error).toContain("504");
+    const tooOld = await runAdapter(flaky, new Date("2026-09-03T20:00:00Z"));
+    expect(tooOld.meta.status).toBe("error");
+    expect(tooOld.hazards).toEqual([]);
+    clearLastGood();
+  });
+});
 
 describe("loadHazards", () => {
   it("keeps working when some sources fail", async () => {

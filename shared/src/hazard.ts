@@ -104,14 +104,15 @@ export interface Hazard {
   weather?: WeatherAttributes;
 }
 
-export type SourceStatus = "available" | "error" | "timeout" | "disabled";
+/** "stale" = the live fetch failed and Nearcast is serving the last successful snapshot from this source. */
+export type SourceStatus = "available" | "stale" | "error" | "timeout" | "disabled";
 
 export interface SourceMeta {
   id: SourceId;
   agency: string;
   country: CountryCode;
   status: SourceStatus;
-  /** When the upstream data was retrieved by Nearcast. */
+  /** When the upstream data was retrieved by Nearcast (for "stale", when the served snapshot was retrieved). */
   retrievedAt?: string;
   /** Upstream-declared freshness when the feed provides one. */
   sourceUpdatedAt?: string;

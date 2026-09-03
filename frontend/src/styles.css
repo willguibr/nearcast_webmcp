@@ -86,6 +86,7 @@ a { color: var(--navy); }
 .source { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 8px; font-size: 12.5px; }
 .source .meta { color: var(--muted); font-size: 12px; white-space: nowrap; }
 .source-available .dot { background: var(--ok); }
+.source-stale .dot { background: var(--accent); }
 .source-error .dot, .source-timeout .dot { background: transparent; border: 2px solid var(--err); width: 7px; height: 7px; }
 
 .list-panel { display: flex; flex-direction: column; min-height: 0; }

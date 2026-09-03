@@ -17,7 +17,7 @@ export function SourcesPanel() {
             <span className="dot" aria-hidden="true" />
             <span className="name">{SHORT[s.id] ?? s.id}</span>
             <span className="meta">
-              {s.status === "available" ? `${s.count ?? 0} · ${relativeTime(s.retrievedAt)}` : s.status === "timeout" ? "timed out" : "temporarily unavailable"}
+              {s.status === "available" ? `${s.count ?? 0} · ${relativeTime(s.retrievedAt)}` : s.status === "stale" ? `${s.count ?? 0} · stale, from ${relativeTime(s.retrievedAt)}` : s.status === "timeout" ? "timed out" : "temporarily unavailable"}
             </span>
           </li>
         ))}

@@ -80,7 +80,8 @@ function parseFeature(f: Feature): Hazard | null {
 export const cwfisAdapter: SourceAdapter = {
   ...SOURCE,
   async fetch(ctx: AdapterContext) {
-    const feed = await fetchJson<FeatureCollection>(cwfifUrl(ctx.now), { signal: ctx.signal, timeoutMs: ctx.timeoutMs ?? 8000 });
+    // The CWFIF GeoServer is often slow during the day; give it a longer budget than other feeds.
+    const feed = await fetchJson<FeatureCollection>(cwfifUrl(ctx.now), { signal: ctx.signal, timeoutMs: Math.max(ctx.timeoutMs ?? 0, Number(process.env.CWFIS_TIMEOUT_MS || 12000)) });
     return parseCwfif(feed);
   },
 };
