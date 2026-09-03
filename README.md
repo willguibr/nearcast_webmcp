@@ -138,7 +138,7 @@ Terraform creates the ACM certificate in `us-east-1` with DNS validation and A/A
 
 ## Testing WebMCP
 
-1. Open the deployed URL in ChatGPT's in-app browser, or in Chrome 149+ with `chrome://flags/#enable-webmcp-testing` enabled.
+1. Open the deployed URL in ChatGPT's in-app browser, or in Chrome 146+ (Canary/Dev/Beta) with `chrome://flags/#enable-webmcp-testing` enabled and graphics acceleration on. Safari and stable Chrome run the app but expose no WebMCP host.
 2. The header shows **WebMCP ● Available · 8 tools** when registration succeeded.
 3. Try: *"What am I looking at?"*, *"Focus on British Columbia and Washington and show only wildfires and important weather alerts."*, click a marker, *"Tell me about the hazard I just selected."*, *"Compare British Columbia and Washington."*
 4. Watch the **Agent Activity** panel: every call is logged with time, tool name and a short summary.

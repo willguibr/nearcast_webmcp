@@ -37,6 +37,23 @@ Every call is appended to the **Agent Activity** panel (`time · tool · summary
 
 Region registry: all Canadian provinces/territories and all US states + DC, by code (`BC`, `WA`, `US-CA`, `CA-BC`) or name. `CA` alone is ambiguous and must be prefixed.
 
+## Testing in Chrome (real host)
+
+1. Use **Chrome 146+ on the Canary, Dev or Beta channel** (Stable does not ship the flag yet). Check `chrome://version`.
+2. Open `chrome://flags`, search **WebMCP**, set *WebMCP for testing* to **Enabled**, click **Relaunch**.
+3. Chrome also needs WebGL for the map: `chrome://settings/system` → *Use graphics acceleration when available* must be on (verify at `chrome://gpu`). Without it Nearcast shows a "WebGL is not available" panel; the list, details and tools still work.
+4. Open the HTTPS Nearcast URL. The header should read **WebMCP ● Available · 8 tools**.
+5. In DevTools console, Chrome's testing interface can drive the tools directly:
+
+```js
+console.table(navigator.modelContextTesting.listTools().map(t => ({ name: t.name, description: t.description })));
+const r = await navigator.modelContextTesting.executeTool("set_focus_area", JSON.stringify({ regions: ["BC", "WA"] }));
+console.log(JSON.parse(r));
+await navigator.modelContextTesting.executeTool("set_hazard_filters", JSON.stringify({ hazardTypes: ["wildfire", "weather"], minimumSeverity: "severe" }));
+```
+
+The *Model Context Inspector* extension (Chrome Web Store) adds a side panel that lists registered tools and lets you call them with custom input.
+
 ## Manual harness (any browser)
 
 Paste into the DevTools console of a running Nearcast page **before** the app loads tools (or reload after installing) to emulate a host:
