@@ -1,18 +1,47 @@
+# Dependencies and build output (never committed; see scripts/deploy.sh)
 node_modules/
 dist/
 build/
+coverage/
+*.tsbuildinfo
 *.log
 .DS_Store
+
+# Local environment files (commit only the *.example templates)
 .env
 .env.*
 !.env.example
-# Terraform
-infra/.terraform/
-infra/*.tfstate
-infra/*.tfstate.*
-infra/*.tfvars
+
+# Terraform: state, plans, provider cache and variable files may contain
+# account ids, hostnames and credentials. Only terraform.tfvars.example is tracked.
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
 !infra/terraform.tfvars.example
-infra/.terraform.lock.hcl
-infra/tfplan
+.terraform.lock.hcl
+tfplan
+*.tfplan
+
+# Packaged Lambda artifacts
 backend/dist/
 backend/lambda.zip
+*.zip
+
+# Credentials and keys — never commit
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+credentials.*
+secrets.*
+*.secret
+
+# Editor / tool-local config
+.claude/
+.vscode/
+.idea/
+*.swp
