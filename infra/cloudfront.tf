@@ -45,6 +45,18 @@ resource "aws_cloudfront_response_headers_policy" "security" {
     }
     # No X-Frame-Options / frame-ancestors on purpose: agent browsers may embed the page.
   }
+
+  # Chrome origin trials (WebMCP) are enabled per origin via an Origin-Trial header; several tokens may be comma-separated.
+  dynamic "custom_headers_config" {
+    for_each = length(var.origin_trial_tokens) > 0 ? [1] : []
+    content {
+      items {
+        header   = "Origin-Trial"
+        value    = join(",", var.origin_trial_tokens)
+        override = true
+      }
+    }
+  }
 }
 
 # AWS managed policies

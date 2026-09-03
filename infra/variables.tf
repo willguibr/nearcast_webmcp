@@ -74,3 +74,9 @@ variable "log_retention_days" {
   type    = number
   default = 14
 }
+
+variable "origin_trial_tokens" {
+  description = "Chrome origin-trial tokens (e.g. WebMCP) sent as Origin-Trial response headers. Register at https://developer.chrome.com/origintrials/ for the application origin."
+  type        = list(string)
+  default     = []
+}
