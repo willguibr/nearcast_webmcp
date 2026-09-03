@@ -1,0 +1,902 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "id": "1836429441516018246202609020502_fea1-2384",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -124.30654144,
+       52.99949646
+      ],
+      [
+       -124.40624237,
+       52.99179077
+      ],
+      [
+       -124.5059433,
+       52.98408508
+      ],
+      [
+       -124.60564423,
+       52.97638321
+      ],
+      [
+       -124.70535278,
+       52.96867752
+      ],
+      [
+       -124.80505371,
+       52.96097183
+      ],
+      [
+       -124.90475464,
+       52.95326996
+      ],
+      [
+       -125.00445557,
+       52.94556427
+      ],
+      [
+       -125.10416412,
+       52.9378624
+      ],
+      [
+       -125.20386505,
+       52.93015671
+      ],
+      [
+       -125.30356598,
+       52.92245102
+      ],
+      [
+       -125.40326691,
+       52.91474915
+      ],
+      [
+       -125.50297546,
+       52.90704346
+      ],
+      [
+       -125.60267639,
+       52.89934158
+      ],
+      [
+       -125.70237732,
+       52.89163589
+      ],
+      [
+       -125.80207825,
+       52.88393021
+      ],
+      [
+       -125.90178681,
+       52.87622833
+      ],
+      [
+       -126.00148773,
+       52.86852264
+      ],
+      [
+       -126.10118866,
+       52.86081695
+      ],
+      [
+       -126.20088959,
+       52.85311508
+      ],
+      [
+       -126.30059051,
+       52.84540939
+      ],
+      [
+       -126.40029907,
+       52.83770752
+      ],
+      [
+       -126.5,
+       52.83000183
+      ],
+      [
+       -126.42354584,
+       52.76654434
+      ],
+      [
+       -126.34659576,
+       52.70267868
+      ],
+      [
+       -126.26964569,
+       52.6388092
+      ],
+      [
+       -126.19270325,
+       52.57494354
+      ],
+      [
+       -126.11575317,
+       52.51107407
+      ],
+      [
+       -126.0388031,
+       52.4472084
+      ],
+      [
+       -125.96185303,
+       52.38334274
+      ],
+      [
+       -125.88491058,
+       52.31947327
+      ],
+      [
+       -125.80796051,
+       52.25560761
+      ],
+      [
+       -125.78083038,
+       52.23308945
+      ],
+      [
+       -125.70388031,
+       52.16921997
+      ],
+      [
+       -125.62693024,
+       52.10535431
+      ],
+      [
+       -125.54998016,
+       52.04148865
+      ],
+      [
+       -125.5,
+       52
+      ],
+      [
+       -125.46979523,
+       51.98223114
+      ],
+      [
+       -125.38360596,
+       51.93153
+      ],
+      [
+       -125.29740906,
+       51.88082886
+      ],
+      [
+       -125.21121979,
+       51.8301239
+      ],
+      [
+       -125.12502289,
+       51.77942276
+      ],
+      [
+       -125.03883362,
+       51.7287178
+      ],
+      [
+       -124.95264435,
+       51.67801285
+      ],
+      [
+       -124.86644745,
+       51.62731171
+      ],
+      [
+       -124.8343277,
+       51.60841751
+      ],
+      [
+       -124.7481308,
+       51.55771637
+      ],
+      [
+       -124.66194153,
+       51.50701523
+      ],
+      [
+       -124.57574463,
+       51.45631409
+      ],
+      [
+       -124.48955536,
+       51.40561295
+      ],
+      [
+       -124.40335846,
+       51.3549118
+      ],
+      [
+       -124.31716919,
+       51.30421066
+      ],
+      [
+       -124.23097229,
+       51.25350571
+      ],
+      [
+       -124.14477539,
+       51.20280457
+      ],
+      [
+       -124.05858612,
+       51.15210342
+      ],
+      [
+       -123.97238922,
+       51.10140228
+      ],
+      [
+       -123.88619995,
+       51.05070114
+      ],
+      [
+       -123.80000305,
+       51
+      ],
+      [
+       -123.70000458,
+       51
+      ],
+      [
+       -123.6000061,
+       51
+      ],
+      [
+       -123.5,
+       51
+      ],
+      [
+       -123.43999481,
+       51
+      ],
+      [
+       -123.33999634,
+       51
+      ],
+      [
+       -123.23999023,
+       51
+      ],
+      [
+       -123.13999176,
+       51
+      ],
+      [
+       -123.03999329,
+       51
+      ],
+      [
+       -122.93999481,
+       51
+      ],
+      [
+       -122.83999634,
+       51
+      ],
+      [
+       -122.73999786,
+       51
+      ],
+      [
+       -122.63999176,
+       51
+      ],
+      [
+       -122.53999329,
+       51
+      ],
+      [
+       -122.43999481,
+       51
+      ],
+      [
+       -122.33999634,
+       51
+      ],
+      [
+       -122.23999786,
+       51
+      ],
+      [
+       -122.13999176,
+       51
+      ],
+      [
+       -122.06500244,
+       51
+      ],
+      [
+       -121.96500397,
+       51
+      ],
+      [
+       -121.86500549,
+       51
+      ],
+      [
+       -121.76500702,
+       51
+      ],
+      [
+       -121.66500092,
+       51
+      ],
+      [
+       -121.65000153,
+       51
+      ],
+      [
+       -121.70191193,
+       51.08088684
+      ],
+      [
+       -121.75592804,
+       51.16504669
+      ],
+      [
+       -121.80994415,
+       51.24920654
+      ],
+      [
+       -121.86395264,
+       51.33336258
+      ],
+      [
+       -121.91796112,
+       51.41752243
+      ],
+      [
+       -121.97197723,
+       51.50168228
+      ],
+      [
+       -122.02599335,
+       51.58583832
+      ],
+      [
+       -122.08000183,
+       51.66999817
+      ],
+      [
+       -122.1554184,
+       51.71517944
+      ],
+      [
+       -122.24120331,
+       51.76657486
+      ],
+      [
+       -122.32698822,
+       51.81796646
+      ],
+      [
+       -122.4127655,
+       51.86935806
+      ],
+      [
+       -122.49855042,
+       51.92075348
+      ],
+      [
+       -122.58433533,
+       51.97214508
+      ],
+      [
+       -122.67012024,
+       52.02353668
+      ],
+      [
+       -122.75590515,
+       52.0749321
+      ],
+      [
+       -122.84168243,
+       52.1263237
+      ],
+      [
+       -122.92746735,
+       52.1777153
+      ],
+      [
+       -122.98997498,
+       52.21518326
+      ],
+      [
+       -123.01325226,
+       52.2291069
+      ],
+      [
+       -123.09903717,
+       52.28050232
+      ],
+      [
+       -123.14070129,
+       52.30548859
+      ],
+      [
+       -123.18482208,
+       52.33189392
+      ],
+      [
+       -123.27059937,
+       52.38328552
+      ],
+      [
+       -123.35638428,
+       52.43468094
+      ],
+      [
+       -123.44216919,
+       52.48607254
+      ],
+      [
+       -123.5279541,
+       52.53746414
+      ],
+      [
+       -123.61373901,
+       52.58885956
+      ],
+      [
+       -123.6995163,
+       52.64025116
+      ],
+      [
+       -123.78530121,
+       52.69164276
+      ],
+      [
+       -123.87108612,
+       52.74303436
+      ],
+      [
+       -123.95687103,
+       52.79442978
+      ],
+      [
+       -124.04265594,
+       52.84582138
+      ],
+      [
+       -124.12843323,
+       52.89721298
+      ],
+      [
+       -124.21421814,
+       52.9486084
+      ],
+      [
+       -124.30000305,
+       53
+      ],
+      [
+       -124.30654144,
+       52.99949646
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "alert_code": "SPS",
+    "alert_type": "statement",
+    "alert_name_en": "special weather statement",
+    "alert_name_fr": "bulletin météorologique spécial",
+    "alert_short_name_en": "Special weather",
+    "alert_short_name_fr": "Météorologique spécial",
+    "publication_datetime": "2026-09-02T23:46:07.381Z",
+    "expiration_datetime": "2026-09-03T15:46:07.381Z",
+    "validity_datetime": "2026-09-03T21:00:00.000Z",
+    "event_end_datetime": "2026-09-05T07:30:00.000Z",
+    "alert_text_en": "Prolonged periods of moderate to heavy rain are expected.\n\nWhat:\n40 to 60 mm of rain.\n\nWhen:\nThursday afternoon to Friday evening.\n\nWhere:\nChilcotin.\n\nAdditional information:\nAs a low pressure system lingers over the Central Interior region, scattered showers Thursday morning will develop into a band of moderate to heavy rain over Chilcotin Thursday afternoon and continue through Friday. Total rainfall amounts near 40 to 60 mm can be expected before the rain eases Friday evening. Higher rainfall amounts are possible locally, especially near the mountains.\n\nWater will likely pool on roads and in low-lying areas. Some travel delays are possible. Watch for washouts near rivers, creeks, and culverts. Increased risk of landslides in vulnerable areas such as steep slopes, deforested areas or recent burn scars.\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to BCstorm@ec.gc.ca or post reports on social media using #BCStorm.",
+    "alert_text_fr": "On prévoit des périodes prolongées de pluie modérée à forte.\n\nQuoi :\nDe 40 à 60 mm de pluie\n\nQuand :\nDe jeudi après-midi à vendredi soir.\n\nOù :\nChilcotin.\n\nRenseignements supplémentaires :\nTandis qu'une dépression persistera sur la région de l'intérieur-centre, des averses de pluie dispersées jeudi matin se changeront en une bande de pluie modérée à forte sur Chilcotin jeudi après-midi et persisteront jusqu'à vendredi.   On prévoit une quantité totale de pluie de près de 40 à 60 mm avant que la pluie ne faiblisse vendredi soir.   Des quantités de pluie plus importantes sont possibles par endroits, surtout près des montagnes.\n\nL'eau s'accumulera probablement sur les routes et dans les basses-terres. Des déplacements pourraient être retardés. Soyez attentifs, car des routes pourraient être emportées par les eaux près des ruisseaux, des rivières et des ponceaux.  Il y a un risque accru de glissements de terrain dans les zones vulnérables, comme les pentes abruptes, les zones déboisées ou les zones ravagées par des incendies récentes.\n\nVeuillez continuer à surveiller les alertes et les prévisions émises par Environnement Canada. Pour signaler du temps violent, envoyez un courriel à meteoBC@ec.gc.ca ou publiez un message sur les réseaux sociaux en utilisant #BCMeteo.",
+    "risk_colour_en": null,
+    "risk_colour_fr": null,
+    "confidence_en": null,
+    "confidence_fr": null,
+    "impact_en": null,
+    "impact_fr": null,
+    "feature_name_en": "Chilcotin",
+    "feature_name_fr": "Chilcotin",
+    "province": "BC",
+    "status_en": "issued",
+    "status_fr": "émis",
+    "feature_id": "fea1-2384"
+   }
+  },
+  {
+   "id": "125117794648639818202609010506_fea1-833",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -64.76889278,
+       47.38648686
+      ],
+      [
+       -64.75266268,
+       47.55253331
+      ],
+      [
+       -64.41058203,
+       47.80722109
+      ],
+      [
+       -64.48299326,
+       48.03818795
+      ],
+      [
+       -64.6328096,
+       48.04193336
+      ],
+      [
+       -64.75445479,
+       48.09949197
+      ],
+      [
+       -65.21632855,
+       47.95163792
+      ],
+      [
+       -65.21635597,
+       47.80635025
+      ],
+      [
+       -65.23773284,
+       47.28520167
+      ],
+      [
+       -65.23773286,
+       47.28520118
+      ],
+      [
+       -65.23774264,
+       47.2849579
+      ],
+      [
+       -64.97062797,
+       47.31640989
+      ],
+      [
+       -64.97045779,
+       47.31642967
+      ],
+      [
+       -64.9704879,
+       47.31646557
+      ],
+      [
+       -64.93645196,
+       47.32998395
+      ],
+      [
+       -64.76889278,
+       47.38648686
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "alert_code": "SPS",
+    "alert_type": "statement",
+    "alert_name_en": "special weather statement",
+    "alert_name_fr": "bulletin météorologique spécial",
+    "alert_short_name_en": "Special weather",
+    "alert_short_name_fr": "Météorologique spécial",
+    "publication_datetime": "2026-09-03T01:34:53.450Z",
+    "expiration_datetime": "2026-09-03T17:34:53.450Z",
+    "validity_datetime": "2026-09-03T20:00:00.000Z",
+    "event_end_datetime": "2026-09-06T00:00:00.000Z",
+    "alert_text_en": "Significant rainfall is expected.\n\nLocations: Southern and northeastern New Brunswick.\n\nTime span: Thursday afternoon or evening until Saturday evening for some regions.\n\nRemarks: A developing and slow-moving weather system is expected to bring a period of significant rainfall. Tropical moisture may contribute to sustained, heavy downpours. Rainfall rates of 10 mm per hour may occur over some locations. Thunderstorms may develop over some areas, producing locally heavier rainfall. \n\nThere is some uncertainty as to where the highest rainfall amounts will occur, but latest forecast guidance has been focusing the heaviest rainfall eastern areas of New Brunswick and the risk to southwestern regions is beginning to diminish.\n\nWater pooling on roads may make travel more difficult in some areas.\n\nConsider adjusting travel plans to avoid the most adverse conditions.\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to NBstorm@ec.gc.ca or post reports on social media using #NBStorm.",
+    "alert_text_fr": "On prévoit une importante quantité de pluie.\n\nRégions : le sud et le nord-est du Nouveau-Brunswick.\n\nPériode : de jeudi après-midi ou jeudi soir jusqu'à samedi soir pour certaines régions.\n\nRemarques : un système météorologique en formation qui se déplace lentement devrait occasionner un épisode de pluie importante. De l'humidité tropicale pourrait contribuer à des pluies torrentielles soutenues. La pluie pourrait tomber à un rythme de 10 mm à l'heure à certains endroits. Des orages pourraient se former sur certaines régions et occasionner de la pluie particulièrement forte par endroits.\n\nIl y a un peu d'incertitude quant aux endroits qui recevront le plus de pluie, mais selon les plus récentes données des modèles de prévision, les plus fortes pluies se concentreraient dans les régions est du Nouveau-Brunswick et le risque sur les régions sud-ouest commence à diminuer.\n\nL'accumulation d'eau sur les routes pourrait rendre les déplacements plus difficiles dans certaines régions.\n\nSongez à modifier vos projets de déplacement de façon à éviter les conditions les plus défavorables.\n\nVeuillez continuer à surveiller les alertes et les prévisions émises par Environnement Canada. Pour signaler du temps violent, envoyez un courriel à meteoNB@ec.gc.ca ou publiez un message sur les réseaux sociaux en utilisant #NBMeteo.",
+    "risk_colour_en": null,
+    "risk_colour_fr": null,
+    "confidence_en": null,
+    "confidence_fr": null,
+    "impact_en": null,
+    "impact_fr": null,
+    "feature_name_en": "Acadian Peninsula",
+    "feature_name_fr": "péninsule acadienne",
+    "province": "NB",
+    "status_en": "continued",
+    "status_fr": "maintenu",
+    "feature_id": "fea1-833"
+   }
+  },
+  {
+   "id": "125117794648639818202609010506_fea1-831",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -65.23774264,
+       47.2849579
+      ],
+      [
+       -65.23773286,
+       47.28520118
+      ],
+      [
+       -65.23773284,
+       47.28520167
+      ],
+      [
+       -65.21635597,
+       47.80635025
+      ],
+      [
+       -65.21632855,
+       47.95163792
+      ],
+      [
+       -65.43445453,
+       47.92109955
+      ],
+      [
+       -65.72903102,
+       47.99455421
+      ],
+      [
+       -65.79651128,
+       47.87556847
+      ],
+      [
+       -65.80741677,
+       47.8556165
+      ],
+      [
+       -65.81689103,
+       47.84890072
+      ],
+      [
+       -65.88261815,
+       47.83159362
+      ],
+      [
+       -65.91978891,
+       47.82654948
+      ],
+      [
+       -65.96754499,
+       47.83716153
+      ],
+      [
+       -65.96693504,
+       47.83984943
+      ],
+      [
+       -65.98550003,
+       47.84422993
+      ],
+      [
+       -65.99339097,
+       47.83155245
+      ],
+      [
+       -66.01195353,
+       47.83487822
+      ],
+      [
+       -66.00578933,
+       47.81793674
+      ],
+      [
+       -66.00819552,
+       47.81251379
+      ],
+      [
+       -65.9999602,
+       47.8109047
+      ],
+      [
+       -65.99999999,
+       47.71677418
+      ],
+      [
+       -66.10768866,
+       47.57730573
+      ],
+      [
+       -66.21744667,
+       47.55087688
+      ],
+      [
+       -65.80213169,
+       47.2172259
+      ],
+      [
+       -65.80203678,
+       47.21610068
+      ],
+      [
+       -65.80201675,
+       47.21586312
+      ],
+      [
+       -65.23774264,
+       47.2849579
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "alert_code": "SPS",
+    "alert_type": "statement",
+    "alert_name_en": "special weather statement",
+    "alert_name_fr": "bulletin météorologique spécial",
+    "alert_short_name_en": "Special weather",
+    "alert_short_name_fr": "Météorologique spécial",
+    "publication_datetime": "2026-09-03T01:34:53.450Z",
+    "expiration_datetime": "2026-09-03T17:34:53.450Z",
+    "validity_datetime": "2026-09-03T20:00:00.000Z",
+    "event_end_datetime": "2026-09-06T00:00:00.000Z",
+    "alert_text_en": "Significant rainfall is expected.\n\nLocations: Southern and northeastern New Brunswick.\n\nTime span: Thursday afternoon or evening until Saturday evening for some regions.\n\nRemarks: A developing and slow-moving weather system is expected to bring a period of significant rainfall. Tropical moisture may contribute to sustained, heavy downpours. Rainfall rates of 10 mm per hour may occur over some locations. Thunderstorms may develop over some areas, producing locally heavier rainfall. \n\nThere is some uncertainty as to where the highest rainfall amounts will occur, but latest forecast guidance has been focusing the heaviest rainfall eastern areas of New Brunswick and the risk to southwestern regions is beginning to diminish.\n\nWater pooling on roads may make travel more difficult in some areas.\n\nConsider adjusting travel plans to avoid the most adverse conditions.\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to NBstorm@ec.gc.ca or post reports on social media using #NBStorm.",
+    "alert_text_fr": "On prévoit une importante quantité de pluie.\n\nRégions : le sud et le nord-est du Nouveau-Brunswick.\n\nPériode : de jeudi après-midi ou jeudi soir jusqu'à samedi soir pour certaines régions.\n\nRemarques : un système météorologique en formation qui se déplace lentement devrait occasionner un épisode de pluie importante. De l'humidité tropicale pourrait contribuer à des pluies torrentielles soutenues. La pluie pourrait tomber à un rythme de 10 mm à l'heure à certains endroits. Des orages pourraient se former sur certaines régions et occasionner de la pluie particulièrement forte par endroits.\n\nIl y a un peu d'incertitude quant aux endroits qui recevront le plus de pluie, mais selon les plus récentes données des modèles de prévision, les plus fortes pluies se concentreraient dans les régions est du Nouveau-Brunswick et le risque sur les régions sud-ouest commence à diminuer.\n\nL'accumulation d'eau sur les routes pourrait rendre les déplacements plus difficiles dans certaines régions.\n\nSongez à modifier vos projets de déplacement de façon à éviter les conditions les plus défavorables.\n\nVeuillez continuer à surveiller les alertes et les prévisions émises par Environnement Canada. Pour signaler du temps violent, envoyez un courriel à meteoNB@ec.gc.ca ou publiez un message sur les réseaux sociaux en utilisant #NBMeteo.",
+    "risk_colour_en": null,
+    "risk_colour_fr": null,
+    "confidence_en": null,
+    "confidence_fr": null,
+    "impact_en": null,
+    "impact_fr": null,
+    "feature_name_en": "Bathurst and Chaleur Region",
+    "feature_name_fr": "Bathurst et la région Chaleur",
+    "province": "NB",
+    "status_en": "continued",
+    "status_fr": "maintenu",
+    "feature_id": "fea1-831"
+   }
+  },
+  {
+   "id": "164309777498008429202609020502_fea1-2319",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -123.26999664,
+       48.68999863
+      ],
+      [
+       -123.41838196,
+       48.71756975
+      ],
+      [
+       -123.46150636,
+       48.70878935
+      ],
+      [
+       -123.52088165,
+       48.71346664
+      ],
+      [
+       -123.5279008,
+       48.7224817
+      ],
+      [
+       -123.55638123,
+       48.72455597
+      ],
+      [
+       -123.55982925,
+       48.71915503
+      ],
+      [
+       -123.56356049,
+       48.71331024
+      ],
+      [
+       -123.56658632,
+       48.69179838
+      ],
+      [
+       -123.57746887,
+       48.61426163
+      ],
+      [
+       -123.63362122,
+       48.47542191
+      ],
+      [
+       -123.57488251,
+       48.39436722
+      ],
+      [
+       -123.5729599,
+       48.39170456
+      ],
+      [
+       -123.54655746,
+       48.34094935
+      ],
+      [
+       -123.54611967,
+       48.34021697
+      ],
+      [
+       -123.49799347,
+       48.24758911
+      ],
+      [
+       -123.49044302,
+       48.23354867
+      ],
+      [
+       -123.48972391,
+       48.23221097
+      ],
+      [
+       -123.48964551,
+       48.23222999
+      ],
+      [
+       -123.42604828,
+       48.24762726
+      ],
+      [
+       -123.33543132,
+       48.26948848
+      ],
+      [
+       -123.25,
+       48.29000092
+      ],
+      [
+       -123.12000275,
+       48.41999817
+      ],
+      [
+       -123.16000366,
+       48.45999909
+      ],
+      [
+       -123.22000122,
+       48.54999924
+      ],
+      [
+       -123.26999664,
+       48.68999863
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "alert_code": "SPS",
+    "alert_type": "statement",
+    "alert_name_en": "special weather statement",
+    "alert_name_fr": "bulletin météorologique spécial",
+    "alert_short_name_en": "Special weather",
+    "alert_short_name_fr": "Météorologique spécial",
+    "publication_datetime": "2026-09-03T03:47:54.006Z",
+    "expiration_datetime": "2026-09-03T04:47:54.006Z",
+    "validity_datetime": "2026-09-02T23:00:00.000Z",
+    "event_end_datetime": "2026-09-03T04:00:00.000Z",
+    "alert_text_en": "",
+    "alert_text_fr": "",
+    "risk_colour_en": null,
+    "risk_colour_fr": null,
+    "confidence_en": null,
+    "confidence_fr": null,
+    "impact_en": null,
+    "impact_fr": null,
+    "feature_name_en": "Greater Victoria",
+    "feature_name_fr": "Grand Victoria",
+    "province": "BC",
+    "status_en": "ended",
+    "status_fr": "terminé",
+    "feature_id": "fea1-2319"
+   }
+  }
+ ],
+ "numberMatched": 4
+}

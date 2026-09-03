@@ -1,0 +1,6 @@
+#EventID|Time|Latitude|Longitude|Depth/km|MagType|Magnitude|EventLocationName
+20260902.0437001|2026-09-02T04:37:59.000Z|57.2644|-136.2811|5|ML|2.19|62 km WNW of Sitka, AK/62 km ONO de Sitka, AK
+20260901.2024001|2026-09-01T20:24:29.000Z|60.9848|-140.0877|5|ML|2.62|72 km SW of Burwash Landing, YT/72 km SO de Burwash Landing, YT
+20260901.1758001|2026-09-01T17:58:48.000Z|48.2517|-78.4518|2.66|MwN|2.52|Mining event, LaRonde - Zone 5 Mine, QC/Événement minier, Mine LaRonde - Zone 5, QC
+20260901.1142001|2026-09-01T11:42:09.000Z|51.1035|-124.4009|5|ML|2.15|52 km SW of Lohbiee 3, BC/52 km SO de Lohbiee 3, BC
+20260831.1841002|2026-08-31T18:41:21.000Z|51.2245|-131.083|10|Mw'|3.81|257 km WNW of Port Hardy, BC/257 km ONO de Port Hardy, BC

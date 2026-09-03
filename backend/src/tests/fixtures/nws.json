@@ -1,0 +1,752 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cc89e1f362a9cd931cb9019968b8fc77a22460fd.002.1",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -78.1,
+       41.09
+      ],
+      [
+       -78.14,
+       41.1
+      ],
+      [
+       -78.1,
+       41.22
+      ],
+      [
+       -78.09,
+       41.22
+      ],
+      [
+       -77.74,
+       41.35
+      ],
+      [
+       -77.64,
+       41.45
+      ],
+      [
+       -77.48,
+       41.53
+      ],
+      [
+       -77.25,
+       41.49
+      ],
+      [
+       -77.02,
+       41.72
+      ],
+      [
+       -77.01,
+       41.72
+      ],
+      [
+       -76.89,
+       41.69
+      ],
+      [
+       -76.88,
+       41.65
+      ],
+      [
+       -76.87,
+       41.6
+      ],
+      [
+       -76.75,
+       41.58
+      ],
+      [
+       -76.59,
+       41.57
+      ],
+      [
+       -77.1,
+       41.13
+      ],
+      [
+       -77.53,
+       40.94
+      ],
+      [
+       -77.93,
+       41.03
+      ],
+      [
+       -78.1,
+       41.09
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cc89e1f362a9cd931cb9019968b8fc77a22460fd.002.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.cc89e1f362a9cd931cb9019968b8fc77a22460fd.002.1",
+    "areaDesc": "Centre, PA; Clearfield, PA; Clinton, PA; Lycoming, PA; Sullivan, PA; Tioga, PA",
+    "geocode": {
+     "SAME": [
+      "042027",
+      "042033",
+      "042035",
+      "042081",
+      "042113",
+      "042117"
+     ],
+     "UGC": [
+      "PAC027",
+      "PAC033",
+      "PAC035",
+      "PAC081",
+      "PAC113",
+      "PAC117"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/PAC027",
+     "https://api.weather.gov/zones/county/PAC033",
+     "https://api.weather.gov/zones/county/PAC035",
+     "https://api.weather.gov/zones/county/PAC081",
+     "https://api.weather.gov/zones/county/PAC113",
+     "https://api.weather.gov/zones/county/PAC117"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.605a2333d608b9643e8895966db811e8ea1de70b.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.605a2333d608b9643e8895966db811e8ea1de70b.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-03T00:23:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cafc86efc395876f72b1b7c7a804165f9af4352a.002.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.cafc86efc395876f72b1b7c7a804165f9af4352a.002.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-03T00:35:00-04:00"
+     }
+    ],
+    "sent": "2026-09-03T00:52:00-04:00",
+    "effective": "2026-09-03T00:52:00-04:00",
+    "onset": "2026-09-03T00:52:00-04:00",
+    "expires": "2026-09-03T01:30:00-04:00",
+    "ends": "2026-09-03T01:30:00-04:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Severe",
+    "certainty": "Observed",
+    "urgency": "Immediate",
+    "event": "Severe Thunderstorm Warning",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS State College PA",
+    "headline": "Severe Thunderstorm Warning issued September 3 at 12:52AM EDT until September 3 at 1:30AM EDT by NWS State College PA",
+    "description": "At 1252 AM EDT, severe thunderstorms were located along a line from\nover Ralston to over Snow Shoe, or along a line from 20 miles north\nof Montoursville to 11 miles northwest of Bellefonte, moving\nsoutheast at 45 mph.\n\nHAZARD...60 mph wind gusts and small hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Expect damage to roofs, siding, and trees.\n\nLocations impacted include...\nWilliamsport, Lock Haven, J",
+    "instruction": "Seek shelter inside a well-built structure and stay away from\nwindows. These storms are capable of producing damaging winds.\n\nTornadoes can develop quickly from severe thunderstorms. Seek shelter\nimmediately in an interior room on the lowest floor of a well-built\nstructure.\n\nTorrential rainfall is also occurring with these storms and may lead\nto flash flooding. Do not drive your vehicle through flooded\nroadways.",
+    "response": "Shelter",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "SVSCTP"
+     ],
+     "WMOidentifier": [
+      "WWUS51 KCTP 030452"
+     ],
+     "NWSheadline": [
+      "SEVERE THUNDERSTORM WARNING REMAINS IN EFFECT UNTIL 130 AM EDT FOR NORTHWESTERN CENTRE, NORTHEASTERN CLEARFIELD, CLINTON, LYCOMING, NORTHWESTERN SULLIVAN AND SOUTHEASTERN TIOGA COUNTIES"
+     ],
+     "eventMotionDescription": [
+      "2026-09-03T04:35:00-00:00...storm...299DEG...39KT...41.62,-77.14 41.28,-77.74 41.08,-78.16"
+     ],
+     "windThreat": [
+      "RADAR INDICATED"
+     ],
+     "maxWindGust": [
+      "60 MPH"
+     ],
+     "hailThreat": [
+      "RADAR INDICATED"
+     ],
+     "tornadoDetection": [
+      "POSSIBLE"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "EAS-ORG": [
+      "WXR"
+     ],
+     "VTEC": [
+      "/O.CON.KCTP.SV.W.0343.000000T0000Z-260903T0530Z/"
+     ],
+     "eventEndingTime": [
+      "2026-09-03T01:30:00-04:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "SVS"
+     ],
+     "NationalWeatherService": [
+      "SVW"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.844d38b8be34f279b88fec0b011edf8e3b38082a.001.1",
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -77.65,
+       41.1
+      ],
+      [
+       -77.56,
+       41.12
+      ],
+      [
+       -77.52,
+       41.14
+      ],
+      [
+       -77.42,
+       41.1
+      ],
+      [
+       -77.49,
+       41.07
+      ],
+      [
+       -77.58,
+       41.04
+      ],
+      [
+       -77.65,
+       41.1
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.844d38b8be34f279b88fec0b011edf8e3b38082a.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.844d38b8be34f279b88fec0b011edf8e3b38082a.001.1",
+    "areaDesc": "Centre, PA; Clinton, PA",
+    "geocode": {
+     "SAME": [
+      "042027",
+      "042035"
+     ],
+     "UGC": [
+      "PAC027",
+      "PAC035"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/PAC027",
+     "https://api.weather.gov/zones/county/PAC035"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.27262859ec909007a0cf2796390e760210563d88.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.27262859ec909007a0cf2796390e760210563d88.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T23:40:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.804b9a824adce1031d07301f99210bead134a724.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.804b9a824adce1031d07301f99210bead134a724.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T23:54:00-04:00"
+     }
+    ],
+    "sent": "2026-09-03T00:52:00-04:00",
+    "effective": "2026-09-03T00:52:00-04:00",
+    "onset": "2026-09-03T00:52:00-04:00",
+    "expires": "2026-09-03T13:00:00-04:00",
+    "ends": "2026-09-03T22:30:00-04:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Severe",
+    "certainty": "Observed",
+    "urgency": "Immediate",
+    "event": "Flood Warning",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS State College PA",
+    "headline": "Flood Warning issued September 3 at 12:52AM EDT until September 3 at 10:30PM EDT by NWS State College PA",
+    "description": "...The Flood Warning continues for the following creeks in\nPennsylvania...\n\nBald Eagle Creek near Beech Creek Station affecting Clinton and\nCentre Counties.\n\n* WHAT...Moderate flooding is occurring and moderate flooding is\nforecast.\n\n* WHERE...Bald Eagle Creek near Beech Creek Station.\n\n* WHEN...Until this evening.\n\n* IMPACTS...At 14.0 feet, Homes in the cottage area are cutoff by\nhigh water from ",
+    "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nBe especially cautious at night when it is harder to recognize the\ndangers of flooding.\n\nAdditional information is available at www.weather.gov.\n\nThe next statement will be issued this morning.",
+    "response": "Avoid",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "FLSCTP"
+     ],
+     "WMOidentifier": [
+      "WGUS81 KCTP 030452"
+     ],
+     "NWSheadline": [
+      "FLOOD WARNING NOW IN EFFECT UNTIL THIS EVENING"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "EAS-ORG": [
+      "WXR"
+     ],
+     "VTEC": [
+      "/O.EXT.KCTP.FL.W.0006.000000T0000Z-260904T0230Z/"
+     ],
+     "eventEndingTime": [
+      "2026-09-03T22:30:00-04:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "FLS"
+     ],
+     "NationalWeatherService": [
+      "FLW"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.002.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.002.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.002.1",
+    "areaDesc": "Hardin; Mercer; Auglaize; Shelby; Logan; Union; Delaware; Champaign; Licking",
+    "geocode": {
+     "SAME": [
+      "039065",
+      "039107",
+      "039011",
+      "039149",
+      "039091",
+      "039159",
+      "039041",
+      "039021",
+      "039089"
+     ],
+     "UGC": [
+      "OHZ026",
+      "OHZ034",
+      "OHZ035",
+      "OHZ043",
+      "OHZ044",
+      "OHZ045",
+      "OHZ046",
+      "OHZ052",
+      "OHZ056"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/forecast/OHZ026",
+     "https://api.weather.gov/zones/forecast/OHZ034",
+     "https://api.weather.gov/zones/forecast/OHZ035",
+     "https://api.weather.gov/zones/forecast/OHZ043",
+     "https://api.weather.gov/zones/forecast/OHZ044",
+     "https://api.weather.gov/zones/forecast/OHZ045",
+     "https://api.weather.gov/zones/forecast/OHZ046",
+     "https://api.weather.gov/zones/forecast/OHZ052",
+     "https://api.weather.gov/zones/forecast/OHZ056"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2554d50103ebf894d1c7e35bcd6078064d939bdf.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.2554d50103ebf894d1c7e35bcd6078064d939bdf.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T11:55:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d4df5b9f781d712e1ba70ce1a27366f3409b0a25.002.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.d4df5b9f781d712e1ba70ce1a27366f3409b0a25.002.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T12:39:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0a8ca4423030a0e8928cc346067867187ffb1972.002.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.0a8ca4423030a0e8928cc346067867187ffb1972.002.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T17:51:00-04:00"
+     }
+    ],
+    "sent": "2026-09-03T00:52:00-04:00",
+    "effective": "2026-09-03T00:52:00-04:00",
+    "onset": "2026-09-03T00:52:00-04:00",
+    "expires": "2026-09-03T17:00:00-04:00",
+    "ends": "2026-09-03T20:00:00-04:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Moderate",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Heat Advisory",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Wilmington OH",
+    "headline": "Heat Advisory issued September 3 at 12:52AM EDT until September 3 at 8:00PM EDT by NWS Wilmington OH",
+    "description": "* WHAT...Heat index values of 100 to 105 expected.\n\n* WHERE...Delaware, Licking, Union, Auglaize, Champaign, Hardin,\nLogan, Mercer, and Shelby Counties.\n\n* WHEN...Until 8 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+    "instruction": "Drink plenty of fluids, stay in an air-conditioned room, stay out of\nthe sun, and check up on relatives and neighbors.\n\nTake extra precautions when outside. Wear lightweight and loose\nfitting clothing. Try to limit strenuous activities to early morning\nor evening. Take action when you see symptoms of heat exhaustion and\nheat stroke.",
+    "response": "Execute",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "NPWILN"
+     ],
+     "WMOidentifier": [
+      "WWUS71 KILN 030452"
+     ],
+     "NWSheadline": [
+      "HEAT ADVISORY REMAINS IN EFFECT UNTIL 8 PM EDT THIS EVENING"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.CON.KILN.HT.Y.0006.000000T0000Z-260904T0000Z/"
+     ],
+     "eventEndingTime": [
+      "2026-09-03T20:00:00-04:00"
+     ],
+     "expiredReferences": [
+      "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.fdf8e869724aa8f8a5b15ceca5b375a24722b8f4.002.1,2026-09-02T13:36:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.2d5299ea3f6d72ed17d3f57a88ecfae686764f54.001.1,2026-09-02T03:28:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.0fa491f3a5b36055a18150950a0232d1292673af.001.1,2026-09-01T14:23:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.6da936c05a9ad090665fbe4a4e470f3c95e57174.001.1,2026-09-01T08:35:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.3c34a2ea068ea2623ee3cb9ff1440e054b295549.001.1,2026-09-01T01:33:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.46c718d525e1a468f5b28c2c8c4c1439c7801281.001.1,2026-08-31T19:23:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.dbf50b2baf6930536cec03ddd67f8858bf856cb2.001.1,2026-08-31T14:03:00-04:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "HTY"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.001.1",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.001.1",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0.d0e54318284fb79a26ffe04d1a1c12844a75e7f3.001.1",
+    "areaDesc": "Wayne; Fayette; Union; Franklin; Ripley; Dearborn; Ohio; Switzerland; Carroll; Gallatin; Boone; Kenton; Campbell; Owen; Grant; Pendleton; Bracken; Robertson; Mason; Lewis; Darke; Miami; Clark; Madison; Franklin; Preble; Montgomery; Greene; Fayette; Pickaway; Fairfield; Butler; Warren; Clinton; Ross; Hocking; Hamilton; Clermont; Brown; Highland; Adams; Pike; Scioto",
+    "geocode": {
+     "SAME": [
+      "018177",
+      "018041",
+      "018161",
+      "018047",
+      "018137",
+      "018029",
+      "018115",
+      "018155",
+      "021041",
+      "021077",
+      "021015",
+      "021117",
+      "021037",
+      "021187",
+      "021081",
+      "021191",
+      "021023",
+      "021201",
+      "021161",
+      "021135",
+      "039037",
+      "039109",
+      "039023",
+      "039097",
+      "039049",
+      "039135",
+      "039113",
+      "039057",
+      "039047",
+      "039129",
+      "039045",
+      "039017",
+      "039165",
+      "039027",
+      "039141",
+      "039073",
+      "039061",
+      "039025",
+      "039015",
+      "039071",
+      "039001",
+      "039131",
+      "039145"
+     ],
+     "UGC": [
+      "INZ050",
+      "INZ058",
+      "INZ059",
+      "INZ066",
+      "INZ073",
+      "INZ074",
+      "INZ075",
+      "INZ080",
+      "KYZ089",
+      "KYZ090",
+      "KYZ091",
+      "KYZ092",
+      "KYZ093",
+      "KYZ094",
+      "KYZ095",
+      "KYZ096",
+      "KYZ097",
+      "KYZ098",
+      "KYZ099",
+      "KYZ100",
+      "OHZ042",
+      "OHZ051",
+      "OHZ053",
+      "OHZ054",
+      "OHZ055",
+      "OHZ060",
+      "OHZ061",
+      "OHZ062",
+      "OHZ063",
+      "OHZ064",
+      "OHZ065",
+      "OHZ070",
+      "OHZ071",
+      "OHZ072",
+      "OHZ073",
+      "OHZ074",
+      "OHZ077",
+      "OHZ078",
+      "OHZ079",
+      "OHZ080",
+      "OHZ081",
+      "OHZ082",
+      "OHZ088"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/forecast/INZ050",
+     "https://api.weather.gov/zones/forecast/INZ058",
+     "https://api.weather.gov/zones/forecast/INZ059",
+     "https://api.weather.gov/zones/forecast/INZ066",
+     "https://api.weather.gov/zones/forecast/INZ073",
+     "https://api.weather.gov/zones/forecast/INZ074",
+     "https://api.weather.gov/zones/forecast/INZ075",
+     "https://api.weather.gov/zones/forecast/INZ080",
+     "https://api.weather.gov/zones/forecast/KYZ089",
+     "https://api.weather.gov/zones/forecast/KYZ090",
+     "https://api.weather.gov/zones/forecast/KYZ091",
+     "https://api.weather.gov/zones/forecast/KYZ092",
+     "https://api.weather.gov/zones/forecast/KYZ093",
+     "https://api.weather.gov/zones/forecast/KYZ094",
+     "https://api.weather.gov/zones/forecast/KYZ095",
+     "https://api.weather.gov/zones/forecast/KYZ096",
+     "https://api.weather.gov/zones/forecast/KYZ097",
+     "https://api.weather.gov/zones/forecast/KYZ098",
+     "https://api.weather.gov/zones/forecast/KYZ099",
+     "https://api.weather.gov/zones/forecast/KYZ100",
+     "https://api.weather.gov/zones/forecast/OHZ042",
+     "https://api.weather.gov/zones/forecast/OHZ051",
+     "https://api.weather.gov/zones/forecast/OHZ053",
+     "https://api.weather.gov/zones/forecast/OHZ054",
+     "https://api.weather.gov/zones/forecast/OHZ055",
+     "https://api.weather.gov/zones/forecast/OHZ060",
+     "https://api.weather.gov/zones/forecast/OHZ061",
+     "https://api.weather.gov/zones/forecast/OHZ062",
+     "https://api.weather.gov/zones/forecast/OHZ063",
+     "https://api.weather.gov/zones/forecast/OHZ064",
+     "https://api.weather.gov/zones/forecast/OHZ065",
+     "https://api.weather.gov/zones/forecast/OHZ070",
+     "https://api.weather.gov/zones/forecast/OHZ071",
+     "https://api.weather.gov/zones/forecast/OHZ072",
+     "https://api.weather.gov/zones/forecast/OHZ073",
+     "https://api.weather.gov/zones/forecast/OHZ074",
+     "https://api.weather.gov/zones/forecast/OHZ077",
+     "https://api.weather.gov/zones/forecast/OHZ078",
+     "https://api.weather.gov/zones/forecast/OHZ079",
+     "https://api.weather.gov/zones/forecast/OHZ080",
+     "https://api.weather.gov/zones/forecast/OHZ081",
+     "https://api.weather.gov/zones/forecast/OHZ082",
+     "https://api.weather.gov/zones/forecast/OHZ088"
+    ],
+    "references": [
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2554d50103ebf894d1c7e35bcd6078064d939bdf.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.2554d50103ebf894d1c7e35bcd6078064d939bdf.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T11:55:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d4df5b9f781d712e1ba70ce1a27366f3409b0a25.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.d4df5b9f781d712e1ba70ce1a27366f3409b0a25.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T12:39:00-04:00"
+     },
+     {
+      "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0a8ca4423030a0e8928cc346067867187ffb1972.001.1",
+      "identifier": "urn:oid:2.49.0.1.840.0.0a8ca4423030a0e8928cc346067867187ffb1972.001.1",
+      "sender": "w-nws.webmaster@noaa.gov",
+      "sent": "2026-09-02T17:51:00-04:00"
+     }
+    ],
+    "sent": "2026-09-03T00:52:00-04:00",
+    "effective": "2026-09-03T00:52:00-04:00",
+    "onset": "2026-09-03T00:52:00-04:00",
+    "expires": "2026-09-03T17:00:00-04:00",
+    "ends": "2026-09-04T20:00:00-04:00",
+    "status": "Actual",
+    "messageType": "Update",
+    "category": "Met",
+    "severity": "Moderate",
+    "certainty": "Likely",
+    "urgency": "Expected",
+    "event": "Heat Advisory",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS Wilmington OH",
+    "headline": "Heat Advisory issued September 3 at 12:52AM EDT until September 4 at 8:00PM EDT by NWS Wilmington OH",
+    "description": "* WHAT...Heat index values of 100 to 105 expected.\n\n* WHERE...Portions of east central and southeast Indiana, northeast\nand northern Kentucky, and central, south central, southwest, and\nwest central Ohio.\n\n* WHEN...Until 8 PM EDT Friday.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+    "instruction": "Drink plenty of fluids, stay in an air-conditioned room, stay out of\nthe sun, and check up on relatives and neighbors.",
+    "response": "Execute",
+    "note": null,
+    "parameters": {
+     "AWIPSidentifier": [
+      "NPWILN"
+     ],
+     "WMOidentifier": [
+      "WWUS71 KILN 030452"
+     ],
+     "NWSheadline": [
+      "HEAT ADVISORY REMAINS IN EFFECT UNTIL 8 PM EDT FRIDAY"
+     ],
+     "BLOCKCHANNEL": [
+      "EAS",
+      "NWEM",
+      "CMAS"
+     ],
+     "VTEC": [
+      "/O.CON.KILN.HT.Y.0006.000000T0000Z-260905T0000Z/"
+     ],
+     "eventEndingTime": [
+      "2026-09-04T20:00:00-04:00"
+     ],
+     "expiredReferences": [
+      "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.fdf8e869724aa8f8a5b15ceca5b375a24722b8f4.001.1,2026-09-02T13:36:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.2d5299ea3f6d72ed17d3f57a88ecfae686764f54.001.1,2026-09-02T03:28:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.0fa491f3a5b36055a18150950a0232d1292673af.001.1,2026-09-01T14:23:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.6da936c05a9ad090665fbe4a4e470f3c95e57174.001.1,2026-09-01T08:35:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.3c34a2ea068ea2623ee3cb9ff1440e054b295549.001.1,2026-09-01T01:33:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.46c718d525e1a468f5b28c2c8c4c1439c7801281.001.1,2026-08-31T19:23:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.dbf50b2baf6930536cec03ddd67f8858bf856cb2.001.1,2026-08-31T14:03:00-04:00"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "HTY"
+     ]
+    }
+   }
+  },
+  {
+   "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0-KEEPALIVE-58616",
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0-KEEPALIVE-58616",
+    "@type": "wx:Alert",
+    "id": "urn:oid:2.49.0.1.840.0-KEEPALIVE-58616",
+    "areaDesc": "Montgomery",
+    "geocode": {
+     "SAME": [
+      "024031"
+     ],
+     "UGC": [
+      "MDC031"
+     ]
+    },
+    "affectedZones": [
+     "https://api.weather.gov/zones/county/MDC031"
+    ],
+    "references": [],
+    "sent": "2026-09-03T04:57:16+00:00",
+    "effective": "2026-09-03T04:57:16+00:00",
+    "onset": null,
+    "expires": "2026-09-03T05:07:16+00:00",
+    "ends": null,
+    "status": "Test",
+    "messageType": "Alert",
+    "category": "Met",
+    "severity": "Unknown",
+    "certainty": "Unknown",
+    "urgency": "Unknown",
+    "event": "Test Message",
+    "sender": "w-nws.webmaster@noaa.gov",
+    "senderName": "NWS",
+    "headline": null,
+    "description": "Monitoring message only. Please disregard.",
+    "instruction": "Monitoring message only. Please disregard.",
+    "response": "None",
+    "note": "This is only a test for monitoring of vital dissemination systems.",
+    "parameters": {
+     "AWIPSidentifier": [
+      "KEPWBC"
+     ],
+     "WMOidentifier": [
+      "NZUS91 KWBC 030457"
+     ],
+     "BLOCKCHANNEL": [
+      "CMAS",
+      "EAS",
+      "NWEM"
+     ]
+    },
+    "scope": "Public",
+    "code": "IPAWSv1.0",
+    "language": "en-US",
+    "web": "http://www.weather.gov",
+    "eventCode": {
+     "SAME": [
+      "NWS"
+     ],
+     "NationalWeatherService": [
+      "TST"
+     ]
+    }
+   }
+  }
+ ],
+ "updated": "2026-09-03T04:57:36+00:00"
+}

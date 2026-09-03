@@ -1,0 +1,133 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "generated": 1788411422000,
+  "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson",
+  "title": "USGS Magnitude 2.5+ Earthquakes, Past Week",
+  "status": 200,
+  "api": "2.7.0",
+  "count": 370
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "mag": 2.45,
+    "place": "30 km NNW of Dyer, Nevada",
+    "time": 1788409911260,
+    "updated": 1788411389040,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nn00924139",
+    "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nn00924139.geojson",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "automatic",
+    "tsunami": 0,
+    "sig": 92,
+    "net": "nn",
+    "code": "00924139",
+    "ids": ",nc75429072,us7000tdtw,nn00924139,",
+    "sources": ",nc,us,nn,",
+    "types": ",focal-mechanism,origin,phase-data,scitech-link,",
+    "nst": 17,
+    "dmin": 0.423,
+    "rms": 0.3224,
+    "gap": 104,
+    "magType": "ml",
+    "type": "earthquake",
+    "title": "M 2.5 - 30 km NNW of Dyer, Nevada"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.1541,
+     37.9311,
+     10.0791
+    ]
+   },
+   "id": "nn00924139"
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "mag": 3.4,
+    "place": "94 km SSW of Nikolski, Alaska",
+    "time": 1788377752492,
+    "updated": 1788386297600,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/aka2026rkeodu",
+    "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/aka2026rkeodu.geojson",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 178,
+    "net": "ak",
+    "code": "a2026rkeodu",
+    "ids": ",aka2026rkeodu,",
+    "sources": ",ak,",
+    "types": ",origin,phase-data,",
+    "nst": 35,
+    "dmin": 0.7,
+    "rms": 0.7,
+    "gap": 216,
+    "magType": "ml",
+    "type": "earthquake",
+    "title": "M 3.4 - 94 km SSW of Nikolski, Alaska"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -169.254,
+     52.123,
+     10.5
+    ]
+   },
+   "id": "aka2026rkeodu"
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "mag": 4.3,
+    "place": "103 km WSW of Puerto Madero, Mexico",
+    "time": 1788356598008,
+    "updated": 1788377422256,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tdn2",
+    "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000tdn2.geojson",
+    "felt": 1,
+    "cdi": 1,
+    "mmi": null,
+    "alert": null,
+    "status": "reviewed",
+    "tsunami": 0,
+    "sig": 285,
+    "net": "us",
+    "code": "7000tdn2",
+    "ids": ",us7000tdn2,",
+    "sources": ",us,",
+    "types": ",dyfi,origin,phase-data,",
+    "nst": 58,
+    "dmin": 2.244,
+    "rms": 0.53,
+    "gap": 187,
+    "magType": "mb",
+    "type": "earthquake",
+    "title": "M 4.3 - 103 km WSW of Puerto Madero, Mexico"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -93.285,
+     14.3184,
+     32.19
+    ]
+   },
+   "id": "us7000tdn2"
+  }
+ ]
+}

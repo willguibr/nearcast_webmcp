@@ -1,0 +1,9 @@
+output "cloudfront_distribution_id" { value = aws_cloudfront_distribution.app.id }
+output "cloudfront_domain_name" { value = aws_cloudfront_distribution.app.domain_name }
+output "application_url" { value = var.enable_custom_domain ? "https://${var.domain_name}" : "https://${aws_cloudfront_distribution.app.domain_name}" }
+output "api_gateway_endpoint" { value = aws_apigatewayv2_api.api.api_endpoint }
+output "api_health_url" { value = "${var.enable_custom_domain ? "https://${var.domain_name}" : "https://${aws_cloudfront_distribution.app.domain_name}"}/api/health" }
+output "frontend_bucket_name" { value = aws_s3_bucket.frontend.bucket }
+output "lambda_function_name" { value = aws_lambda_function.api.function_name }
+output "custom_domain_name" { value = var.enable_custom_domain ? var.domain_name : null }
+output "certificate_arn" { value = var.enable_custom_domain ? aws_acm_certificate.cert[0].arn : null }

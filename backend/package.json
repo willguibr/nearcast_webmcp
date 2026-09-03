@@ -1,0 +1,21 @@
+{
+  "name": "@nearcast/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node --experimental-strip-types --watch src/dev-server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": { "@nearcast/shared": "*" },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.150",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

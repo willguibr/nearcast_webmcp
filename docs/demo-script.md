@@ -1,0 +1,14 @@
+# Demo video script (target 2:00–2:30, audio narration)
+
+Record at 1440×900 or larger in ChatGPT's in-app browser (or Chrome with WebMCP enabled). Keep the Agent Activity panel visible throughout. Use live data; keep `?demo=true` ready as a fallback.
+
+| Time | On screen | Narration |
+|---|---|---|
+| 0:00–0:20 | Nearcast loads: map of Canada + US with clustered markers, sources panel all green, "WebMCP ● Available · 8 tools" | "This is Nearcast. It combines public hazard data from official Canadian and U.S. government sources — wildfires, weather alerts and earthquakes — on one map. What's new is that an AI agent can work on this same map with me through WebMCP." |
+| 0:20–0:40 | Ask: **"What am I currently looking at?"** Activity panel logs `get_current_view`. Agent answers with bounds, counts, source freshness. | "First, the agent reads the shared state: my map bounds, my filters, how many hazards are in view and how fresh each source is. No screen scraping — it called `get_current_view`." |
+| 0:40–1:10 | Ask: **"Focus on British Columbia and Washington and show only wildfires and important weather alerts."** Map animates to BC + WA; earthquakes disappear; activity shows `set_focus_area` → BC, WA and `set_hazard_filters` → wildfire+weather ≥ severe. | "Now it acts. Two structured tools: one moves the map to those regions, one changes the filters. I see exactly what changed, and the same filter panel updates because human and agent share one state." |
+| 1:10–1:40 | Manually click a wildfire marker (details panel opens). Ask: **"Tell me about the hazard I just selected."** Activity shows `get_current_view`, `get_hazard_details`. Agent summarises status, size, agency, official link. | "Collaboration goes both ways. I clicked this fire myself; the agent sees my selection through the current view and pulls the full record — including the issuing agency and the official source link. Nearcast supplies the facts; the agent explains." |
+| 1:40–2:05 | Ask: **"Compare British Columbia and Washington."** Activity shows `compare_regions`. Agent returns a table of deterministic counts. | "Comparisons are computed by the application, not guessed by the model: fire counts, out-of-control fires, hectares, alerts, earthquakes. No safety judgements — just what the sources report." |
+| 2:05–2:25 | Zoom in on the Agent Activity panel; briefly show the tool list and the disclaimer footer. | "Every step is visible here. The site exposed eight typed WebMCP tools; the agent chose which to call. Nearcast is an awareness tool — it always points back to official sources and local emergency authorities. Thanks for watching." |
+
+Fallback lines if a source is down: point at the Sources panel — "One feed is temporarily unavailable; the others keep working, and the agent sees that status too."

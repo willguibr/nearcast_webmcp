@@ -1,0 +1,12 @@
+project_name = "nearcast-webmcp"
+environment  = "prod"
+aws_region   = "ca-central-1"
+
+# MODE A (default): use the generated *.cloudfront.net hostname.
+enable_custom_domain = false
+
+# MODE B: custom domain. Register the domain / create the hosted zone manually first.
+# enable_custom_domain = true
+# domain_name          = "hazards.example.com"
+# hosted_zone_id       = "Z0123456789ABCDEFGHIJ"
+# include_www          = false

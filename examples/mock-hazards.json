@@ -1,0 +1,2628 @@
+{
+ "data": [
+  {
+   "id": "mock:cwfis:K71234",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Fire K71234 (BC) — Demo Ridge",
+   "description": "Out of control · 3400 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.85,
+     50.95
+    ]
+   },
+   "latitude": 50.95,
+   "longitude": -120.85,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 3400,
+    "agency": "BC",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:V82201",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Fire V82201 (BC)",
+   "description": "Out of control · 12800 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -125.4,
+     54.2
+    ]
+   },
+   "latitude": 54.2,
+   "longitude": -125.4,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 12800,
+    "agency": "BC",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:C10877",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Fire C10877 (BC)",
+   "description": "Being held · 640 ha · DEMO DATA",
+   "severity": "moderate",
+   "rawSeverity": "stage_of_control=BH",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.3,
+     52.1
+    ]
+   },
+   "latitude": 52.1,
+   "longitude": -122.3,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Being held",
+    "statusCode": "BH",
+    "areaHectares": 640,
+    "agency": "BC",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:N51122",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Fire N51122 (BC)",
+   "description": "Under control · 12 ha · DEMO DATA",
+   "severity": "minor",
+   "rawSeverity": "stage_of_control=UC",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.9,
+     49.6
+    ]
+   },
+   "latitude": 49.6,
+   "longitude": -119.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Under control",
+    "statusCode": "UC",
+    "areaHectares": 12,
+    "agency": "BC",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:G90011",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Fire G90011 (BC)",
+   "description": "Out of control · 210 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.6,
+     56.3
+    ]
+   },
+   "latitude": 56.3,
+   "longitude": -128.6,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 210,
+    "agency": "BC",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:HWF042",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "Fire HWF042 (AB)",
+   "description": "Out of control · 5100 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.2,
+     55.8
+    ]
+   },
+   "latitude": 55.8,
+   "longitude": -117.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 5100,
+    "agency": "AB",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:EWF118",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "Fire EWF118 (AB)",
+   "description": "Being held · 900 ha · DEMO DATA",
+   "severity": "moderate",
+   "rawSeverity": "stage_of_control=BH",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.9,
+     57.1
+    ]
+   },
+   "latitude": 57.1,
+   "longitude": -111.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Being held",
+    "statusCode": "BH",
+    "areaHectares": 900,
+    "agency": "AB",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:CWF033",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "Fire CWF033 (AB)",
+   "description": "Under control · 3 ha · DEMO DATA",
+   "severity": "minor",
+   "rawSeverity": "stage_of_control=UC",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.5,
+     51.4
+    ]
+   },
+   "latitude": 51.4,
+   "longitude": -114.5,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Under control",
+    "statusCode": "UC",
+    "areaHectares": 3,
+    "agency": "AB",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:SWF210",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "SK",
+   "regionName": "Saskatchewan",
+   "title": "Fire SWF210 (SK)",
+   "description": "Out of control · 22000 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.8,
+     55.6
+    ]
+   },
+   "latitude": 55.6,
+   "longitude": -105.8,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 22000,
+    "agency": "SK",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:WE031",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "MB",
+   "regionName": "Manitoba",
+   "title": "Fire WE031 (MB)",
+   "description": "Being held · 1500 ha · DEMO DATA",
+   "severity": "moderate",
+   "rawSeverity": "stage_of_control=BH",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.9,
+     54.7
+    ]
+   },
+   "latitude": 54.7,
+   "longitude": -98.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Being held",
+    "statusCode": "BH",
+    "areaHectares": 1500,
+    "agency": "MB",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:RED052",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "ON",
+   "regionName": "Ontario",
+   "title": "Fire RED052 (ON)",
+   "description": "Out of control · 780 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -93.6,
+     50.9
+    ]
+   },
+   "latitude": 50.9,
+   "longitude": -93.6,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 780,
+    "agency": "ON",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:QC341",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "QC",
+   "regionName": "Quebec",
+   "title": "Fire QC341 (QC)",
+   "description": "Under control · 45 ha · DEMO DATA",
+   "severity": "minor",
+   "rawSeverity": "stage_of_control=UC",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.2,
+     49.3
+    ]
+   },
+   "latitude": 49.3,
+   "longitude": -74.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Under control",
+    "statusCode": "UC",
+    "areaHectares": 45,
+    "agency": "QC",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:cwfis:YT019",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "YT",
+   "regionName": "Yukon",
+   "title": "Fire YT019 (YT)",
+   "description": "Out of control · 3300 ha · DEMO DATA",
+   "severity": "severe",
+   "rawSeverity": "stage_of_control=OC",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -135.1,
+     62.4
+    ]
+   },
+   "latitude": 62.4,
+   "longitude": -135.1,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Out of control",
+    "statusCode": "OC",
+    "areaHectares": 3300,
+    "agency": "YT",
+    "cause": "Lightning (natural)"
+   }
+  },
+  {
+   "id": "mock:cwfis:NT044",
+   "type": "wildfire",
+   "country": "CA",
+   "regionCode": "NT",
+   "regionName": "Northwest Territories",
+   "title": "Fire NT044 (NT)",
+   "description": "Being held · 2100 ha · DEMO DATA",
+   "severity": "moderate",
+   "rawSeverity": "stage_of_control=BH",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.9,
+     62.9
+    ]
+   },
+   "latitude": 62.9,
+   "longitude": -114.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-20T10:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "CWFIS mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Being held",
+    "statusCode": "BH",
+    "areaHectares": 2100,
+    "agency": "NT",
+    "cause": "Unknown"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-WAOWF-000311",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Demo Pass Fire",
+   "description": "Demo incident near Washington",
+   "severity": "unknown",
+   "rawSeverity": "Active",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.6,
+     48.4
+    ]
+   },
+   "latitude": 48.4,
+   "longitude": -120.6,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Active",
+    "areaAcres": 14200,
+    "areaHectares": 5746.5,
+    "containmentPercent": 35,
+    "agency": "USFS",
+    "behaviour": "Active"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-WACOA-000144",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Cascade Bench Fire",
+   "description": "Demo incident near Washington",
+   "severity": "unknown",
+   "rawSeverity": "Moderate",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.4,
+     46.9
+    ]
+   },
+   "latitude": 46.9,
+   "longitude": -121.4,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Moderate",
+    "areaAcres": 2300,
+    "areaHectares": 930.8,
+    "containmentPercent": 70,
+    "agency": "USFS",
+    "behaviour": "Moderate"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-WANES-000902",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Kettle Fire",
+   "description": "Demo incident near Washington",
+   "severity": "unknown",
+   "rawSeverity": "Minimal",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.1,
+     48.7
+    ]
+   },
+   "latitude": 48.7,
+   "longitude": -118.1,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Minimal",
+    "areaAcres": 410,
+    "areaHectares": 165.9,
+    "containmentPercent": 90,
+    "agency": "USFS",
+    "behaviour": "Minimal"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-ORUPF-000512",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "OR",
+   "regionName": "Oregon",
+   "title": "Umpqua Demo Fire",
+   "description": "Demo incident near Oregon",
+   "severity": "unknown",
+   "rawSeverity": "Extreme",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.7,
+     43.3
+    ]
+   },
+   "latitude": 43.3,
+   "longitude": -122.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Extreme",
+    "areaAcres": 38000,
+    "areaHectares": 15378.1,
+    "containmentPercent": 20,
+    "agency": "USFS",
+    "behaviour": "Extreme"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-ORMAF-000280",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "OR",
+   "regionName": "Oregon",
+   "title": "Ochoco Fire",
+   "description": "Demo incident near Oregon",
+   "severity": "unknown",
+   "rawSeverity": "Active",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.4,
+     44.5
+    ]
+   },
+   "latitude": 44.5,
+   "longitude": -119.4,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Active",
+    "areaAcres": 6600,
+    "areaHectares": 2670.9,
+    "containmentPercent": 55,
+    "agency": "USFS",
+    "behaviour": "Active"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-CASHF-004102",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "Trinity Demo Fire",
+   "description": "Demo incident near California",
+   "severity": "unknown",
+   "rawSeverity": "Extreme",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.9,
+     40.8
+    ]
+   },
+   "latitude": 40.8,
+   "longitude": -122.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Extreme",
+    "areaAcres": 71000,
+    "areaHectares": 28732.7,
+    "containmentPercent": 45,
+    "agency": "USFS",
+    "behaviour": "Extreme"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-CASQF-002210",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "Sequoia Demo Fire",
+   "description": "Demo incident near California",
+   "severity": "unknown",
+   "rawSeverity": "Active",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.7,
+     36.4
+    ]
+   },
+   "latitude": 36.4,
+   "longitude": -118.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Active",
+    "areaAcres": 9800,
+    "areaHectares": 3965.9,
+    "containmentPercent": 60,
+    "agency": "USFS",
+    "behaviour": "Active"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-IDBOF-000771",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "ID",
+   "regionName": "Idaho",
+   "title": "Salmon River Demo Fire",
+   "description": "Demo incident near Idaho",
+   "severity": "unknown",
+   "rawSeverity": "Active",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.3,
+     44.6
+    ]
+   },
+   "latitude": 44.6,
+   "longitude": -115.3,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Active",
+    "areaAcres": 27500,
+    "areaHectares": 11128.9,
+    "containmentPercent": 30,
+    "agency": "USFS",
+    "behaviour": "Active"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-MTLNF-000308",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "MT",
+   "regionName": "Montana",
+   "title": "Flathead Demo Fire",
+   "description": "Demo incident near Montana",
+   "severity": "unknown",
+   "rawSeverity": "Moderate",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -113.9,
+     47.9
+    ]
+   },
+   "latitude": 47.9,
+   "longitude": -113.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Moderate",
+    "areaAcres": 4400,
+    "areaHectares": 1780.6,
+    "containmentPercent": 65,
+    "agency": "USFS",
+    "behaviour": "Moderate"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-AKFAS-000455",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "AK",
+   "regionName": "Alaska",
+   "title": "Yukon Flats Demo Fire",
+   "description": "Demo incident near Alaska",
+   "severity": "unknown",
+   "rawSeverity": "Active",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -147.2,
+     65.1
+    ]
+   },
+   "latitude": 65.1,
+   "longitude": -147.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Active",
+    "areaAcres": 120000,
+    "areaHectares": 48562.3,
+    "containmentPercent": 10,
+    "agency": "USFS",
+    "behaviour": "Active"
+   }
+  },
+  {
+   "id": "mock:nifc:2026-COWRF-000190",
+   "type": "wildfire",
+   "country": "US",
+   "regionCode": "CO",
+   "regionName": "Colorado",
+   "title": "Routt Demo Fire",
+   "description": "Demo incident near Colorado",
+   "severity": "unknown",
+   "rawSeverity": "Minimal",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.9,
+     40.1
+    ]
+   },
+   "latitude": 40.1,
+   "longitude": -106.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-15T16:30:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NIFC WFIGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "wildfire": {
+    "status": "Fire behaviour: Minimal",
+    "areaAcres": 1800,
+    "areaHectares": 728.4,
+    "containmentPercent": 80,
+    "agency": "USFS",
+    "behaviour": "Minimal"
+   }
+  },
+  {
+   "id": "mock:eccc:bc-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Heat warning — Metro Vancouver",
+   "description": "Demo warning for Metro Vancouver. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "warning",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -123.4,
+       49
+      ],
+      [
+       -122.4,
+       49
+      ],
+      [
+       -122.4,
+       49.5
+      ],
+      [
+       -123.4,
+       49.5
+      ],
+      [
+       -123.4,
+       49
+      ]
+     ]
+    ]
+   },
+   "latitude": 49.25,
+   "longitude": -122.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "heat warning",
+    "headline": "Heat warning in effect for Metro Vancouver",
+    "areaDescription": "Metro Vancouver",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:bc-2",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Wind warning — North Coast — coastal sections",
+   "description": "Demo warning for North Coast — coastal sections. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "warning",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -131,
+       53
+      ],
+      [
+       -128.5,
+       53
+      ],
+      [
+       -128.5,
+       55
+      ],
+      [
+       -131,
+       55
+      ],
+      [
+       -131,
+       53
+      ]
+     ]
+    ]
+   },
+   "latitude": 54,
+   "longitude": -129.75,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "wind warning",
+    "headline": "Wind warning in effect for North Coast — coastal sections",
+    "areaDescription": "North Coast — coastal sections",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:bc-3",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Severe thunderstorm watch — Okanagan Valley",
+   "description": "Demo watch for Okanagan Valley. DEMO DATA.",
+   "severity": "moderate",
+   "rawSeverity": "watch",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -120.2,
+       49
+      ],
+      [
+       -118.9,
+       49
+      ],
+      [
+       -118.9,
+       50.6
+      ],
+      [
+       -120.2,
+       50.6
+      ],
+      [
+       -120.2,
+       49
+      ]
+     ]
+    ]
+   },
+   "latitude": 49.8,
+   "longitude": -119.55000000000001,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "severe thunderstorm watch",
+    "headline": "Severe thunderstorm watch in effect for Okanagan Valley",
+    "areaDescription": "Okanagan Valley",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:bc-4",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "Special weather statement — Fraser Canyon",
+   "description": "Demo statement for Fraser Canyon. DEMO DATA.",
+   "severity": "info",
+   "rawSeverity": "statement",
+   "significance": "low",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122,
+       49.6
+      ],
+      [
+       -121,
+       49.6
+      ],
+      [
+       -121,
+       50.6
+      ],
+      [
+       -122,
+       50.6
+      ],
+      [
+       -122,
+       49.6
+      ]
+     ]
+    ]
+   },
+   "latitude": 50.1,
+   "longitude": -121.5,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "special weather statement",
+    "headline": "Special weather statement in effect for Fraser Canyon",
+    "areaDescription": "Fraser Canyon",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:ab-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "Severe thunderstorm warning — Calgary",
+   "description": "Demo warning for Calgary. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "warning",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -114.5,
+       50.8
+      ],
+      [
+       -113.6,
+       50.8
+      ],
+      [
+       -113.6,
+       51.3
+      ],
+      [
+       -114.5,
+       51.3
+      ],
+      [
+       -114.5,
+       50.8
+      ]
+     ]
+    ]
+   },
+   "latitude": 51.05,
+   "longitude": -114.05,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "severe thunderstorm warning",
+    "headline": "Severe thunderstorm warning in effect for Calgary",
+    "areaDescription": "Calgary",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:ab-2",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "Air quality advisory — Edmonton",
+   "description": "Demo advisory for Edmonton. DEMO DATA.",
+   "severity": "minor",
+   "rawSeverity": "advisory",
+   "significance": "low",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -113.9,
+       53.3
+      ],
+      [
+       -113.2,
+       53.3
+      ],
+      [
+       -113.2,
+       53.8
+      ],
+      [
+       -113.9,
+       53.8
+      ],
+      [
+       -113.9,
+       53.3
+      ]
+     ]
+    ]
+   },
+   "latitude": 53.55,
+   "longitude": -113.55000000000001,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "air quality advisory",
+    "headline": "Air quality advisory in effect for Edmonton",
+    "areaDescription": "Edmonton",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:on-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "ON",
+   "regionName": "Ontario",
+   "title": "Rainfall warning — Toronto",
+   "description": "Demo warning for Toronto. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "warning",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -79.8,
+       43.5
+      ],
+      [
+       -79.1,
+       43.5
+      ],
+      [
+       -79.1,
+       43.9
+      ],
+      [
+       -79.8,
+       43.9
+      ],
+      [
+       -79.8,
+       43.5
+      ]
+     ]
+    ]
+   },
+   "latitude": 43.7,
+   "longitude": -79.44999999999999,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "rainfall warning",
+    "headline": "Rainfall warning in effect for Toronto",
+    "areaDescription": "Toronto",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:on-2",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "ON",
+   "regionName": "Ontario",
+   "title": "Tornado watch — London — Middlesex",
+   "description": "Demo watch for London — Middlesex. DEMO DATA.",
+   "severity": "moderate",
+   "rawSeverity": "watch",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -81.6,
+       42.7
+      ],
+      [
+       -80.8,
+       42.7
+      ],
+      [
+       -80.8,
+       43.2
+      ],
+      [
+       -81.6,
+       43.2
+      ],
+      [
+       -81.6,
+       42.7
+      ]
+     ]
+    ]
+   },
+   "latitude": 42.95,
+   "longitude": -81.19999999999999,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "tornado watch",
+    "headline": "Tornado watch in effect for London — Middlesex",
+    "areaDescription": "London — Middlesex",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:qc-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "QC",
+   "regionName": "Quebec",
+   "title": "Heat warning — Montréal",
+   "description": "Demo warning for Montréal. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "warning",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -74,
+       45.4
+      ],
+      [
+       -73.4,
+       45.4
+      ],
+      [
+       -73.4,
+       45.8
+      ],
+      [
+       -74,
+       45.8
+      ],
+      [
+       -74,
+       45.4
+      ]
+     ]
+    ]
+   },
+   "latitude": 45.599999999999994,
+   "longitude": -73.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "heat warning",
+    "headline": "Heat warning in effect for Montréal",
+    "areaDescription": "Montréal",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:ns-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "NS",
+   "regionName": "Nova Scotia",
+   "title": "Tropical storm watch — Halifax",
+   "description": "Demo watch for Halifax. DEMO DATA.",
+   "severity": "moderate",
+   "rawSeverity": "watch",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -64.2,
+       44.4
+      ],
+      [
+       -63.2,
+       44.4
+      ],
+      [
+       -63.2,
+       45
+      ],
+      [
+       -64.2,
+       45
+      ],
+      [
+       -64.2,
+       44.4
+      ]
+     ]
+    ]
+   },
+   "latitude": 44.7,
+   "longitude": -63.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "tropical storm watch",
+    "headline": "Tropical storm watch in effect for Halifax",
+    "areaDescription": "Halifax",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:eccc:mb-1",
+   "type": "weather",
+   "country": "CA",
+   "regionCode": "MB",
+   "regionName": "Manitoba",
+   "title": "Fog advisory — Winnipeg",
+   "description": "Demo advisory for Winnipeg. DEMO DATA.",
+   "severity": "minor",
+   "rawSeverity": "advisory",
+   "significance": "low",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -97.4,
+       49.7
+      ],
+      [
+       -96.9,
+       49.7
+      ],
+      [
+       -96.9,
+       50
+      ],
+      [
+       -97.4,
+       50
+      ],
+      [
+       -97.4,
+       49.7
+      ]
+     ]
+    ]
+   },
+   "latitude": 49.85,
+   "longitude": -97.15,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T12:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T12:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "ECCC mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "fog advisory",
+    "headline": "Fog advisory in effect for Winnipeg",
+    "areaDescription": "Winnipeg",
+    "sender": "ECCC (demo)",
+    "status": "issued"
+   }
+  },
+  {
+   "id": "mock:nws:wa-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Red Flag Warning",
+   "description": "Demo Red Flag Warning for Okanogan Valley, WA. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -120.2,
+       48
+      ],
+      [
+       -119.2,
+       48
+      ],
+      [
+       -119.2,
+       48.9
+      ],
+      [
+       -120.2,
+       48.9
+      ],
+      [
+       -120.2,
+       48
+      ]
+     ]
+    ]
+   },
+   "latitude": 48.45,
+   "longitude": -119.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Red Flag Warning",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Red Flag Warning for Okanogan Valley, WA",
+    "areaDescription": "Okanogan Valley, WA",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:wa-2",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Excessive Heat Warning",
+   "description": "Demo Excessive Heat Warning for Seattle and vicinity, WA. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.6,
+       47.3
+      ],
+      [
+       -122,
+       47.3
+      ],
+      [
+       -122,
+       47.8
+      ],
+      [
+       -122.6,
+       47.8
+      ],
+      [
+       -122.6,
+       47.3
+      ]
+     ]
+    ]
+   },
+   "latitude": 47.55,
+   "longitude": -122.3,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Excessive Heat Warning",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Excessive Heat Warning for Seattle and vicinity, WA",
+    "areaDescription": "Seattle and vicinity, WA",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:wa-3",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "Air Quality Alert",
+   "description": "Demo Air Quality Alert for Spokane, WA. DEMO DATA.",
+   "severity": "unknown",
+   "rawSeverity": "Unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.4,
+     47.65
+    ]
+   },
+   "latitude": 47.65,
+   "longitude": -117.4,
+   "locationPrecision": "approximate",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Air Quality Alert",
+    "urgency": "Unknown",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Air Quality Alert for Spokane, WA",
+    "areaDescription": "Spokane, WA",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:or-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "OR",
+   "regionName": "Oregon",
+   "title": "Red Flag Warning",
+   "description": "Demo Red Flag Warning for Central Oregon. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -121.9,
+       43.6
+      ],
+      [
+       -120.4,
+       43.6
+      ],
+      [
+       -120.4,
+       44.7
+      ],
+      [
+       -121.9,
+       44.7
+      ],
+      [
+       -121.9,
+       43.6
+      ]
+     ]
+    ]
+   },
+   "latitude": 44.15,
+   "longitude": -121.15,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Red Flag Warning",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Red Flag Warning for Central Oregon",
+    "areaDescription": "Central Oregon",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:ca-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "Extreme Heat Warning",
+   "description": "Demo Extreme Heat Warning for Sacramento Valley, CA. DEMO DATA.",
+   "severity": "extreme",
+   "rawSeverity": "Extreme",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -122.3,
+       38.4
+      ],
+      [
+       -121.2,
+       38.4
+      ],
+      [
+       -121.2,
+       40
+      ],
+      [
+       -122.3,
+       40
+      ],
+      [
+       -122.3,
+       38.4
+      ]
+     ]
+    ]
+   },
+   "latitude": 39.2,
+   "longitude": -121.75,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Extreme Heat Warning",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Extreme Heat Warning for Sacramento Valley, CA",
+    "areaDescription": "Sacramento Valley, CA",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:ca-2",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "Flash Flood Warning",
+   "description": "Demo Flash Flood Warning for San Bernardino Mountains, CA. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -117.4,
+       34.1
+      ],
+      [
+       -116.7,
+       34.1
+      ],
+      [
+       -116.7,
+       34.4
+      ],
+      [
+       -117.4,
+       34.4
+      ],
+      [
+       -117.4,
+       34.1
+      ]
+     ]
+    ]
+   },
+   "latitude": 34.25,
+   "longitude": -117.05,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Flash Flood Warning",
+    "urgency": "Immediate",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Flash Flood Warning for San Bernardino Mountains, CA",
+    "areaDescription": "San Bernardino Mountains, CA",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:mt-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "MT",
+   "regionName": "Montana",
+   "title": "Wind Advisory",
+   "description": "Demo Wind Advisory for Cut Bank, MT. DEMO DATA.",
+   "severity": "minor",
+   "rawSeverity": "Minor",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.3,
+     48.6
+    ]
+   },
+   "latitude": 48.6,
+   "longitude": -112.3,
+   "locationPrecision": "approximate",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Wind Advisory",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Wind Advisory for Cut Bank, MT",
+    "areaDescription": "Cut Bank, MT",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:tx-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "TX",
+   "regionName": "Texas",
+   "title": "Severe Thunderstorm Warning",
+   "description": "Demo Severe Thunderstorm Warning for Dallas County, TX. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -97.1,
+       32.6
+      ],
+      [
+       -96.5,
+       32.6
+      ],
+      [
+       -96.5,
+       33
+      ],
+      [
+       -97.1,
+       33
+      ],
+      [
+       -97.1,
+       32.6
+      ]
+     ]
+    ]
+   },
+   "latitude": 32.8,
+   "longitude": -96.8,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Severe Thunderstorm Warning",
+    "urgency": "Immediate",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Severe Thunderstorm Warning for Dallas County, TX",
+    "areaDescription": "Dallas County, TX",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:fl-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "FL",
+   "regionName": "Florida",
+   "title": "Tropical Storm Warning",
+   "description": "Demo Tropical Storm Warning for Coastal Miami-Dade, FL. DEMO DATA.",
+   "severity": "severe",
+   "rawSeverity": "Severe",
+   "significance": "high",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.5,
+       25.3
+      ],
+      [
+       -80,
+       25.3
+      ],
+      [
+       -80,
+       25.9
+      ],
+      [
+       -80.5,
+       25.9
+      ],
+      [
+       -80.5,
+       25.3
+      ]
+     ]
+    ]
+   },
+   "latitude": 25.6,
+   "longitude": -80.25,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Tropical Storm Warning",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Tropical Storm Warning for Coastal Miami-Dade, FL",
+    "areaDescription": "Coastal Miami-Dade, FL",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:nws:ak-1",
+   "type": "weather",
+   "country": "US",
+   "regionCode": "AK",
+   "regionName": "Alaska",
+   "title": "Winter Weather Advisory",
+   "description": "Demo Winter Weather Advisory for Brooks Range, AK. DEMO DATA.",
+   "severity": "minor",
+   "rawSeverity": "Minor",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -150,
+     68
+    ]
+   },
+   "latitude": 68,
+   "longitude": -150,
+   "locationPrecision": "approximate",
+   "startedAt": "2026-09-02T14:00:00.000Z",
+   "updatedAt": "2026-09-02T18:00:00.000Z",
+   "expiresAt": "2026-09-03T02:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "NWS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "weather": {
+    "event": "Winter Weather Advisory",
+    "urgency": "Expected",
+    "certainty": "Likely",
+    "instruction": "Follow instructions from local emergency authorities.",
+    "headline": "Winter Weather Advisory for Brooks Range, AK",
+    "areaDescription": "Brooks Range, AK",
+    "sender": "NWS (demo)",
+    "status": "Actual"
+   }
+  },
+  {
+   "id": "mock:usgs:ak26demo1",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "AK",
+   "regionName": "Alaska",
+   "title": "M 5.4 - 32 km NW of Anchorage, Alaska",
+   "description": "32 km NW of Anchorage, Alaska",
+   "severity": "unknown",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -151.2,
+     61.3
+    ]
+   },
+   "latitude": 61.3,
+   "longitude": -151.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T09:12:00.000Z",
+   "updatedAt": "2026-09-02T09:12:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 5.4,
+    "magnitudeType": "ML",
+    "depthKm": 45
+   }
+  },
+  {
+   "id": "mock:usgs:ak26demo2",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "AK",
+   "regionName": "Alaska",
+   "title": "M 4.3 - 80 km S of Sand Point, Alaska",
+   "description": "80 km S of Sand Point, Alaska",
+   "severity": "unknown",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -160.5,
+     54.9
+    ]
+   },
+   "latitude": 54.9,
+   "longitude": -160.5,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-01T22:40:00.000Z",
+   "updatedAt": "2026-09-01T22:40:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 4.3,
+    "magnitudeType": "ML",
+    "depthKm": 30
+   }
+  },
+  {
+   "id": "mock:usgs:ca26demo1",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "M 3.6 - 6 km E of Santa Clarita, California",
+   "description": "6 km E of Santa Clarita, California",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.5,
+     34.4
+    ]
+   },
+   "latitude": 34.4,
+   "longitude": -118.5,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T15:05:00.000Z",
+   "updatedAt": "2026-09-02T15:05:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 3.6,
+    "magnitudeType": "ML",
+    "depthKm": 9
+   }
+  },
+  {
+   "id": "mock:usgs:ca26demo2",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "CA",
+   "regionName": "California",
+   "title": "M 4.1 - 10 km SE of Watsonville, California",
+   "description": "10 km SE of Watsonville, California",
+   "severity": "unknown",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.7,
+     36.9
+    ]
+   },
+   "latitude": 36.9,
+   "longitude": -121.7,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-31T04:20:00.000Z",
+   "updatedAt": "2026-08-31T04:20:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 4.1,
+    "magnitudeType": "ML",
+    "depthKm": 7
+   }
+  },
+  {
+   "id": "mock:usgs:wa26demo1",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "M 2.8 - 8 km S of Tacoma, Washington",
+   "description": "8 km S of Tacoma, Washington",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.3,
+     47.3
+    ]
+   },
+   "latitude": 47.3,
+   "longitude": -122.3,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T02:33:00.000Z",
+   "updatedAt": "2026-09-02T02:33:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 2.8,
+    "magnitudeType": "ML",
+    "depthKm": 22
+   }
+  },
+  {
+   "id": "mock:usgs:wa26demo2",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "WA",
+   "regionName": "Washington",
+   "title": "M 4.4 - 90 km W of Forks, Washington",
+   "description": "90 km W of Forks, Washington",
+   "severity": "unknown",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -125.1,
+     47.9
+    ]
+   },
+   "latitude": 47.9,
+   "longitude": -125.1,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-30T11:11:00.000Z",
+   "updatedAt": "2026-08-30T11:11:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 4.4,
+    "magnitudeType": "ML",
+    "depthKm": 18
+   }
+  },
+  {
+   "id": "mock:usgs:nv26demo1",
+   "type": "earthquake",
+   "country": "US",
+   "regionCode": "NV",
+   "regionName": "Nevada",
+   "title": "M 3.2 - 40 km SW of Tonopah, Nevada",
+   "description": "40 km SW of Tonopah, Nevada",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.9,
+     38.4
+    ]
+   },
+   "latitude": 38.4,
+   "longitude": -117.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-01T18:00:00.000Z",
+   "updatedAt": "2026-09-01T18:00:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "USGS mock (DEMO DATA)",
+    "country": "US",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 3.2,
+    "magnitudeType": "ML",
+    "depthKm": 8
+   }
+  },
+  {
+   "id": "mock:nrcan:20260902.0810001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "M 4.8 - 120 km W of Port Alice, BC",
+   "description": "120 km W of Port Alice, BC",
+   "severity": "unknown",
+   "significance": "moderate",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9,
+     49.6
+    ]
+   },
+   "latitude": 49.6,
+   "longitude": -127.9,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T08:10:00.000Z",
+   "updatedAt": "2026-09-02T08:10:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 4.8,
+    "magnitudeType": "ML",
+    "depthKm": 12
+   }
+  },
+  {
+   "id": "mock:nrcan:20260901.2115001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "M 2.6 - 15 km S of Sidney, BC",
+   "description": "15 km S of Sidney, BC",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.2,
+     48.9
+    ]
+   },
+   "latitude": 48.9,
+   "longitude": -123.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-01T21:15:00.000Z",
+   "updatedAt": "2026-09-01T21:15:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 2.6,
+    "magnitudeType": "ML",
+    "depthKm": 55
+   }
+  },
+  {
+   "id": "mock:nrcan:20260831.1340001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "BC",
+   "regionName": "British Columbia",
+   "title": "M 5.6 - 180 km SW of Sandspit, BC",
+   "description": "180 km SW of Sandspit, BC",
+   "severity": "unknown",
+   "significance": "high",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -130.6,
+     52.4
+    ]
+   },
+   "latitude": 52.4,
+   "longitude": -130.6,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-31T13:40:00.000Z",
+   "updatedAt": "2026-08-31T13:40:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 5.6,
+    "magnitudeType": "ML",
+    "depthKm": 10
+   }
+  },
+  {
+   "id": "mock:nrcan:20260902.0305001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "YT",
+   "regionName": "Yukon",
+   "title": "M 3.9 - 70 km NW of Haines Junction, YT",
+   "description": "70 km NW of Haines Junction, YT",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -139.2,
+     60.4
+    ]
+   },
+   "latitude": 60.4,
+   "longitude": -139.2,
+   "locationPrecision": "exact",
+   "startedAt": "2026-09-02T03:05:00.000Z",
+   "updatedAt": "2026-09-02T03:05:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 3.9,
+    "magnitudeType": "ML",
+    "depthKm": 6
+   }
+  },
+  {
+   "id": "mock:nrcan:20260830.1922001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "QC",
+   "regionName": "Quebec",
+   "title": "M 3.4 - 25 km NE of Baie-Saint-Paul, QC",
+   "description": "25 km NE of Baie-Saint-Paul, QC",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.4,
+     47.5
+    ]
+   },
+   "latitude": 47.5,
+   "longitude": -71.4,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-30T19:22:00.000Z",
+   "updatedAt": "2026-08-30T19:22:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 3.4,
+    "magnitudeType": "ML",
+    "depthKm": 15
+   }
+  },
+  {
+   "id": "mock:nrcan:20260829.0450001",
+   "type": "earthquake",
+   "country": "CA",
+   "regionCode": "AB",
+   "regionName": "Alberta",
+   "title": "M 2.4 - 12 km W of Calgary, AB",
+   "description": "12 km W of Calgary, AB",
+   "severity": "unknown",
+   "significance": "low",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114,
+     51.1
+    ]
+   },
+   "latitude": 51.1,
+   "longitude": -114,
+   "locationPrecision": "exact",
+   "startedAt": "2026-08-29T04:50:00.000Z",
+   "updatedAt": "2026-08-29T04:50:00.000Z",
+   "source": {
+    "id": "mock",
+    "agency": "Earthquakes Canada mock (DEMO DATA)",
+    "country": "CA",
+    "url": "https://github.com/SecurityGeekIO/nearcast-webmcp#mock-data-mode"
+   },
+   "earthquake": {
+    "magnitude": 2.4,
+    "magnitudeType": "ML",
+    "depthKm": 4
+   }
+  }
+ ],
+ "meta": {
+  "generatedAt": "2026-09-02T18:00:00.000Z",
+  "retrievedAt": "2026-09-02T18:00:00.000Z",
+  "sources": [
+   {
+    "id": "eccc",
+    "agency": "Environment and Climate Change Canada (DEMO)",
+    "country": "CA",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 11
+   },
+   {
+    "id": "cwfis",
+    "agency": "Natural Resources Canada — CWFIS (DEMO)",
+    "country": "CA",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 14
+   },
+   {
+    "id": "nrcan",
+    "agency": "Earthquakes Canada (DEMO)",
+    "country": "CA",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 6
+   },
+   {
+    "id": "nws",
+    "agency": "U.S. National Weather Service (DEMO)",
+    "country": "US",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 10
+   },
+   {
+    "id": "nifc",
+    "agency": "National Interagency Fire Center (DEMO)",
+    "country": "US",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 11
+   },
+   {
+    "id": "usgs",
+    "agency": "U.S. Geological Survey (DEMO)",
+    "country": "US",
+    "status": "available",
+    "retrievedAt": "2026-09-02T18:00:00.000Z",
+    "count": 7
+   }
+  ],
+  "filters": {},
+  "count": 59,
+  "total": 59,
+  "mock": true
+ }
+}
