@@ -3,6 +3,9 @@ import { clock } from "../services/time.ts";
 import { registeredTools } from "../webmcp/register.ts";
 
 const SCENARIOS: { label: string; tool: string; input: Record<string, unknown> }[] = [
+  { label: "My saved places", tool: "get_saved_places", input: {} },
+  { label: "My place brief", tool: "get_place_context", input: {} },
+  { label: "Nearby roads & cameras", tool: "get_travel_conditions", input: {} },
   { label: "What is in view?", tool: "get_current_view", input: {} },
   { label: "Focus BC + WA", tool: "set_focus_area", input: { regions: ["BC", "WA"] } },
   { label: "Wildfires + severe weather", tool: "set_hazard_filters", input: { hazardTypes: ["wildfire", "weather"], minimumSeverity: "severe" } },

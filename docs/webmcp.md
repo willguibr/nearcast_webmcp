@@ -42,7 +42,7 @@ Region registry: all Canadian provinces/territories and all US states + DC, by c
 1. Use **Chrome 146+ on the Canary, Dev or Beta channel** (Stable does not ship the flag yet). Check `chrome://version`.
 2. Open `chrome://flags`, search **WebMCP**, set *WebMCP for testing* to **Enabled**, click **Relaunch**.
 3. Chrome also needs WebGL for the map: `chrome://settings/system` → *Use graphics acceleration when available* must be on (verify at `chrome://gpu`). Without it Nearcast shows a "WebGL is not available" panel; the list, details and tools still work.
-4. Open the HTTPS Nearcast URL. The header should read **WebMCP ● Available · 8 tools**.
+4. Open the HTTPS Nearcast URL. The header should read **WebMCP ● Available · 15 tools**.
 5. In DevTools console, Chrome's testing interface can drive the tools directly:
 
 ```js
@@ -84,3 +84,7 @@ JSON.parse((await __tools.compare_regions.execute({ regions: ["BC", "WA"] })).co
 - Mutating tools update React state and the map visibly (fitBounds / flyTo animations, marker highlight, details panel).
 - Human changes (pan/zoom, filter checkboxes, marker clicks) are reflected by `get_current_view` on the next call.
 - Malformed input yields structured errors rather than exceptions.
+
+## Saved-place tools
+
+The place-awareness release adds `get_saved_places`, `save_place`, `set_active_place`, `get_place_context`, `compare_saved_places`, `get_travel_conditions`, and `focus_context_item`. `create_situation_context` accepts a saved `placeId`, mutually exclusive with `regions`. `get_current_view` also reports the active place, additional layers, selected context item and place-feed status. Full schemas are in `frontend/src/webmcp/place-tools.ts`; coverage, privacy and manual testing are documented in [place awareness](place-awareness.md).

@@ -3,7 +3,7 @@ import type { DisplaySignificance, HazardSeverity, HazardType } from "@nearcast/
 /** OpenFreeMap "Positron" — OpenStreetMap-based vector basemap, no API token required. */
 export const BASEMAP_STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
 export const BASEMAP_HOSTS = ["https://tiles.openfreemap.org"];
-export const DATA_ATTRIBUTION = "Hazard data: ECCC · NRCan CWFIS · Earthquakes Canada · NWS · NIFC · USGS";
+export const DATA_ATTRIBUTION = "Data: ECCC · NRCan CWFIS · Earthquakes Canada · NWS · NIFC · USGS · Emergency Management BC · DriveBC";
 
 export const TYPE_COLOR: Record<HazardType, string> = {
   wildfire: "#d9531e",

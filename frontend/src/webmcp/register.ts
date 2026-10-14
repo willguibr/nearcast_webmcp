@@ -28,10 +28,13 @@ export function registerWebMcpTools(store: Store): () => void {
   (async () => {
     const registered: string[] = [];
     for (const tool of tools) {
+      if (controller.signal.aborted) return;
       try {
         await ctx.registerTool(tool, { signal: controller.signal });
+        if (controller.signal.aborted) return;
         registered.push(tool.name);
       } catch (e) {
+        if (controller.signal.aborted) return;
         console.warn(`WebMCP: failed to register ${tool.name}`, e);
       }
     }
@@ -39,6 +42,9 @@ export function registerWebMcpTools(store: Store): () => void {
   })();
   return () => {
     controller.abort();
-    for (const t of tools) { try { ctx.unregisterTool?.(t.name); } catch { /* ignore */ } }
+    for (const t of tools) {
+      if (registeredTools[t.name] === t) delete registeredTools[t.name];
+      try { ctx.unregisterTool?.(t.name); } catch { /* ignore */ }
+    }
   };
 }

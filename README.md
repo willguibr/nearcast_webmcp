@@ -4,7 +4,7 @@ Nearcast turns fragmented official hazard information from Canada and the United
 
 Built for the [OpenAI WebMCP Challenge](https://webmcp.devpost.com/). Not affiliated with any government agency.
 
-**Live:** https://hazards.securitygeek.io (CloudFront origin: https://dof7zqxufissn.cloudfront.net)
+**Existing deployment:** https://hazards.securitygeek.io (CloudFront origin: https://dof7zqxufissn.cloudfront.net). The place-awareness feature branch has not been deployed there.
 
 ## What it does
 
@@ -12,7 +12,9 @@ Built for the [OpenAI WebMCP Challenge](https://webmcp.devpost.com/). Not affili
 - Data comes only from official public sources (ECCC, NRCan CWFIS, Earthquakes Canada, NWS, NIFC, USGS), normalized by a small Lambda API into one hazard model with explicit source attribution and freshness.
 - Every source fails independently; the app keeps working and shows which feeds are unavailable.
 - Filters (country, hazard type, weather severity, earthquake magnitude), clustering, polygon rendering, hazard selection and a details panel with the issuing agency, timestamps and the official link.
-- Eight WebMCP tools expose that exact application state to AI agents, and an **Agent Activity** panel shows every tool call as it happens.
+- Saved places with editable watch radii, a personal situation brief, place comparisons, and copy/share actions. Preferences stay in this browser.
+- Canadian AQHI station observations, published BC evacuation notices, and DriveBC road events and pinnable highway cameras. Coverage, record age and independent feed failures remain visible.
+- Fifteen WebMCP tools expose that exact application state to AI agents, and an **Agent Activity** panel shows every tool call as it happens.
 
 ## Why WebMCP
 
@@ -42,7 +44,7 @@ Human refines by hand; the agent sees that too on its next call
 | Weather alerts | ECCC / MSC GeoMet `weather-alerts` | NWS `alerts/active` |
 | Earthquakes | Earthquakes Canada FDSN (7 days, M2.0+) | USGS M2.5+ past-week feed |
 
-Evacuation alerts were out of scope for the MVP.
+The first place-awareness release adds published BC evacuation alerts and orders as a separate context layer. Older or unknown records require status verification; no evacuation routing is provided. See [place awareness](docs/place-awareness.md) for scope, endpoints and testing.
 
 ## Supported Countries
 
@@ -91,6 +93,15 @@ Registered with `document.modelContext.registerTool(...)` (falls back to `naviga
 | `get_hazard_details` | Full normalized record with agency classifications and official link |
 | `compare_regions` | Deterministic counts for two or more provinces/states |
 | `create_situation_context` | Structured facts for the current view or regions; the agent writes the prose |
+| `get_saved_places` | Browser-local places and active selection |
+| `save_place` | Add/edit a user-requested place and watch radius |
+| `set_active_place` | Open the same personal dashboard and map focus used by humans |
+| `get_place_context` | Nearby records, source status, coverage and a shareable brief |
+| `compare_saved_places` | Compare two to five saved places without changing selection |
+| `get_travel_conditions` | Nearby DriveBC road events, schedules and cameras |
+| `focus_context_item` | Select a station, notice, road event or camera on the map |
+
+`create_situation_context` also accepts `placeId` for the personal brief. All place matching uses distance to published polygons, points or road segments; map filters do not hide records from a personal brief.
 
 ## Running Locally
 

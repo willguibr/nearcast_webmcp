@@ -1,5 +1,7 @@
 import type { Bbox, CountryCode, Hazard, HazardSeverity, HazardType, SourceMeta } from "@nearcast/shared";
 import { NORTH_AMERICA_BBOX, bboxContains, meetsMinimumSeverity } from "@nearcast/shared";
+import { radiusBounds, validPlace, geometryBbox, usableAwarenessItems, type SavedPlace, type AwarenessSnapshot, type AwarenessKind } from "@nearcast/shared";
+import { PLACES_STORAGE_KEY, readPreferences, type PreferenceStorage } from "./preferences.ts";
 
 /** Filters shared by the human UI and the WebMCP tools. */
 export interface Filters {
@@ -31,6 +33,18 @@ export interface ActivityEntry {
 export type WebMcpStatus = "pending" | "available" | "emulated" | "unavailable";
 
 export interface AppState {
+  places: SavedPlace[];
+  activePlaceId?: string;
+  pinnedCameraIds: string[];
+  persistenceError?: string;
+  awareness?: AwarenessSnapshot;
+  awarenessLoading: boolean;
+  awarenessError?: string;
+  awarenessLayers: AwarenessKind[];
+  selectedContextId?: string;
+  workspaceView: "places" | "explore";
+  pickingPlace: boolean;
+  pickedCoordinate?: [number, number];
   hazards: Hazard[];
   sources: SourceMeta[];
   retrievedAt?: string;
@@ -49,6 +63,8 @@ export interface AppState {
 export const DEFAULT_FILTERS: Filters = { countries: ["CA", "US"], hazardTypes: ["wildfire", "weather", "earthquake"] };
 
 export const initialState: AppState = {
+  places: [], pinnedCameraIds: [], awarenessLoading: false,
+  awarenessLayers: ["air-quality", "evacuation", "road", "camera"], workspaceView: "places", pickingPlace: false,
   hazards: [],
   sources: [],
   loading: false,
@@ -64,8 +80,8 @@ export const initialState: AppState = {
 type Listener = () => void;
 
 /** Tiny external store (useSyncExternalStore-compatible). One state for humans and agents. */
-export function createStore(init: AppState = initialState) {
-  let state = init;
+export function createStore(init: AppState = initialState, storage?: PreferenceStorage) {
+  let state = storage ? { ...init, ...readPreferences(storage) } : init;
   const listeners = new Set<Listener>();
   let seq = 0;
   let activityId = 0;
@@ -76,10 +92,66 @@ export function createStore(init: AppState = initialState) {
     listeners.forEach((l) => l());
   };
 
+  const persist = () => {
+    try {
+      if (!storage) throw new Error("Storage is unavailable");
+      const { places, activePlaceId, pinnedCameraIds } = state;
+      storage.setItem(PLACES_STORAGE_KEY, JSON.stringify({ version: 1, places, activePlaceId, pinnedCameraIds }));
+      set({ persistenceError: undefined });
+    } catch { set({ persistenceError: "Browser storage is unavailable. Changes work for this session but may not survive a reload." }); }
+  };
+
   const api = {
     getState: () => state,
     subscribe: (l: Listener) => { listeners.add(l); return () => { listeners.delete(l); }; },
     set,
+
+    savePlace(input: Omit<SavedPlace, "id"> & { id?: string }): SavedPlace {
+      if (input.id && !state.places.some((p) => p.id === input.id)) throw new Error("Place not found");
+      const place = { id: input.id ?? crypto.randomUUID(), name: typeof input.name === "string" ? input.name.trim() : "",
+        latitude: input.latitude, longitude: input.longitude, radiusKm: input.radiusKm };
+      if (!validPlace(place)) throw new Error("Enter a name (1–80 characters), valid coordinates (latitude ±85, longitude ±180), and a radius of 1–250 km.");
+      if (!input.id && state.places.length >= 20) throw new Error("You can save up to 20 places. Remove a place before adding another.");
+      set({ places: input.id ? state.places.map((p) => p.id === place.id ? place : p) : [...state.places, place] });
+      api.activatePlace(place.id);
+      return place;
+    },
+    removePlace(id: string) {
+      const places = state.places.filter((p) => p.id !== id);
+      const activePlaceId = state.activePlaceId === id ? places[0]?.id : state.activePlaceId;
+      set({ places, activePlaceId, selectedContextId: undefined });
+      if (activePlaceId) api.activatePlace(activePlaceId); else persist();
+    },
+    activatePlace(id: string) {
+      const place = state.places.find((p) => p.id === id);
+      if (!place) throw new Error("Place not found");
+      set({ activePlaceId: id, workspaceView: "places", selectedContextId: undefined, selectedHazardId: undefined,
+        camera: { seq: ++seq, kind: "bounds", bbox: radiusBounds(place.longitude, place.latitude, place.radiusKm), padding: 45 } });
+      persist();
+    },
+    setAwareness(snapshot: AwarenessSnapshot) { set({ awareness: snapshot, awarenessLoading: false, awarenessError: undefined }); },
+    setAwarenessError(message: string) { set({ awarenessError: message, awarenessLoading: false }); },
+    toggleAwarenessLayer(kind: AwarenessKind) {
+      set({ awarenessLayers: state.awarenessLayers.includes(kind) ? state.awarenessLayers.filter((k) => k !== kind) : [...state.awarenessLayers, kind] });
+    },
+    focusContext(id: string) {
+      const item = usableAwarenessItems(state.awareness, state.mock).find((x) => x.id === id);
+      if (!item) throw new Error("This item is no longer in the loaded snapshot. Refresh the place context.");
+      const bbox = geometryBbox(item.geometry);
+      const camera: CameraRequest | null = bbox
+        ? bbox[0] === bbox[2] && bbox[1] === bbox[3]
+          ? { seq: ++seq, kind: "center", center: [bbox[0], bbox[1]], zoom: 11 }
+          : { seq: ++seq, kind: "bounds", bbox, padding: 60 } : null;
+      set({ selectedContextId: id, selectedHazardId: undefined, camera,
+        awarenessLayers: state.awarenessLayers.includes(item.kind) ? state.awarenessLayers : [...state.awarenessLayers, item.kind] });
+      return item;
+    },
+    pinCamera(id: string, pinned: boolean) {
+      if (!state.awareness?.items.some((i) => i.kind === "camera" && i.id === id) && pinned) throw new Error("Camera not found");
+      const next = pinned ? [...new Set([...state.pinnedCameraIds, id])] : state.pinnedCameraIds.filter((x) => x !== id);
+      if (next.length > 30) throw new Error("You can pin up to 30 cameras");
+      set({ pinnedCameraIds: next }); persist();
+    },
 
     setData(data: { hazards: Hazard[]; sources: SourceMeta[]; retrievedAt: string; mock: boolean }) {
       set((s) => ({
@@ -101,12 +173,12 @@ export function createStore(init: AppState = initialState) {
     focusBounds(bbox: Bbox, padding = 40) { set({ camera: { seq: ++seq, kind: "bounds", bbox, padding } }); },
     focusPoint(center: [number, number], zoom: number) { set({ camera: { seq: ++seq, kind: "center", center, zoom } }); },
 
-    selectHazard(id: string | undefined) { set({ selectedHazardId: id }); },
+    selectHazard(id: string | undefined) { set({ selectedHazardId: id, selectedContextId: undefined }); },
     /** Select + move the camera — the same path a human click uses, plus a camera move. */
     focusHazard(id: string): Hazard | undefined {
       const h = state.hazards.find((x) => x.id === id);
       if (!h) return undefined;
-      set({ selectedHazardId: id, camera: cameraForHazard(h, ++seq) });
+      set({ selectedHazardId: id, selectedContextId: undefined, camera: cameraForHazard(h, ++seq) });
       return h;
     },
 

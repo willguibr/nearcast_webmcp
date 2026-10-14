@@ -5,6 +5,7 @@ import { loadHazards } from "../services/hazard-service.ts";
 import { applyFilters, parseFilters } from "../services/filters.ts";
 import { computeSummary } from "../services/summary.ts";
 import { log, errorMessage } from "../utils/logging.ts";
+import { loadAwareness } from "../services/awareness-service.ts";
 
 const CACHE_SECONDS = Number(process.env.CACHE_CONTROL_SECONDS || 60);
 const VERSION = process.env.APP_VERSION || "0.1.0";
@@ -35,7 +36,7 @@ function error(status: number, code: string, message: string, details?: unknown)
   return json(status, body, false);
 }
 
-export interface HandlerDeps { adapters?: SourceAdapter[] }
+export interface HandlerDeps { adapters?: SourceAdapter[]; awarenessLoader?: typeof loadAwareness }
 
 export function createHandler(deps: HandlerDeps = {}) {
   return async function handler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
@@ -56,6 +57,11 @@ export function createHandler(deps: HandlerDeps = {}) {
       if (path === "/health") {
         const body: HealthResponse = { status: "ok", service: "nearcast-api", timestamp: new Date().toISOString(), version: VERSION };
         result = json(200, body, false);
+      } else if (path === "/awareness") {
+        const snapshot = await (deps.awarenessLoader ?? loadAwareness)();
+        result = json(200, snapshot);
+        count = snapshot.items.length;
+        sourceStatus = snapshot.sources.map((s) => `${s.id}:${s.status}`);
       } else if (path === "/hazards") {
         const parsed = parseFilters(query);
         if (!parsed.ok) return error(400, "invalid_request", "One or more query parameters are invalid.", parsed.errors);

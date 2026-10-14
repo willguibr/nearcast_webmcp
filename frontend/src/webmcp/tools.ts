@@ -2,6 +2,7 @@ import type { Bbox, CountryCode, Hazard, HazardSeverity, HazardType, Region } fr
 import { SIGNIFICANT_MAGNITUDE, bboxContains, isValidBbox, resolveRegion, REGIONS } from "@nearcast/shared";
 import { selectFilteredHazards, selectSelectedHazard, selectVisibleHazards, bySignificance, type Store } from "../state/store.ts";
 import type { ModelContextToolDefinition } from "../types/webmcp.d.ts";
+import { getPlaceBrief, PLACE_TOOL_SPECS } from "./place-tools.ts";
 
 /** Structured error returned to the agent. Never a stack trace. */
 export class ToolError extends Error {
@@ -117,6 +118,11 @@ export const TOOL_SPECS: ToolSpec<any>[] = [
         map: { center: { longitude: round(s.view.center[0]), latitude: round(s.view.center[1]) }, zoom: round(s.view.zoom, 2), bounds: { west: round(s.view.bounds[0]), south: round(s.view.bounds[1]), east: round(s.view.bounds[2]), north: round(s.view.bounds[3]) } },
         filters: { countries: s.filters.countries, hazardTypes: s.filters.hazardTypes, minimumSeverity: s.filters.minimumSeverity ?? null, minimumEarthquakeMagnitude: s.filters.minimumEarthquakeMagnitude ?? null },
         selectedHazard: selected ? summarizeHazard(selected) : null,
+        workspace: s.workspaceView,
+        activePlace: s.places.find((p) => p.id === s.activePlaceId) ?? null,
+        selectedContextId: s.selectedContextId ?? null,
+        additionalLayers: s.awarenessLayers,
+        placeFeeds: { demo: s.awareness?.demo, retrievedAt: s.awareness?.retrievedAt, sources: s.awareness?.sources ?? [], loading: s.awarenessLoading, error: s.awarenessError },
         hazardsInView: { total: visible.length, ...byType },
         hazardsMatchingFilters: filtered.length,
         data: dataStatus(store),
@@ -289,16 +295,22 @@ export const TOOL_SPECS: ToolSpec<any>[] = [
     name: "create_situation_context",
     readOnly: true,
     description:
-      "Returns a structured, deterministic situation snapshot for an area — the current map view by default, or the given regions — listing the most significant wildfires, weather alerts and earthquakes with counts and source status. Nearcast supplies facts; the agent writes any narrative. No safety conclusions are included.",
+      "Returns a structured situation snapshot for the current map, given regions, or a saved placeId. Place context also includes AQHI, published BC notices, roads and cameras, with coverage and source status. Nearcast supplies facts; no safety conclusions or route recommendations are included.",
     inputSchema: {
       type: "object",
       properties: {
+        placeId: { type: "string", description: "Optional saved place id; mutually exclusive with regions. Uses the same personal brief as the UI." },
         regions: { type: "array", items: { type: "string" }, minItems: 1, maxItems: 8, description: "Optional region codes/names. Omit to use the user's current map view and filters." },
         maxPerType: { type: "integer", minimum: 1, maximum: 25, description: "Max hazards listed per type (default 8)." },
       },
       additionalProperties: false,
     },
-    run: (input: { regions?: string[]; maxPerType?: number }, store) => {
+    run: (input: { placeId?: string; regions?: string[]; maxPerType?: number }, store) => {
+      if (input?.placeId !== undefined) {
+        if (input.regions) throw new ToolError("invalid_input", "Choose placeId or regions, not both.");
+        const result = getPlaceBrief(input, store);
+        return { result, summary: `Situation context · ${result.place.name}` };
+      }
       requireData(store);
       const s = store.getState();
       const max = Math.min(Math.max(Number(input?.maxPerType) || 8, 1), 25);
@@ -317,6 +329,7 @@ export const TOOL_SPECS: ToolSpec<any>[] = [
       return { result, summary: `${area} · ${list.length} hazards` };
     },
   },
+  ...PLACE_TOOL_SPECS,
 ];
 
 export function toolResult(payload: unknown, isError = false) {
@@ -329,7 +342,7 @@ export function bindTool(spec: ToolSpec<any>, store: Store): ModelContextToolDef
     name: spec.name,
     description: spec.description,
     inputSchema: spec.inputSchema,
-    annotations: { readOnlyHint: spec.readOnly },
+    annotations: { readOnlyHint: spec.readOnly, untrustedContentHint: true },
     execute: async (input: Record<string, unknown>) => {
       try {
         const { result, summary } = spec.run(input ?? {}, store);

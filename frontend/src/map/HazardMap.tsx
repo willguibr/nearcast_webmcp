@@ -7,6 +7,7 @@ import { NORTH_AMERICA_BBOX } from "@nearcast/shared";
 import { store, selectFilteredHazards, selectSelectedHazard } from "../state/index.ts";
 import { useAppState } from "../hooks/useStore.ts";
 import { BASEMAP_STYLE_URL, DATA_ATTRIBUTION, TYPE_COLOR } from "./style.ts";
+import { addAwarenessLayers, updateAwarenessLayers, CONTEXT_LAYERS } from "./awareness-layers.ts";
 
 const TYPES: HazardType[] = ["wildfire", "weather", "earthquake"];
 const EMPTY: FeatureCollection = { type: "FeatureCollection", features: [] };
@@ -98,6 +99,7 @@ export function HazardMap() {
   const filtered = useAppState(selectFilteredHazards);
   const selected = useAppState(selectSelectedHazard);
   const camera = useAppState((s) => s.camera);
+  const state = useAppState((s) => s);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -129,11 +131,13 @@ export function HazardMap() {
       store.setView({ bounds: [Math.max(-180, b.getWest()), b.getSouth(), Math.min(180, b.getEast()), b.getNorth()], center: [c.lng, c.lat], zoom: map.getZoom() });
     };
     const clickPoint = (e: MapLayerMouseEvent) => {
+      if (store.getState().pickingPlace) return;
       const f = e.features?.[0];
       const id = f?.properties?.id as string | undefined;
       if (id) store.selectHazard(id);
     };
     const clickCluster = (t: HazardType) => async (e: MapLayerMouseEvent) => {
+      if (store.getState().pickingPlace) return;
       const f = e.features?.[0];
       if (!f) return;
       const source = map.getSource(`${t}-points`) as GeoJSONSource;
@@ -143,6 +147,22 @@ export function HazardMap() {
 
     map.on("load", () => {
       addLayers(map);
+      addAwarenessLayers(map);
+      updateAwarenessLayers(map, store.getState());
+      for (const layer of CONTEXT_LAYERS) {
+        map.on("click", layer, (event) => {
+          if (store.getState().pickingPlace) return;
+          const id = event.features?.[0]?.properties?.id;
+          if (typeof id === "string") store.set({ selectedContextId: id, selectedHazardId: undefined });
+        });
+        map.on("mouseenter", layer, () => { map.getCanvas().style.cursor = "pointer"; });
+        map.on("mouseleave", layer, () => { map.getCanvas().style.cursor = ""; });
+      }
+      map.on("click", "saved-place-points", (event) => {
+        if (store.getState().pickingPlace) return;
+        const id = event.features?.[0]?.properties?.id;
+        if (typeof id === "string") store.activatePlace(id);
+      });
       readyRef.current = true;
       const { points, areas } = toCollections(selectFilteredHazards(store.getState()));
       for (const t of TYPES) (map.getSource(`${t}-points`) as GeoJSONSource).setData(points[t]);
@@ -159,6 +179,9 @@ export function HazardMap() {
       publishView();
     });
     map.on("moveend", publishView);
+    map.on("click", (event) => {
+      if (store.getState().pickingPlace) store.set({ pickedCoordinate: [event.lngLat.lng, event.lngLat.lat], pickingPlace: false });
+    });
     map.on("error", (e) => console.warn("map error", e.error?.message ?? e));
 
     return () => { map.remove(); mapRef.current = null; readyRef.current = false; };
@@ -171,6 +194,15 @@ export function HazardMap() {
     for (const t of TYPES) (map.getSource(`${t}-points`) as GeoJSONSource).setData(points[t]);
     (map.getSource("weather-areas") as GeoJSONSource).setData(areas);
   }, [filtered]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (map && readyRef.current) updateAwarenessLayers(map, state);
+  }, [state.awareness, state.awarenessLayers, state.activePlaceId, state.places, state.selectedContextId, state.pickedCoordinate, state.mock]);
+
+  useEffect(() => {
+    if (mapRef.current) mapRef.current.getCanvas().style.cursor = state.pickingPlace ? "crosshair" : "";
+  }, [state.pickingPlace]);
 
   useEffect(() => {
     const map = mapRef.current;

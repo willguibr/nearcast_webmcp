@@ -23,6 +23,7 @@ resource "aws_apigatewayv2_integration" "lambda" {
 locals {
   api_routes = [
     "GET /api/health",
+    "GET /api/awareness",
     "GET /api/hazards",
     "GET /api/hazards/summary",
     "GET /api/hazards/{id}",
