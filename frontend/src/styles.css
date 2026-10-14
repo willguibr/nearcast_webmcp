@@ -176,8 +176,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .places-content { overflow: auto; min-width: 0; }
 .places-content > .map-wrap { height: 42vh; min-height: 300px; }
 .explore-content { display: flex; flex-direction: column; flex: 1; min-height: 0; }
-.place-results { padding: 16px; display: grid; gap: 12px; }
-.place-dashboard { display: grid; gap: 14px; }
+.place-results { padding: 16px; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.place-dashboard { display: grid; gap: 14px; min-width: 0; grid-template-columns: minmax(0, 1fr); }
+.place-dashboard > .panel { min-width: 0; }
 .place-dashboard .panel { padding: 20px; }
 .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .section-heading h2 { margin-bottom: 0; }
@@ -224,7 +225,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .context-detail { border-left: 4px solid #327082; }
 .context-detail h2 { text-transform: none; font-size: 16px; color: var(--text); }
 .comparison-wrap { margin-top: 20px; overflow-x: auto; }
-.comparison-table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+.comparison-table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: 12px; text-align: left; }
 .comparison-table caption { text-align: left; margin-bottom: 10px; font-weight: 600; }
 .comparison-table th, .comparison-table td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .comparison-table thead { background: #edf4f4; }
