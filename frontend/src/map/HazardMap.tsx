@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
+import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { type GeoJSONSource, type MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+
+// V6 ships its worker separately; Vite must bundle its imports into a served asset.
+maplibregl.setWorkerUrl(mapWorkerUrl);
 import type { Feature, FeatureCollection, Point } from "geojson";
 import type { Hazard, HazardType } from "@nearcast/shared";
 import { NORTH_AMERICA_BBOX } from "@nearcast/shared";
