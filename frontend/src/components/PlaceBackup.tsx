@@ -10,7 +10,7 @@ export function PlaceBackup() {
     const blob = new Blob([exportPlaceBackup(store.getState())], { type: "application/json" });
     const url = URL.createObjectURL(blob), a = document.createElement("a");
     a.href = url; a.download = "nearcast-places.json"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-    setMessage("Backup downloaded. It contains your saved names and coordinates.");
+    setMessage("Backup download requested. Check your downloads; it contains saved names and coordinates.");
   }
   return <details className="place-backup"><summary>Back up or restore places</summary>
     <p className="muted small">JSON backups contain your place names, coordinates and camera pins. Import is processed in this browser.</p>
