@@ -4,8 +4,6 @@ import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { type GeoJSONSource, type MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-// V6 ships its worker separately; Vite must bundle its imports into a served asset.
-maplibregl.setWorkerUrl(mapWorkerUrl);
 import type { Feature, FeatureCollection, Point } from "geojson";
 import type { Hazard, HazardType } from "@nearcast/shared";
 import { NORTH_AMERICA_BBOX } from "@nearcast/shared";
@@ -13,6 +11,9 @@ import { store, selectFilteredHazards, selectSelectedHazard } from "../state/ind
 import { useAppState } from "../hooks/useStore.ts";
 import { BASEMAP_STYLE_URL, DATA_ATTRIBUTION, TYPE_COLOR } from "./style.ts";
 import { addAwarenessLayers, updateAwarenessLayers, CONTEXT_LAYERS } from "./awareness-layers.ts";
+
+// V6 ships its worker separately; Vite must bundle its imports into a served asset.
+maplibregl.setWorkerUrl(mapWorkerUrl);
 
 const TYPES: HazardType[] = ["wildfire", "weather", "earthquake"];
 const EMPTY: FeatureCollection = { type: "FeatureCollection", features: [] };
