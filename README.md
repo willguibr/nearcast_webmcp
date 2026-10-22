@@ -118,24 +118,13 @@ To point the local UI at a deployed API instead: `VITE_API_PROXY_TARGET=https://
 
 ## AWS Deployment
 
-Prerequisites: AWS credentials, Terraform ≥ 1.6, Node ≥ 20, AWS CLI.
+Releases are built once from a clean commit, archived with checksums, and deployed
+through a Lambda alias with public smoke tests and rollback. Staging is
+https://d3p1mb2ny0g1l0.cloudfront.net. Production promotion is manual.
 
-```bash
-cp infra/terraform.tfvars.example infra/terraform.tfvars   # optional
-scripts/deploy.sh                # tests → build → terraform apply → s3 sync → invalidation
-```
-
-Or step by step:
-
-```bash
-npm run build -w backend
-cd infra && terraform init && terraform plan && terraform apply
-cd .. && npm run build -w frontend
-aws s3 sync frontend/dist s3://$(cd infra && terraform output -raw frontend_bucket_name) --delete
-aws cloudfront create-invalidation --distribution-id $(cd infra && terraform output -raw cloudfront_distribution_id) --paths "/*"
-```
-
-Terraform outputs `application_url`, `api_health_url`, `cloudfront_domain_name`, `api_gateway_endpoint`, `frontend_bucket_name`. Terraform state is local for the hackathon and git-ignored.
+See [release instructions](docs/releases.md) for packaging, separate Terraform
+state, GitLab OIDC, migration of the existing production state and rollback.
+Do not use an empty Terraform state for the existing production resources.
 
 ## Custom Domain
 
@@ -152,7 +141,7 @@ Terraform creates the ACM certificate in `us-east-1` with DNS validation and A/A
 ## Testing WebMCP
 
 1. Open the deployed URL in ChatGPT's in-app browser, or in Chrome 146+ (Canary/Dev/Beta) with `chrome://flags/#enable-webmcp-testing` enabled and graphics acceleration on. Safari and stable Chrome run the app but expose no WebMCP host.
-2. The header shows **WebMCP ● Available · 8 tools** when registration succeeded.
+2. The header shows **WebMCP ● Available · 20 tools** when registration succeeded.
 3. Try: *"What am I looking at?"*, *"Focus on British Columbia and Washington and show only wildfires and important weather alerts."*, click a marker, *"Tell me about the hazard I just selected."*, *"Compare British Columbia and Washington."*
 4. Watch the **Agent Activity** panel: every call is logged with time, tool name and a short summary.
 

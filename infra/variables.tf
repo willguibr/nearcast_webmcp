@@ -6,6 +6,33 @@ variable "project_name" {
 variable "environment" {
   type    = string
   default = "prod"
+  validation {
+    condition     = contains(["staging", "prod"], var.environment)
+    error_message = "Use staging or prod with a separate Terraform backend key."
+  }
+}
+
+variable "gitlab_oidc_provider_arn" {
+  description = "Existing gitlab.com OIDC provider ARN; leave blank to omit CI release roles."
+  type        = string
+  default     = ""
+}
+variable "gitlab_project_id" {
+  type    = string
+  default = "87479898"
+}
+variable "gitlab_namespace_id" {
+  type    = string
+  default = "144416311"
+}
+variable "gitlab_project_path" {
+  type    = string
+  default = "securitygeekio/nearcast_webmcp"
+}
+variable "staging_release_refs" {
+  description = "Exact branch names allowed to deploy staging. Repair branches are excluded."
+  type        = list(string)
+  default     = ["main", "feature/nearcast-place-awareness"]
 }
 
 variable "aws_region" {

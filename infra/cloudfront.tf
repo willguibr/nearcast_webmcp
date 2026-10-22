@@ -61,6 +61,7 @@ resource "aws_cloudfront_response_headers_policy" "security" {
 
 # AWS managed policies
 data "aws_cloudfront_cache_policy" "caching_optimized" { name = "Managed-CachingOptimized" }
+data "aws_cloudfront_cache_policy" "caching_disabled" { name = "Managed-CachingDisabled" }
 data "aws_cloudfront_origin_request_policy" "all_viewer_except_host" { name = "Managed-AllViewerExceptHostHeader" }
 
 resource "aws_cloudfront_distribution" "app" {
@@ -97,6 +98,22 @@ resource "aws_cloudfront_distribution" "app" {
     compress                   = true
     cache_policy_id            = data.aws_cloudfront_cache_policy.caching_optimized.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.security.id
+  }
+
+  # Personal place queries are forwarded but never cached by CloudFront.
+  dynamic "ordered_cache_behavior" {
+    for_each = ["/api/places/search", "/api/forecast", "/api/gauges"]
+    content {
+      path_pattern               = ordered_cache_behavior.value
+      target_origin_id           = "api-gateway"
+      viewer_protocol_policy     = "redirect-to-https"
+      allowed_methods            = ["GET", "HEAD", "OPTIONS"]
+      cached_methods             = ["GET", "HEAD"]
+      compress                   = true
+      cache_policy_id            = data.aws_cloudfront_cache_policy.caching_disabled.id
+      origin_request_policy_id   = data.aws_cloudfront_origin_request_policy.all_viewer_except_host.id
+      response_headers_policy_id = aws_cloudfront_response_headers_policy.security.id
+    }
   }
 
   ordered_cache_behavior {

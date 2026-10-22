@@ -1,0 +1,13 @@
+{
+  "account": "202719523534",
+  "alias": "live",
+  "bucket": "nearcast-webmcp-prod-frontend-202719523534",
+  "distribution": "E37BBOW6C8WEL",
+  "environment": "prod",
+  "function": "nearcast-webmcp-prod-api",
+  "region": "ca-central-1",
+  "releases_bucket": "nearcast-webmcp-prod-releases-202719523534",
+  "role_arn": "arn:aws:iam::202719523534:role/nearcast-webmcp-prod-gitlab-release",
+  "url": "https://hazards.securitygeek.io",
+  "provisioned": false
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAppState } from "../hooks/useStore.ts";
 import { relativeTime } from "../services/time.ts";
+declare const __APP_COMMIT__: string;
 
 export function Header({ onRefresh }: { onRefresh: () => void }) {
   const retrievedAt = useAppState((s) => s.retrievedAt);
@@ -18,6 +19,7 @@ export function Header({ onRefresh }: { onRefresh: () => void }) {
         <div>
           <h1>Nearcast</h1>
           <p>Cross-Border Hazard Awareness</p>
+          <small className="muted" title={`Source commit ${__APP_COMMIT__}`}>Build {__APP_COMMIT__.slice(0, 8)}</small>
         </div>
       </div>
       {mock && <span className="badge badge-demo" title="Synthetic fixtures — not live government information">DEMO DATA</span>}

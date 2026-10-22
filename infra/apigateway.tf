@@ -15,7 +15,7 @@ resource "aws_apigatewayv2_api" "api" {
 resource "aws_apigatewayv2_integration" "lambda" {
   api_id                 = aws_apigatewayv2_api.api.id
   integration_type       = "AWS_PROXY"
-  integration_uri        = aws_lambda_function.api.invoke_arn
+  integration_uri        = aws_lambda_alias.live.invoke_arn
   payload_format_version = "2.0"
   timeout_milliseconds   = 29000
 }
@@ -24,6 +24,9 @@ locals {
   api_routes = [
     "GET /api/health",
     "GET /api/awareness",
+    "GET /api/places/search",
+    "GET /api/forecast",
+    "GET /api/gauges",
     "GET /api/hazards",
     "GET /api/hazards/summary",
     "GET /api/hazards/{id}",
@@ -38,6 +41,7 @@ resource "aws_apigatewayv2_route" "routes" {
 }
 
 resource "aws_apigatewayv2_stage" "default" {
+  depends_on  = [aws_apigatewayv2_route.routes]
   api_id      = aws_apigatewayv2_api.api.id
   name        = "$default"
   auto_deploy = true
@@ -46,12 +50,21 @@ resource "aws_apigatewayv2_stage" "default" {
     throttling_burst_limit = 200
     throttling_rate_limit  = 100
   }
+  dynamic "route_settings" {
+    for_each = toset(["GET /api/places/search", "GET /api/forecast", "GET /api/gauges"])
+    content {
+      route_key              = route_settings.value
+      throttling_burst_limit = 5
+      throttling_rate_limit  = 2
+    }
+  }
 }
 
 resource "aws_lambda_permission" "apigw" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.api.function_name
+  qualifier     = aws_lambda_alias.live.name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.api.execution_arn}/*/*"
 }

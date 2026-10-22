@@ -19,6 +19,10 @@ resource "aws_lambda_function" "api" {
   memory_size      = var.lambda_memory_mb
   timeout          = var.lambda_timeout_seconds
   architectures    = ["arm64"]
+  publish          = true
+  # Terraform owns infrastructure; the release process publishes code and moves
+  # the live alias. Subsequent infrastructure plans must not undo a release.
+  lifecycle { ignore_changes = [filename, source_code_hash] }
 
   environment {
     variables = {
@@ -32,4 +36,11 @@ resource "aws_lambda_function" "api" {
   }
 
   depends_on = [aws_iam_role_policy.lambda_logs, aws_cloudwatch_log_group.api]
+}
+
+resource "aws_lambda_alias" "live" {
+  name             = "live"
+  function_name    = aws_lambda_function.api.function_name
+  function_version = aws_lambda_function.api.version
+  lifecycle { ignore_changes = [function_version] }
 }

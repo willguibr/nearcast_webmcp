@@ -1,6 +1,11 @@
 resource "aws_s3_bucket" "frontend" {
   bucket        = local.frontend_bucket_name
-  force_destroy = true
+  force_destroy = false
+}
+
+resource "aws_s3_bucket_versioning" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+  versioning_configuration { status = "Enabled" }
 }
 
 resource "aws_s3_bucket_public_access_block" "frontend" {

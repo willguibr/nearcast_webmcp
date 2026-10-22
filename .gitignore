@@ -3,6 +3,10 @@ node_modules/
 dist/
 build/
 coverage/
+release/
+release-report.json
+__pycache__/
+*.pyc
 *.tsbuildinfo
 *.log
 .DS_Store
@@ -20,7 +24,7 @@ coverage/
 *.tfvars
 *.tfvars.json
 !infra/terraform.tfvars.example
-.terraform.lock.hcl
+!infra/.terraform.lock.hcl
 tfplan
 *.tfplan
 

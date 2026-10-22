@@ -17,7 +17,7 @@ locals {
     "default-src 'self'",
     "script-src 'self'",
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: ${local.basemap_hosts}",
+    "img-src 'self' data: blob: ${local.basemap_hosts} https://www.drivebc.ca",
     "font-src 'self' data:",
     "connect-src 'self' ${local.basemap_hosts}",
     "worker-src 'self' blob:",
