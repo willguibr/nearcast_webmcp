@@ -1,9 +1,10 @@
 import type { AwarenessSnapshot, AwarenessSource } from "@nearcast/shared";
 import { AWARENESS_ADAPTERS, sourceInfo, type AwarenessAdapter, type ParsedItems } from "../adapters/canada/awareness.ts";
+import { EXTENDED_ADAPTERS } from "../adapters/canada/extended-awareness.ts";
 
 interface Run extends ParsedItems { source: AwarenessSource }
 /** Independent caches prevent one unavailable provider from hiding the other feeds. */
-export function createAwarenessLoader(adapters: AwarenessAdapter[] = AWARENESS_ADAPTERS) {
+export function createAwarenessLoader(adapters: AwarenessAdapter[] = [...AWARENESS_ADAPTERS, ...EXTENDED_ADAPTERS]) {
   const cache = new Map<string, { data: ParsedItems; retrievedAt: string; expiresAt: number }>();
   const inflight = new Map<string, Promise<Run>>();
   const STALE_LIMIT_MS = 30 * 60_000;
@@ -12,7 +13,7 @@ export function createAwarenessLoader(adapters: AwarenessAdapter[] = AWARENESS_A
     const previous = cache.get(adapter.id), checkedAt = now.toISOString();
     const base = { ...sourceInfo(adapter), checkedAt };
     if (previous && now.getTime() < previous.expiresAt) return {
-      ...previous.data, source: { ...base, status: previous.data.rejectedCount ? "partial" : "available",
+      ...previous.data, source: { ...base, status: previous.data.rejectedCount || previous.data.notice ? "partial" : "available", error: previous.data.notice,
         retrievedAt: previous.retrievedAt, count: previous.data.items.length, rejectedCount: previous.data.rejectedCount },
     };
     if (inflight.has(adapter.id)) return inflight.get(adapter.id)!;
@@ -23,7 +24,7 @@ export function createAwarenessLoader(adapters: AwarenessAdapter[] = AWARENESS_A
         const data = await adapter.fetch(now, controller.signal);
         // Successful empty snapshots replace old records; otherwise a later failure resurrects ended notices.
         cache.set(adapter.id, { data, retrievedAt: checkedAt, expiresAt: now.getTime() + adapter.ttlMs });
-        return { ...data, source: { ...base, retrievedAt: checkedAt, status: data.rejectedCount ? "partial" : "available",
+        return { ...data, source: { ...base, retrievedAt: checkedAt, status: data.rejectedCount || data.notice ? "partial" : "available", error: data.notice,
           count: data.items.length, rejectedCount: data.rejectedCount } };
       } catch (e) {
         const error = e instanceof Error ? e.message : "Source unavailable";

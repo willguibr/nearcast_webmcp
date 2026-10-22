@@ -16,7 +16,7 @@ export interface ToolSpec<I = Record<string, unknown>> {
   inputSchema: Record<string, unknown>;
   readOnly: boolean;
   /** Pure-ish handler: reads/mutates the shared store and returns a JSON-serializable result plus an activity summary. */
-  run: (input: I, store: Store) => { result: unknown; summary: string };
+  run: (input: I, store: Store) => { result: unknown; summary: string } | Promise<{ result: unknown; summary: string }>;
 }
 
 const HAZARD_TYPES: HazardType[] = ["wildfire", "weather", "earthquake"];
@@ -345,7 +345,7 @@ export function bindTool(spec: ToolSpec<any>, store: Store): ModelContextToolDef
     annotations: { readOnlyHint: spec.readOnly, untrustedContentHint: true },
     execute: async (input: Record<string, unknown>) => {
       try {
-        const { result, summary } = spec.run(input ?? {}, store);
+        const { result, summary } = await spec.run(input ?? {}, store);
         store.logActivity(spec.name, summary, true);
         return toolResult(result);
       } catch (e) {

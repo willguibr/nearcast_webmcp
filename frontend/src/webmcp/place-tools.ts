@@ -2,6 +2,8 @@ import { validPlace } from "@nearcast/shared";
 import type { Store } from "../state/store.ts";
 import { contextForAgent, placeContext, briefText } from "../state/place-context.ts";
 import { ToolError, type ToolSpec } from "./tools.ts";
+import { loadPlaceExtra, searchPlaces } from "../services/place-services.ts";
+import { PREPARATION } from "../state/preparation.ts";
 
 function findPlace(input: unknown, store: Store) {
   const id = input === undefined ? store.getState().activePlaceId : input;
@@ -18,6 +20,33 @@ export function getPlaceBrief(input: { placeId?: unknown }, store: Store) {
 }
 
 export const PLACE_TOOL_SPECS: ToolSpec<any>[] = [
+  {
+    name: "search_bc_places", readOnly: true, inputSchema: schema({ query: {type:"string", minLength:3, maxLength:200} }, ["query"]),
+    description: "Search a BC address or locality using the provincial geocoder. Sends search text to the BC provider through Nearcast; only search a location the user asks for. Returns precision, coordinates and names without saving them. Outside BC use map selection or coordinates.",
+    run: async (input, store) => {
+      if (typeof input.query !== "string" || input.query.trim().length < 3 || input.query.length > 200) throw new ToolError("invalid_input", "Supply 3–200 characters of BC address or place text.");
+      return { result: { results: await searchPlaces(input.query, store.getState().mock), demo: store.getState().mock, source: "BC Address Geocoder" }, summary: "Searched BC places" };
+    },
+  },
+  ...(["forecast", "gauges"] as const).map((kind): ToolSpec<any> => ({
+    name: `get_place_${kind}`, readOnly: true, inputSchema: schema({ placeId }),
+    description: `Loads ${kind === "forecast" ? "a 72-hour MET Norway forecast" : "Canadian ECCC river observations within the watch radius (maximum 120 km)"} for a saved place and shows the same result in the dashboard. Only run when the user requests these conditions: rounded coordinates are sent to the provider through Nearcast. Includes timestamps and demo status; observations and forecasts do not establish safe conditions.`,
+    run: async (input, store) => {
+      const place = findPlace(input.placeId, store);
+      const result = await loadPlaceExtra(store, place, kind);
+      return { result: result ?? { status: "loading", message: "Already loading this place; retry shortly" }, summary: `Loaded ${kind} · ${place.name}` };
+    },
+  })),
+  {
+    name: "get_preparation_checklist", readOnly: true, inputSchema: schema({}),
+    description: "Reads the household preparation checklist and browser-local progress. Completion is not a safety certification. Follow PreparedBC and local authority guidance.",
+    run: (_, store) => ({ result: { sections: PREPARATION, checked: store.getState().preparation, source: "https://www2.gov.bc.ca/gov/content/safety/emergency-management/preparedbc" }, summary: "Read preparation checklist" }),
+  },
+  {
+    name: "set_preparation_item", readOnly: false, inputSchema: schema({ itemId: {type:"string"}, checked: {type:"boolean"} }, ["itemId","checked"]),
+    description: "Marks a preparation checklist item complete or incomplete in the shared browser state. Only mark completion when the user explicitly says the task is done; never infer it from hazard conditions.",
+    run: (input, store) => { store.setPreparation(input.itemId, input.checked); return { result: { checked: store.getState().preparation, persistenceWarning: store.getState().persistenceError }, summary: "Updated preparation checklist" }; },
+  },
   {
     name: "get_saved_places", readOnly: true, inputSchema: schema({}),
     description: "Lists the user's saved places and active place from the same browser-local state as the UI. Names and coordinates are personal data; use them only for the user's requested place-awareness task.",
@@ -45,7 +74,7 @@ export const PLACE_TOOL_SPECS: ToolSpec<any>[] = [
   },
   {
     name: "get_place_context", readOnly: true, inputSchema: schema({ placeId }),
-    description: "Returns nearby hazards, Canadian AQHI stations, published BC evacuation notices, BC road events and cameras for a saved place. Includes geometry-based distances, coverage, timestamps, source failures and a shareable brief. Never infer an all-clear or safe route.",
+    description: "Returns nearby hazards, AQHI, BC evacuations, roads, cameras, fire restrictions, wildfire details and flood advisories for a saved place. Includes distances, coverage, timestamps, source failures and a brief. Provincial wildfire records can overlap national incidents. Never infer an all-clear or safe route.",
     run: (input, store) => { const result = getPlaceBrief(input, store); return { result, summary: `Place context · ${result.place.name}` }; },
   },
   {

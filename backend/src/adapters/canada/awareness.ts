@@ -1,9 +1,9 @@
 import type { AwarenessItem, AwarenessSource, AwarenessSourceId } from "@nearcast/shared";
 import { safeWebUrl, validGeometry } from "@nearcast/shared";
-import { USER_AGENT } from "../../utils/fetch.ts";
+import { fetchDocument, isRow, str, number, iso, features, parseRows } from "./feed-utils.ts";
 
 type Row = Record<string, any>;
-export interface ParsedItems { items: AwarenessItem[]; rejectedCount: number }
+export interface ParsedItems { items: AwarenessItem[]; rejectedCount: number; notice?: string }
 export interface AwarenessAdapter {
   id: AwarenessSourceId;
   name: string;
@@ -19,41 +19,6 @@ const ROAD_URL = "https://api.open511.gov.bc.ca/events";
 const CAMERA_URL = "https://www.drivebc.ca/api/webcams/";
 const EVACUATION_PORTAL = "https://www.emergencyinfobc.gov.bc.ca/";
 const AQHI_PORTAL = "https://weather.gc.ca/airquality/pages/index_e.html";
-async function fetchDocument(url: string, signal: AbortSignal): Promise<Row> {
-  // The caller's deadline covers pagination AND response-body consumption.
-  const response = await fetch(url, { signal, headers: { "User-Agent": USER_AGENT, accept: "application/json, application/geo+json" } });
-  if (!response.ok) throw new Error(`HTTP ${response.status} from ${new URL(url).hostname}`);
-  return await response.json() as Row;
-}
-const isRow = (value: unknown): value is Row => !!value && typeof value === "object" && !Array.isArray(value);
-const str = (v: unknown): string => typeof v === "string" ? v.trim() : typeof v === "number" && Number.isFinite(v) ? String(v) : "";
-const number = (v: unknown): number | undefined => {
-  if (typeof v !== "number" && (typeof v !== "string" || !v.trim())) return undefined;
-  const n = Number(v);
-  return Number.isFinite(n) ? n : undefined;
-};
-function iso(value: unknown): string | undefined {
-  if (typeof value !== "string" && typeof value !== "number") return undefined;
-  if (value === "" || value === 0) return undefined;
-  const t = new Date(value);
-  return Number.isFinite(t.getTime()) ? t.toISOString() : undefined;
-}
-function features(body: unknown): Row[] {
-  if (!isRow(body) || body.type !== "FeatureCollection" || !Array.isArray(body.features)) throw new Error("Unexpected GeoJSON response");
-  return body.features;
-}
-function parseRows(rows: unknown[], parse: (row: Row) => AwarenessItem | null | undefined): ParsedItems {
-  const items: AwarenessItem[] = [], ids = new Set<string>();
-  let rejectedCount = 0;
-  for (const row of rows) {
-    const item = isRow(row) ? parse(row) : undefined;
-    // null means deliberately excluded by documented status, undefined means malformed.
-    if (item === undefined) { rejectedCount++; continue; }
-    if (item && !ids.has(item.id)) { ids.add(item.id); items.push(item); }
-  }
-  if (rows.length > 0 && rejectedCount === rows.length) throw new Error("No records could be parsed; response may have changed");
-  return { items, rejectedCount };
-}
 
 export function parseAirQuality(body: unknown): ParsedItems {
   return parseRows(features(body), (f) => {
@@ -175,10 +140,32 @@ async function fetchRoads(_now: Date, signal: AbortSignal): Promise<ParsedItems>
   throw new Error("DriveBC pagination limit reached; incomplete snapshot rejected");
 }
 
+/** Official DriveBC website API. closed=false supplies no affirmative open-road state. */
+export function parseWebsiteRoads(body: unknown): ParsedItems {
+  if (!Array.isArray(body)) throw new Error("Unexpected DriveBC website response");
+  return parseRows(body, (p) => {
+    if (p.status === "INACTIVE" || p.status === "ARCHIVED") return null;
+    if (p.status !== "ACTIVE" || !str(p.id) || !validGeometry(p.location)) return undefined;
+    return { id: `drivebc-road:${p.id}`, kind: "road", sourceId: "drivebc-roads", sourceUrl: "https://www.drivebc.ca/",
+      title: str(p.route_display) || "Road event", geometry: p.location, severity: str(p.severity) || "UNKNOWN",
+      eventType: str(p.event_type) || "UNKNOWN", description: str(p.description).slice(0,12000),
+      roads: [{ name: str(p.route_display), state: p.closed === true ? "CLOSED" : "NOT SPECIFIED (check event)", direction: str(p.direction_display) || undefined }],
+      updatedAt: iso(p.last_updated), intervals: Array.isArray(p.schedule?.intervals) ? p.schedule.intervals.filter((s: unknown) => typeof s === "string").slice(0,20) : [] };
+  });
+}
+async function fetchRoadsWithFallback(now: Date, signal: AbortSignal): Promise<ParsedItems> {
+  try { return await fetchRoads(now, AbortSignal.any([signal, AbortSignal.timeout(8000)])); }
+  catch {
+    if (signal.aborted) throw new Error("Road source deadline exceeded");
+    const data = parseWebsiteRoads(await fetchDocument("https://www.drivebc.ca/api/events/", signal));
+    return { ...data, notice: "Open511 unavailable; using the official DriveBC website event feed. Non-closure road states are not specified by this feed." };
+  }
+}
+
 export const AWARENESS_ADAPTERS: AwarenessAdapter[] = [
   { id: "eccc-aqhi", name: "ECCC AQHI", coverage: "Canadian reporting stations; station observations, not an address-level measurement", url: AQHI_PORTAL, ttlMs: 180_000, fetch: fetchAirQuality },
   { id: "bc-evacuations", name: "BC evacuation notices", coverage: "British Columbia only; published records may retain older notices. Confirm with the issuing authority", url: EVACUATION_PORTAL, ttlMs: 180_000, fetch: fetchEvacuations },
-  { id: "drivebc-roads", name: "DriveBC road events", coverage: "BC provincial highways; published events and schedules, not routing or a guarantee that a road is open", url: "https://www.drivebc.ca/", ttlMs: 180_000, fetch: fetchRoads },
+  { id: "drivebc-roads", name: "DriveBC road events", coverage: "BC provincial highways; published events and schedules, not routing or a guarantee that a road is open", url: "https://www.drivebc.ca/", ttlMs: 180_000, fetch: fetchRoadsWithFallback },
   { id: "drivebc-cameras", name: "DriveBC cameras", coverage: "Available BC highway cameras; image age can differ from catalogue retrieval time", url: "https://www.drivebc.ca/cameras", ttlMs: 900_000, fetch: async (_now, signal) => parseCameras(await fetchDocument(CAMERA_URL, signal)) },
 ];
 

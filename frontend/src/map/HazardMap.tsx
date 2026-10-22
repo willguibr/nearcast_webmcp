@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import maplibregl, { type GeoJSONSource, type MapLayerMouseEvent } from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
+import { type GeoJSONSource, type MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { Feature, FeatureCollection, Point } from "geojson";
 import type { Hazard, HazardType } from "@nearcast/shared";

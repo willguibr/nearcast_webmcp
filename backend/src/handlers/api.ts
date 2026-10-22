@@ -6,6 +6,7 @@ import { applyFilters, parseFilters } from "../services/filters.ts";
 import { computeSummary } from "../services/summary.ts";
 import { log, errorMessage } from "../utils/logging.ts";
 import { loadAwareness } from "../services/awareness-service.ts";
+import { InputError, placeServices } from "../services/place-services.ts";
 
 const CACHE_SECONDS = Number(process.env.CACHE_CONTROL_SECONDS || 60);
 const VERSION = process.env.APP_VERSION || "0.1.0";
@@ -36,7 +37,7 @@ function error(status: number, code: string, message: string, details?: unknown)
   return json(status, body, false);
 }
 
-export interface HandlerDeps { adapters?: SourceAdapter[]; awarenessLoader?: typeof loadAwareness }
+export interface HandlerDeps { adapters?: SourceAdapter[]; awarenessLoader?: typeof loadAwareness; places?: typeof placeServices }
 
 export function createHandler(deps: HandlerDeps = {}) {
   return async function handler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> {
@@ -57,6 +58,16 @@ export function createHandler(deps: HandlerDeps = {}) {
       if (path === "/health") {
         const body: HealthResponse = { status: "ok", service: "nearcast-api", timestamp: new Date().toISOString(), version: VERSION };
         result = json(200, body, false);
+      } else if (["/places/search", "/forecast", "/gauges"].includes(path)) {
+        const services = deps.places ?? placeServices;
+        try {
+          const data = path === "/places/search" ? { results: await services.search(query.q ?? ""), attribution: "BC Address Geocoder · Province of British Columbia", coverage: "British Columbia" }
+            : path === "/forecast" ? await services.forecast(query) : await services.gauges(query);
+          result = json(200, data, false);
+        } catch (e) {
+          return e instanceof InputError ? error(400, "invalid_request", e.message)
+            : error(503, "source_unavailable", "The requested source is unavailable. Try again later or use the official source.");
+        }
       } else if (path === "/awareness") {
         const snapshot = await (deps.awarenessLoader ?? loadAwareness)();
         result = json(200, snapshot);

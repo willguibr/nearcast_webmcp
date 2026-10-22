@@ -8,8 +8,8 @@ export interface SavedPlace {
   radiusKm: number;
 }
 
-export type AwarenessKind = "air-quality" | "evacuation" | "road" | "camera";
-export type AwarenessSourceId = "eccc-aqhi" | "bc-evacuations" | "drivebc-roads" | "drivebc-cameras";
+export type AwarenessKind = "air-quality" | "evacuation" | "road" | "camera" | "restriction" | "wildfire-detail" | "flood";
+export type AwarenessSourceId = "eccc-aqhi" | "bc-evacuations" | "drivebc-roads" | "drivebc-cameras" | "bc-bans" | "bc-restrictions" | "bc-wildfires" | "bc-floods";
 
 export interface AwarenessSource {
   id: AwarenessSourceId;
@@ -75,7 +75,29 @@ export interface HighwayCamera extends ContextItem {
   markedStale: boolean;
 }
 
-export type AwarenessItem = AirQualityObservation | EvacuationNotice | RoadEvent | HighwayCamera;
+export interface FireRestriction extends ContextItem {
+  kind: "restriction";
+  restrictionType: "fire-ban" | "area-restriction";
+  description: string;
+  fireCentre: string;
+  effectiveAt?: string;
+}
+export interface WildfireDetail extends ContextItem {
+  kind: "wildfire-detail";
+  fireNumber: string;
+  status: string;
+  hectares?: number;
+  cause: string;
+  response: string;
+  perimeterAvailable: boolean;
+}
+export interface FloodNotice extends ContextItem {
+  kind: "flood";
+  level: "High streamflow advisory" | "Flood watch" | "Flood warning";
+  basin: string;
+  comments: string;
+}
+export type AwarenessItem = AirQualityObservation | EvacuationNotice | RoadEvent | HighwayCamera | FireRestriction | WildfireDetail | FloodNotice;
 export interface AwarenessSnapshot {
   items: AwarenessItem[];
   sources: AwarenessSource[];
@@ -95,6 +117,7 @@ export function usableAwarenessItems(snapshot: AwarenessSnapshot | undefined, de
 
 export const AWARENESS_LABELS: Record<AwarenessKind, string> = {
   "air-quality": "Air quality", evacuation: "Evacuation notices", road: "Road events", camera: "Highway cameras",
+  restriction: "Fire bans and area restrictions", "wildfire-detail": "BC wildfire details", flood: "Flood advisories",
 };
 
 export function validPlace(input: unknown): input is SavedPlace {

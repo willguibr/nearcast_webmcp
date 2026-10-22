@@ -9,13 +9,15 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
-  "dependencies": { "@nearcast/shared": "*" },
+  "dependencies": {
+    "@nearcast/shared": "*"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.150",
     "@types/geojson": "^7946.0.16",
     "@types/node": "^24.0.0",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.2",
     "typescript": "^5.9.0",
-    "vitest": "^3.2.0"
+    "vitest": "^4.1.12"
   }
 }

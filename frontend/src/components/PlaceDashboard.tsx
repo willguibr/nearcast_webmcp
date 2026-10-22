@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
-import { AWARENESS_LABELS, safeWebUrl, usableAwarenessItems, type AwarenessItem, type HighwayCamera } from "@nearcast/shared";
+import { AWARENESS_LABELS, safeWebUrl, usableAwarenessItems, type AwarenessItem, type AwarenessKind, type HighwayCamera } from "@nearcast/shared";
+import { PlaceConditions } from "./PlaceConditions.tsx";
+import { Preparation } from "./Preparation.tsx";
 import { store } from "../state/index.ts";
 import { useAppState } from "../hooks/useStore.ts";
 import { briefText, describeItem, observationWarning, placeContext, type Nearby, type PlaceContext } from "../state/place-context.ts";
@@ -113,7 +115,7 @@ export function PlaceDashboard() {
         <p className="muted small">{distance(e)}{e.item.locationPrecision === "approximate" ? " · approximate source location" : ""}<br />Updated: {date(e.item.updatedAt)}</p><OfficialLink url={e.item.source.url} /></article>)}</div>
       {context.hazards.length > 6 && <button className="link" onClick={() => setExpanded((x) => x.includes("hazards") ? x.filter((k) => k !== "hazards") : [...x, "hazards"])}>{expanded.includes("hazards") ? "Show fewer hazards" : `Show all ${context.hazards.length} hazards`}</button>}
     </div>
-    {(["evacuation", "air-quality", "road", "camera"] as const).map((kind) => {
+    {(Object.keys(AWARENESS_LABELS) as AwarenessKind[]).sort((a,b) => Number(b === "evacuation")-Number(a === "evacuation")).map((kind) => {
       const entries = context.nearby.filter((e) => e.item.kind === kind);
       return <section className="panel" key={kind} aria-label={AWARENESS_LABELS[kind]}><h2>{AWARENESS_LABELS[kind]} <span className="count">{entries.length}</span></h2>
         {!entries.length && <p className="muted">No matching records in the loaded data. {kind === "air-quality" ? "There may be no reporting station within this radius." : "This integration covers BC only."} Check feed status below.</p>}
@@ -121,6 +123,8 @@ export function PlaceDashboard() {
         {entries.length > 4 && <button className="link" onClick={() => setExpanded((x) => x.includes(kind) ? x.filter((k) => k !== kind) : [...x, kind])}>{expanded.includes(kind) ? "Show fewer" : `Show all ${entries.length}`}</button>}
       </section>;
     })}
+    <PlaceConditions place={context.place} />
+    <Preparation />
     {state.pinnedCameraIds.length > 0 && <section className="panel"><h2>Pinned cameras · all places</h2><div className="button-row">{pinned.map((c) => <button key={c.id} className="button" onClick={() => store.focusContext(c.id)}>{c.title}</button>)}</div>
       {missingPins.map((id) => <p key={id} className="small">Pinned camera unavailable in this snapshot: {id} <button className="link" onClick={() => store.pinCamera(id, false)}>Unpin</button></p>)}</section>}
     <section className="panel"><h2>Place feed status</h2><div className="feed-grid">{state.awareness?.sources.map((source) => <article key={source.id} className={`feed-status feed-${source.status}`}>

@@ -1,4 +1,4 @@
-import { distanceToGeometryKm, geometryContains, usableAwarenessItems, type AwarenessItem, type Hazard, type SavedPlace } from "@nearcast/shared";
+import { AWARENESS_LABELS, distanceToGeometryKm, geometryContains, usableAwarenessItems, type AwarenessItem, type Hazard, type SavedPlace } from "@nearcast/shared";
 import { bySignificance, type AppState } from "./store.ts";
 
 export interface Nearby<T> { item: T; distanceKm: number; coversPlace: boolean }
@@ -36,7 +36,7 @@ export function placeContext(state: AppState, place: SavedPlace, now = new Date(
   return {
     place, generatedAt: now.toISOString(), demo: state.mock, hazards, nearby, warnings, sourceStatus,
     coreRetrievedAt: state.retrievedAt, awarenessRetrievedAt: matchingMode && !expiredSnapshot ? awareness?.retrievedAt : undefined,
-    coverage: "Evacuation notices, road events and cameras: BC only. AQHI: Canadian reporting stations. Other areas may have no coverage; an empty result is not an all-clear.",
+    coverage: "Evacuations, roads, cameras, fire restrictions, wildfire details and flood advisories: BC only. AQHI: Canadian reporting stations. Provincial wildfire details can overlap national incidents. An empty result is not an all-clear.",
     matching: "All loaded hazard categories within the saved radius, using distance to published geometry. Independent of map filters. Distances are approximate, not travel distances.",
   };
 }
@@ -52,11 +52,11 @@ export function contextForAgent(context: PlaceContext, limit = 10) {
   });
   const ofKind = (kind: AwarenessItem["kind"]) => nearby.filter((e) => e.item.kind === kind);
   const counts = { hazards: hazards.length, evacuations: ofKind("evacuation").length, airQuality: ofKind("air-quality").length,
-    roads: ofKind("road").length, cameras: ofKind("camera").length };
+    roads: ofKind("road").length, cameras: ofKind("camera").length, restrictions: ofKind("restriction").length, wildfireDetails: ofKind("wildfire-detail").length, floods: ofKind("flood").length };
   return { ...rest, counts, limitPerCategory: limit,
     truncated: Object.values(counts).some((count) => count > limit),
     hazards: slim(hazards), evacuations: slim(ofKind("evacuation")), airQuality: slim(ofKind("air-quality")),
-    roads: slim(ofKind("road")), cameras: slim(ofKind("camera")) };
+    roads: slim(ofKind("road")), cameras: slim(ofKind("camera")), restrictions: slim(ofKind("restriction")), wildfireDetails: slim(ofKind("wildfire-detail")), floods: slim(ofKind("flood")) };
 }
 
 export function describeItem(item: AwarenessItem): string {
@@ -65,11 +65,21 @@ export function describeItem(item: AwarenessItem): string {
     case "evacuation": return `${item.rawStage} · ${item.authority}${item.olderRecord ? " · older or undated record — verify status" : ""}${item.stage === "unknown" ? " · unrecognized stage — verify status" : ""}`;
     case "road": return `${item.severity} · ${item.eventType} · ${item.roads.map((r) => `${r.name}: ${r.state}`).join("; ")}`;
     case "camera": return `Highway ${item.highway || "not reported"}${item.markedStale ? " · image marked stale/delayed by DriveBC" : ""}`;
+    case "restriction": return `${item.restrictionType === "fire-ban" ? "Fire prohibition" : "Area restriction"} · ${item.fireCentre} · ${item.description || "Read the official bulletin"}${item.effectiveAt ? ` · effective ${new Date(item.effectiveAt).toLocaleDateString()}` : " · effective date not reported"}`;
+    case "wildfire-detail": return `${item.fireNumber} · ${item.status} · ${item.hectares === undefined ? "Size not reported" : `${item.hectares} ha`} · cause: ${item.cause} · response: ${item.response} · ${item.perimeterAvailable ? "published perimeter" : "point location; perimeter unavailable"}`;
+    case "flood": return `${item.level} · ${item.basin}${item.comments ? ` · ${item.comments}` : ""}`;
   }
 }
 
 /** Feed retrieval time never substitutes for the time of a station reading or camera image. */
 export function observationWarning(item: AwarenessItem, demo: boolean, now = Date.now()): string | undefined {
+  if (item.kind === "evacuation") {
+    if (item.stage === "unknown") return "Unverified stage: the source status is not recognized. Read the issuing authority’s notice.";
+    if (item.olderRecord || !item.updatedAt || now - Date.parse(item.updatedAt) > 30 * 86400_000) return "Older or undated published notice. Its presence does not confirm that it remains in effect.";
+    return "Recently updated published notice. Confirm the current instructions with the issuing authority.";
+  }
+  if (!demo && ["flood", "wildfire-detail", "restriction"].includes(item.kind)
+    && (!item.updatedAt || now - Date.parse(item.updatedAt) > 24 * 3600_000)) return "Source update is older than a day or not reported. Retrieval time does not confirm current status; check the official bulletin.";
   if (demo || (item.kind !== "air-quality" && item.kind !== "camera")) return undefined;
   const limit = item.kind === "air-quality" ? 3 * 3600_000 : 30 * 60_000;
   if (!item.updatedAt || !Number.isFinite(Date.parse(item.updatedAt)) || now - Date.parse(item.updatedAt) > limit)
@@ -89,7 +99,7 @@ export function briefText(context: PlaceContext): string {
     lines.push(`${item.title} — ${coversPlace ? "published area contains place" : `${distanceKm.toFixed(1)} km away`}; ${item.type === "weather" ? `severity: ${item.severity}` : item.type}; updated ${item.updatedAt ?? "unknown"}`,
       `${item.source.agency}: ${item.source.url ?? "Official source link unavailable"}`);
   }
-  for (const kind of ["evacuation", "air-quality", "road", "camera"] as const) {
+  for (const kind of Object.keys(AWARENESS_LABELS)) {
     const entries = nearby.filter((e) => e.item.kind === kind);
     for (const { item, distanceKm, coversPlace } of entries.slice(0, 5)) {
       lines.push(`${item.title} — ${describeItem(item)}; ${coversPlace ? "published area contains place" : `${distanceKm.toFixed(1)} km away`}; updated ${item.updatedAt ?? "unknown"}`, item.sourceUrl);

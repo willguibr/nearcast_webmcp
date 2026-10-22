@@ -5,3 +5,4 @@ export * from "./geo.ts";
 export * from "./regions.ts";
 export * from "./awareness.ts";
 export * from "./proximity.ts";
+export * from "./place-services.ts";

@@ -3,6 +3,9 @@ import type { SavedPlace } from "@nearcast/shared";
 import { useAppState } from "../hooks/useStore.ts";
 import { store } from "../state/index.ts";
 import { DEMO_PLACE } from "../services/demo-awareness.ts";
+import { PlaceBackup } from "./PlaceBackup.tsx";
+import { searchPlaces } from "../services/place-services.ts";
+import type { PlaceSearchResult } from "@nearcast/shared";
 
 export function PlacesPanel() {
   const places = useAppState((s) => s.places);
@@ -20,6 +23,9 @@ export function PlacesPanel() {
   const [error, setError] = useState("");
   const [locating, setLocating] = useState(false);
   const [deleting, setDeleting] = useState<string | undefined>();
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<PlaceSearchResult[]>([]);
+  const [searching, setSearching] = useState(false);
 
   useEffect(() => {
     if (picked) { setLongitude(picked[0].toFixed(5)); setLatitude(picked[1].toFixed(5)); setOpen(true); }
@@ -67,6 +73,14 @@ export function PlacesPanel() {
       </li>)}
     </ul>
     {open && <form className="place-form" onSubmit={save} aria-label={editing ? "Edit saved place" : "Add saved place"}>
+      <label>Find a BC address or place<input maxLength={200} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Squamish, BC" onKeyDown={(e) => { if (e.key === "Enter") e.preventDefault(); }} /></label>
+      <button type="button" className="button" disabled={searching || query.trim().length < 3} onClick={async () => {
+        setSearching(true); setError(""); setResults([]);
+        try { const found = await searchPlaces(query, demo); setResults(found); if (!found.length) setError("No BC matches found. Try a more specific address or choose a map point."); }
+        catch (e) { setError((e as Error).message); } finally { setSearching(false); }
+      }}>{searching ? "Searching…" : "Search BC places"}</button>
+      <p className="muted small">Search text is sent to the BC Address Geocoder through Nearcast. Outside BC, use map selection or coordinates.</p>
+      {results.length > 0 && <ul className="search-results">{results.map((r, i) => <li key={i}><button type="button" className="link" onClick={() => { setName(r.name.slice(0,80)); setLatitude(String(r.latitude)); setLongitude(String(r.longitude)); setResults([]); }}>{r.name} · {r.precision.toLowerCase().replaceAll("_", " ")}</button></li>)}</ul>}
       <label>Place name<input required maxLength={80} value={name} onChange={(e) => setName(e.target.value)} placeholder="Home or Cabin" /></label>
       <div className="button-row">
         <button type="button" className="button" aria-pressed={picking} onClick={() => store.set({ pickingPlace: !picking })}>{picking ? "Cancel map selection" : "Pick on map"}</button>
@@ -77,11 +91,12 @@ export function PlacesPanel() {
       <div className="coordinate-fields"><label>Latitude<input type="number" step="any" min={-85} max={85} required value={latitude} onChange={(e) => setLatitude(e.target.value)} /></label>
         <label>Longitude<input type="number" step="any" min={-180} max={180} required value={longitude} onChange={(e) => setLongitude(e.target.value)} /></label></div>
       <label>Watch radius (km)<input type="number" min={1} max={250} step={1} required value={radius} onChange={(e) => setRadius(e.target.value)} /></label>
-      <p className="muted small">Location is checked only when you request it. Place names and coordinates are stored in this browser and available to connected WebMCP agents. They are not sent to the Nearcast API.</p>
+      <p className="muted small">Location is checked only when you request it. Saved places stay in this browser and are available to connected WebMCP agents. Loading a forecast or gauges sends rounded coordinates to the provider through Nearcast.</p>
       <div className="button-row"><button type="submit" className="button primary">Save place</button><button type="button" className="link" onClick={() => { setOpen(false); store.set({ pickingPlace: false, pickedCoordinate: undefined }); }}>Cancel</button></div>
     </form>}
     {error && <p className="error" role="alert">{error}</p>}
     {persistenceError && <p className="error" role="alert">{persistenceError}</p>}
+    <PlaceBackup />
     <p className="muted small">Saved only in this browser. Watch radius filters the loaded data; it does not enable background monitoring or notifications.</p>
   </section>;
 }

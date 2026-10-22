@@ -14,13 +14,13 @@ function seeded() {
 
 describe("tool catalogue", () => {
   it("registers the seven required tools plus the situation context tool with schemas and descriptions", () => {
-    expect(TOOL_NAMES).toEqual(["get_current_view", "get_visible_hazards", "set_focus_area", "set_hazard_filters", "focus_hazard", "get_hazard_details", "compare_regions", "create_situation_context", "get_saved_places", "save_place", "set_active_place", "get_place_context", "compare_saved_places", "get_travel_conditions", "focus_context_item"]);
+    expect(TOOL_NAMES).toEqual(["get_current_view", "get_visible_hazards", "set_focus_area", "set_hazard_filters", "focus_hazard", "get_hazard_details", "compare_regions", "create_situation_context", "search_bc_places", "get_place_forecast", "get_place_gauges", "get_preparation_checklist", "set_preparation_item", "get_saved_places", "save_place", "set_active_place", "get_place_context", "compare_saved_places", "get_travel_conditions", "focus_context_item"]);
     for (const t of TOOL_SPECS) {
       expect(t.description.length).toBeGreaterThan(60);
       expect(t.inputSchema).toMatchObject({ type: "object" });
     }
     const tools = createTools(seeded());
-    expect(tools.map((t) => t.annotations?.readOnlyHint)).toEqual([true, true, false, false, false, true, true, true, true, false, false, true, true, true, false]);
+    expect(tools.map((t) => t.annotations?.readOnlyHint)).toEqual([true, true, false, false, false, true, true, true, true, true, true, true, false, true, false, false, true, true, true, false]);
   });
 });
 

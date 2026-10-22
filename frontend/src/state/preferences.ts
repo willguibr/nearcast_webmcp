@@ -3,6 +3,20 @@ import { validPlace, type SavedPlace } from "@nearcast/shared";
 export const PLACES_STORAGE_KEY = "nearcast.places.v1";
 export interface PreferenceStorage { getItem(key: string): string | null; setItem(key: string, value: string): void }
 export interface Preferences { places: SavedPlace[]; activePlaceId?: string; pinnedCameraIds: string[] }
+export function parsePlaceBackup(text: string): Preferences {
+  if (text.length > 100_000) throw new Error("Backup is too large (maximum 100 KB).");
+  let data: any;
+  try { data = JSON.parse(text); } catch { throw new Error("Choose a valid Nearcast JSON backup."); }
+  if (data?.version !== 1 || !Array.isArray(data.places) || data.places.length > 20 || !data.places.every(validPlace)
+    || new Set(data.places.map((p: SavedPlace) => p.id)).size !== data.places.length
+    || !Array.isArray(data.pinnedCameraIds) || data.pinnedCameraIds.length > 30
+    || !data.pinnedCameraIds.every((id: unknown) => typeof id === "string" && id.startsWith("drivebc-camera:") && id.length <= 100))
+    throw new Error("Invalid backup. Expected version 1, up to 20 valid places and up to 30 camera pins.");
+  return readPreferences({ getItem: () => text, setItem: () => {} });
+}
+export function exportPlaceBackup(preferences: Preferences): string {
+  return JSON.stringify({ version: 1, places: preferences.places, activePlaceId: preferences.activePlaceId, pinnedCameraIds: preferences.pinnedCameraIds }, null, 2);
+}
 export function readPreferences(storage?: PreferenceStorage): Preferences {
   const empty: Preferences = { places: [], pinnedCameraIds: [] };
   if (!storage) return empty;

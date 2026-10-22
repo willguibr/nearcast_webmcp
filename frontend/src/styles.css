@@ -245,3 +245,17 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .place-results { padding: 10px; }
   .place-dashboard .panel { padding: 15px; }
 }
+
+/* On-demand place information and browser-local preparation. */
+.place-backup { margin-block: 1rem; }
+.place-backup summary, .preparation summary { cursor: pointer; font-weight: 650; }
+.place-backup label { display: grid; gap: .5rem; margin-top: .8rem; }
+.place-backup input { max-width: 100%; }
+.search-results { padding-left: 1rem; display: grid; gap: .7rem; }
+.preparation fieldset { border: 1px solid #d7e0e5; border-radius: .6rem; margin-block: .8rem; padding: .8rem; min-width: 0; }
+.preparation legend { padding-inline: .3rem; font-weight: 600; }
+.prep-item { display: flex; align-items: flex-start; gap: .7rem; margin-block: .6rem; line-height: 1.5; }
+.prep-item input { flex: 0 0 auto; margin-top: .3rem; }
+.preparation progress { width: 100%; accent-color: #147d75; }
+
+.forecast-table { max-height: 22rem; overflow: auto; }

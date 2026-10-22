@@ -2,6 +2,9 @@ import type { Bbox, CountryCode, Hazard, HazardSeverity, HazardType, SourceMeta 
 import { NORTH_AMERICA_BBOX, bboxContains, meetsMinimumSeverity } from "@nearcast/shared";
 import { radiusBounds, validPlace, geometryBbox, usableAwarenessItems, type SavedPlace, type AwarenessSnapshot, type AwarenessKind } from "@nearcast/shared";
 import { PLACES_STORAGE_KEY, readPreferences, type PreferenceStorage } from "./preferences.ts";
+import { parsePlaceBackup } from "./preferences.ts";
+import type { Forecast, GaugeSnapshot } from "@nearcast/shared";
+import { PREP_KEY, PREP_IDS, parsePreparation } from "./preparation.ts";
 
 /** Filters shared by the human UI and the WebMCP tools. */
 export interface Filters {
@@ -33,6 +36,8 @@ export interface ActivityEntry {
 export type WebMcpStatus = "pending" | "available" | "emulated" | "unavailable";
 
 export interface AppState {
+  preparation: string[];
+  placeExtras: Record<string, { forecast?: Forecast; gauges?: GaugeSnapshot; forecastLoading?: boolean; gaugesLoading?: boolean; forecastError?: string; gaugesError?: string }>;
   places: SavedPlace[];
   activePlaceId?: string;
   pinnedCameraIds: string[];
@@ -63,8 +68,10 @@ export interface AppState {
 export const DEFAULT_FILTERS: Filters = { countries: ["CA", "US"], hazardTypes: ["wildfire", "weather", "earthquake"] };
 
 export const initialState: AppState = {
+  preparation: [],
+  placeExtras: {},
   places: [], pinnedCameraIds: [], awarenessLoading: false,
-  awarenessLayers: ["air-quality", "evacuation", "road", "camera"], workspaceView: "places", pickingPlace: false,
+  awarenessLayers: ["air-quality", "evacuation", "road", "camera", "restriction", "wildfire-detail", "flood"], workspaceView: "places", pickingPlace: false,
   hazards: [],
   sources: [],
   loading: false,
@@ -82,6 +89,7 @@ type Listener = () => void;
 /** Tiny external store (useSyncExternalStore-compatible). One state for humans and agents. */
 export function createStore(init: AppState = initialState, storage?: PreferenceStorage) {
   let state = storage ? { ...init, ...readPreferences(storage) } : init;
+  try { if (storage) state = { ...state, preparation: parsePreparation(storage.getItem(PREP_KEY)) }; } catch { /* unavailable browser storage */ }
   const listeners = new Set<Listener>();
   let seq = 0;
   let activityId = 0;
@@ -105,6 +113,18 @@ export function createStore(init: AppState = initialState, storage?: PreferenceS
     getState: () => state,
     subscribe: (l: Listener) => { listeners.add(l); return () => { listeners.delete(l); }; },
     set,
+    setPreparation(id: string, checked: boolean) {
+      if (!PREP_IDS.includes(id) || typeof checked !== "boolean") throw new Error("Unknown checklist item or invalid checked value");
+      const preparation = checked ? [...new Set([...state.preparation, id])] : state.preparation.filter((x) => x !== id);
+      set({ preparation });
+      try { if (!storage) throw new Error("Unavailable"); storage.setItem(PREP_KEY, JSON.stringify({ version: 1, checked: preparation })); }
+      catch { set({ persistenceError: "Checklist progress could not be saved. It is available for this session only." }); }
+    },
+    importPlaces(text: string) {
+      const preferences = parsePlaceBackup(text);
+      set({ ...preferences, selectedContextId: undefined, placeExtras: {} });
+      if (preferences.activePlaceId) api.activatePlace(preferences.activePlaceId); else persist();
+    },
 
     savePlace(input: Omit<SavedPlace, "id"> & { id?: string }): SavedPlace {
       if (input.id && !state.places.some((p) => p.id === input.id)) throw new Error("Place not found");

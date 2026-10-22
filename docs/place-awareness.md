@@ -1,4 +1,4 @@
-# Place awareness — first release
+# Place awareness
 
 Branch: `feature/nearcast-place-awareness`. This extends the existing web app using the iPhone app as a feature reference. It has not been deployed to the existing public site.
 
@@ -8,9 +8,9 @@ Branch: `feature/nearcast-place-awareness`. This extends the existing web app us
 - Personal dashboard and comparison table using all loaded hazard categories, regardless of exploratory map filters. Distance is measured to published geometry, including polygon holes and road segments.
 - Canadian AQHI observations; published BC evacuation notices; DriveBC road events and camera images; up to 30 locally pinned cameras.
 - Attributed text briefs with copy and native share-sheet support where the browser provides it. Clipboard failures expose selectable text. Nearcast never sends the brief automatically.
-- Seven additional WebMCP tools and saved-place support in `create_situation_context`. Humans and agents use the same store and matching functions.
+- Twelve additional WebMCP tools and saved-place support in `create_situation_context`. Humans and agents use the same store and matching functions.
 
-Preferences use versioned browser storage (`nearcast.places.v1`). There is no server-side place database or cross-device sync. Places are available to connected WebMCP agents. Coordinate matching happens in the browser; the place name and coordinates are not sent to the Nearcast API. Basemap tiles and camera images are loaded from their public providers. Location access is requested only after clicking **Use my location**.
+Preferences use versioned browser storage (`nearcast.places.v1`). There is no server-side place database or cross-device sync. Places are available to connected WebMCP agents. Nearby-feed matching happens in the browser. Explicit BC address searches send search text through Nearcast to the BC Address Geocoder. Explicit forecast/gauge requests send coordinates rounded to three decimals through Nearcast to MET Norway/ECCC. Saved place names are not sent with those requests. Basemap tiles and camera images are loaded from their public providers. Location access is requested only after clicking **Use my location**.
 
 ## Data and limitations
 
@@ -29,7 +29,23 @@ AQHI readings older than three hours and camera observations older than 30 minut
 
 Briefs summarize the loaded snapshot: at most 10 core hazards and five records from each added category, with explicit omission counts. Agent responses expose at most 10 per category and full counts. The existing core-hazard request is capped at 2,000 records; a personal brief is not an exhaustive search of every upstream database. No safe destination ranking, evacuation directions, background monitoring, or notification delivery is implemented.
 
-Floods/gauges, restrictions, forecasts, wildfire enrichment and preparation checklists are deferred to a later release. GitLab repair contracts for these new feeds will be designed after product testing; the existing NWS repair demo does not validate these integrations.
+## Expanded release
+
+- BC address/place search with result precision; map/coordinate selection remains available elsewhere.
+- JSON export and validated import (100 KB, 20 places, 30 pins). Import previews the count and requires an explicit replacement action; invalid files never change state.
+- BC fire prohibitions and wildfire area restrictions, BCWS incident status/size/cause/response and matching published perimeters, and BC River Forecast Centre basin advisories. Their independent caches refresh every ten minutes. Unknown advisory codes are rejected; effective dates do not substitute for update timestamps.
+- On-demand 72-hour MET Norway forecast: temperature, wind converted from m/s to km/h, and precipitation with its original 1- or 6-hour accumulation period. Source update/retrieval times and CC BY 4.0 attribution remain visible. Upstream Expires and Last-Modified headers drive caching and revalidation.
+- On-demand ECCC river gauges within the place radius, capped at 120 km. Latest measurements and changes across the actual available observation window are shown separately. Missing values remain missing; station heights are not comparable flood thresholds. Up to 10,000 observations over 30 hours are queried; truncation is explicit.
+- Twelve-item household preparation checklist, persisted separately under `nearcast.preparation.v1`, with PreparedBC and FireSmart links. Progress is not a readiness certification.
+- Twenty WebMCP tools in total, including BC search, forecasts, gauges and checklist read/update actions. On-demand results enter the same store used by the human dashboard; edits and demo/live modes use separate location keys.
+
+New API routes: `/api/places/search?q=...`, `/api/forecast?lat=...&lon=...`, and `/api/gauges?lat=...&lon=...&radiusKm=...`. Responses to these personal queries use `no-store` at the HTTP layer; bounded provider caches are internal. No query text or coordinates are included in application request logs.
+
+Open511 returned HTTP 403 during live verification on October 22. The road loader now falls back to the [official DriveBC website event API](https://github.com/bcgov/DriveBC.ca/blob/main/src/backend/apps/event/serializers.py), with an explicit partial-source notice. `closed=false` becomes “NOT SPECIFIED (check event)”, never “OPEN”. Published schedules remain intact.
+
+Sources: [BC Address Geocoder](https://www2.gov.bc.ca/gov/content/data/geographic-data-services/location-services/geocoder), [MET Norway API](https://docs.api.met.no/doc/GettingStarted), [ECCC hydrometric collection](https://api.weather.gc.ca/collections/hydrometric-realtime?f=json), [PreparedBC](https://www2.gov.bc.ca/gov/content/safety/emergency-management/preparedbc), [FireSmart BC](https://firesmartbc.ca/). Exact BC feed endpoints are in `backend/src/adapters/canada/extended-awareness.ts`.
+
+The NWS repair proof does not validate these new feeds. New repair scenarios must retain their own original failure, semantic evidence and exact repair-pipeline results.
 
 ## Run and test
 
@@ -55,7 +71,7 @@ Open `http://localhost:5173/?demo=true&webmcp=emulate` for deterministic synthet
 3. Pin the demo camera, reload, then unpin. Remove a test place and confirm only that place disappears.
 4. Open each item, inspect timestamps/source links and map selection. Toggle added map layers; the brief should retain its records.
 5. Preview and copy a brief. Confirm source links, demo label, data notices, watch radius and omission counts where applicable. Test native share manually without sending unintended messages.
-6. In live mode, verify the four independent source statuses. Older evacuation notices and stale camera images must remain labelled. Test outside BC to confirm coverage is explicit.
+6. In live mode, verify the eight independent source statuses. Older evacuation notices and stale camera images must remain labelled. Test outside BC to confirm coverage is explicit.
 7. Ask a WebMCP agent to list saved places, focus one, get its context, compare two, and focus a returned road or camera id. Confirm the UI and Agent Activity change with those actions.
 8. Test map selection, one-shot location permission (allow and deny), clipboard permission failures, a narrow screen, and temporary API unavailability in your target browsers.
 

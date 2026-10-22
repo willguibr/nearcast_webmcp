@@ -84,13 +84,13 @@ function seeded() {
   return { store, place };
 }
 describe("personal briefs and WebMCP share semantics", () => {
-  it("uses geometry matching for the UI, tool and brief, preserves sources and demo labeling", () => {
+  it("uses geometry matching for the UI, tool and brief, preserves sources and demo labeling", async () => {
     const { store, place } = seeded();
     const context = placeContext(store.getState(), place, now);
-    expect(context.nearby).toHaveLength(4);
+    expect(context.nearby).toHaveLength(8);
     expect(context.nearby.find((e) => e.item.kind === "evacuation")?.coversPlace).toBe(true);
     const tool = TOOL_SPECS.find((t) => t.name === "get_place_context")!;
-    const result = tool.run({ placeId: place.id }, store).result as any;
+    const result = (await tool.run({ placeId: place.id }, store)).result as any;
     expect(result.counts).toMatchObject({ evacuations: 1, airQuality: 1, roads: 1, cameras: 1 });
     expect(result.evacuations[0].coversPlace).toBe(true);
     expect(result.evacuations[0].geometry).toBeUndefined();
@@ -111,7 +111,7 @@ describe("personal briefs and WebMCP share semantics", () => {
   it("reports endpoint failure even when previously loaded records remain", () => {
     const { store, place } = seeded(); store.setAwarenessError("offline");
     const context = placeContext(store.getState(), place, now);
-    expect(context.nearby).toHaveLength(4); expect(context.warnings.join(" ")).toContain("may be stale");
+    expect(context.nearby).toHaveLength(8); expect(context.warnings.join(" ")).toContain("may be stale");
   });
   it("does not reset an old provider's lifetime when another provider refreshes", () => {
     const { store, place } = seeded();
@@ -121,14 +121,14 @@ describe("personal briefs and WebMCP share semantics", () => {
     store.set({ mock: false, awareness: snapshot });
     const context = placeContext(store.getState(), place, later);
     expect(context.nearby.some((e) => e.item.kind === "road")).toBe(false);
-    expect(context.nearby).toHaveLength(3);
+    expect(context.nearby).toHaveLength(7);
     expect(context.warnings.join(" ")).toContain("withheld");
   });
-  it("compares places without changing focus and rejects repeated/missing place ids", () => {
+  it("compares places without changing focus and rejects repeated/missing place ids", async () => {
     const { store, place } = seeded();
     const far = store.savePlace({ name: "Toronto", latitude: 43.65, longitude: -79.38, radiusKm: 25 });
     const tool = TOOL_SPECS.find((t) => t.name === "compare_saved_places")!;
-    const result = tool.run({ placeIds: [place.id, far.id] }, store).result as any;
+    const result = (await tool.run({ placeIds: [place.id, far.id] }, store)).result as any;
     expect(result.places[0].counts.roads).toBe(1); expect(result.places[1].counts.roads).toBe(0);
     expect(store.getState().activePlaceId).toBe(far.id);
     expect(() => tool.run({ placeIds: [far.id, far.id] }, store)).toThrow(/distinct/);
@@ -138,7 +138,7 @@ describe("personal briefs and WebMCP share semantics", () => {
     const focus = TOOL_SPECS.find((t) => t.name === "focus_context_item")!;
     focus.run({ itemId: "demo-road" }, store);
     expect(store.getState()).toMatchObject({ selectedContextId: "demo-road", camera: { kind: "bounds" } });
-    const context = TOOL_SPECS.find((t) => t.name === "create_situation_context")!.run({ placeId: place.id }, store).result as any;
+    const context = (await TOOL_SPECS.find((t) => t.name === "create_situation_context")!.run({ placeId: place.id }, store)).result as any;
     expect(context.counts.roads).toBe(1);
     const bound = bindTool(focus, store);
     expect(await bound.execute({ itemId: "missing" })).toMatchObject({ isError: true });

@@ -2,9 +2,13 @@
   "name": "nearcast-webmcp",
   "private": true,
   "version": "0.1.0",
-  "description": "Nearcast WebMCP — cross-border hazard awareness with WebMCP tools for AI agents",
+  "description": "Nearcast WebMCP \u2014 cross-border hazard awareness with WebMCP tools for AI agents",
   "license": "MIT",
-  "workspaces": ["shared", "backend", "frontend"],
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
   "scripts": {
     "build": "npm run build -w backend && npm run build -w frontend",
     "test": "npm run test -w backend && npm run test -w frontend",
@@ -13,5 +17,7 @@
     "dev:api": "npm run dev -w backend",
     "deploy": "bash scripts/deploy.sh"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=22.18.0"
+  }
 }

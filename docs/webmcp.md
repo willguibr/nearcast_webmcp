@@ -42,7 +42,7 @@ Region registry: all Canadian provinces/territories and all US states + DC, by c
 1. Use **Chrome 146+ on the Canary, Dev or Beta channel** (Stable does not ship the flag yet). Check `chrome://version`.
 2. Open `chrome://flags`, search **WebMCP**, set *WebMCP for testing* to **Enabled**, click **Relaunch**.
 3. Chrome also needs WebGL for the map: `chrome://settings/system` → *Use graphics acceleration when available* must be on (verify at `chrome://gpu`). Without it Nearcast shows a "WebGL is not available" panel; the list, details and tools still work.
-4. Open the HTTPS Nearcast URL. The header should read **WebMCP ● Available · 15 tools**.
+4. Open the HTTPS Nearcast URL. The header should read **WebMCP ● Available · 20 tools**.
 5. In DevTools console, Chrome's testing interface can drive the tools directly:
 
 ```js
